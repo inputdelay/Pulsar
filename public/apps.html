@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="referrer" content="no-referrer">
+        <meta http-equiv="X-Content-Type-Options" content="nosniff">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="theme-color" content="#222831">
+        <meta name="googlebot" content="index, follow, snippet">
+        <meta name="robots" content="index, follow">
+        <title>Pulsar</title>
+        <link rel="icon" href="favicon.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <link rel="stylesheet" type="text/css" href="css/Blank1.css">
+        <link rel="stylesheet" type="text/css" href="css/Blank2.css">
+        <link rel="icon" href="Imgs/favicon.ico" type="image/x-icon">
+        <style>
+
+            #gameSection {
+                display: block;
+            }
+            #gameFrame {
+        display: none;
+        position: fixed;
+        top: 35%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border: none;
+        margin: auto;
+        margin-top: 10%;
+        width: 80%;
+        max-width: 1200px;
+        height: calc(0vh - 160px);
+        padding-bottom: 40px; 
+        background-color: #000; 
+    }
+
+#overlayy {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 1;
+    z-index: 9999; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+}
+
+            .imgg {
+                width: 300px;
+                max-height: 160px; 
+                min-height: 160px;
+                margin-top: 5px; 
+                margin-bottom: 15px; 
+                border-radius: inherit;
+                position: relative;
+            }
+            .btn {
+                display: flex;
+                flex-direction: column; 
+                align-items: center; 
+                padding: 0px;
+            }
+            .btn-container {
+                position: relative;
+            }
+            h3 {
+                color: #ffffff;
+                text-align: center;
+                font-size: 30px;
+            }
+
+.btn {
+    background-color: transparent; 
+    color: #ffffff;
+    font-weight: bold;
+    border: none;
+    letter-spacing: 1.5px;
+    overflow: hidden;
+    transition: 0s;
+    cursor: default;
+    margin: 20px 15px; 
+    width: calc((100% - 1px) / 3); 
+    max-width: 300px;
+    height: 200px;
+    text-align: center;
+    position: relative; 
+    opacity: 1; 
+    border-radius: 15px 15px 0 0; 
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    bottom: 0; 
+    left: 0;
+    width: 100%;
+    height: 30px; 
+    background-color: #000000; 
+    border-radius: 0 0 15px 15px; 
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    z-index: -1; 
+}
+
+.btn-text {
+    color: white; 
+    font-size: 0.9rem;
+    pointer-events: none; 
+}
+
+.btn::after {
+    content: '';
+    position: absolute;
+    bottom: -30px; 
+    left: 0;
+    width: 100%; 
+    height: 20px; 
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: -1; 
+    border-bottom-left-radius: 15px; 
+    border-bottom-right-radius: 15px; 
+}
+
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+            #fullscreenBtn {
+        position: fixed;
+        right: 15%;
+        z-index: 10;
+        display: none;
+        background: transparent;
+        border: none;
+        padding: 0px;
+    }
+
+    #myUL {
+
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    #myUL li a {
+      border: 1px solid #ddd; 
+      margin-top: -1px; 
+      background-color: #f6f6f6; 
+      padding: 12px; 
+      text-decoration: none; 
+      font-size: 18px; 
+      color: black; 
+      display: block; 
+    }
+
+    #myUL li a:hover:not(.header) {
+      background-color: #eee; 
+    }
+        </style>
+    </head>
+    <body>
+        <div class="custom-cursor" id="customCursor"></div>
+        </div>
+
+    <h3 id="gameSection">
+    <ul id="myUL">
+
+    </h3>
+
+    <div class="btn-container">
+
+        <button class="btn" onclick="Bl();HBC('Apps/Advanced Code Editor 1.html')">
+            <img class="imgg" src="Images/Advanced Code Editor 1.png" alt="Advanced Code Editor 1">Advanced Code Editor 1
+        </button>
+        <button class="btn" onclick="Bl();HBC('Apps/Advanced Code Editor 2.html')">
+            <img class="imgg" src="Images/Advanced Code Editor 2.png" alt="Advanced Code Editor 2">Advanced Code Editor 2
+        </button>
+        <button class="btn" onclick="Bl();HBC('Apps/Calculator Algebra.html')">
+            <img class="imgg" src="Images/Calculator Algebra.png" alt="Calculator Algebra">Calulator: Algebra
+        </button>
+        <button class="btn" onclick="Bl();HBC('Apps/Calculator Simple.html')">
+            <img class="imgg" src="Images/Calculator Simple.png" alt="Calculator Simple">Calculator: Simple
+        </button>
+        <button class="btn" onclick="Bl();HBC('Apps/Emulators/Emulator JS/Emulator JS.html')">
+            <img class="imgg" src="Images/Emulator JS.png" alt="Emulator JS">Emulator JS
+        </button>
+        <button class="btn" onclick="Bl();HBC('Apps/Ruffle/Ruffle.html')">
+            <img class="imgg" src="Images/Ruffle.png" alt="Ruffle">Ruffle
+        </button>
+        <button class="btn" onclick="Bl();HBC('Apps/Turbowarp/Turbowarp.html')">
+            <img class="imgg" src="Images/Turbowarp.png" alt="Turbowarp">Turbowarp
+        </button>
+        <button class="btn" onclick="Bl();HBC('Apps/Emulators/Emulator WebRetro/WebRetro.html')">
+            <img class="imgg" src="Images/Emulator WebRetro.png" alt="Emulator WebRetro">WebRetro
+        </button>
+        <button class="btn" onclick="Bl();HBC('Apps/Wordle Bot/Wordle Bot.html')">
+            <img class="imgg" src="Images/Wordle Bot.png" alt="Wordle Bot">Wordle Bot
+        </button>
+        <button class="btn" onclick="Bl();HBC('Apps/Neutron.html')">
+            <img class="imgg" src="Images/neutron.png" alt="Wordle Bot">Neutron
+        </button>
+    </li><button class="btn" data-path="Apps/Weavesilk/index.html"><img class="imgg" src=" Imgs/Weavesilk.png" alt=" Weavesilk">Weavesilk</button></li>
+
+    <!-- Overlay for background cover -->
+    <div id="overlayy" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+    background-image: linear-gradient(315deg, black, black); display: none; z-index: 5;"></div>
+
+    <!-- Iframe container and fullscreen button -->
+    <div style="position: relative; z-index: 10; display: flex; justify-content: center; padding: 0 20px;">
+        <!-- Center iframe with equal space on left and right -->
+        <iframe id="gameFrame" frameborder="0" marginheight="0" marginwidth="0" 
+            style="width: 1200px; height: 83.5vh; display: none;"></iframe>
+    </div>
+
+    <!-- Fullscreen button (using FontAwesome icon) -->
+    <button id="fullscreenBtn" onclick="toggleFullscreen()" 
+        style="position: fixed; top: calc(91%); right: 50.7%; left: 49.3%; font-size: 1.5vw; z-index: 10; display: none; 
+        background: transparent; border: none; padding: 0px;">
+        <i class="fas fa-expand" style="color: white;"></i>
+    </button>
+
+    <!-- Custom cursor element -->
+    <div id="customCursor" style="position: absolute; pointer-events: none; width: 20px; height: 20px; border-radius: 50%; background-color: white; display: none; transform: translate(-50%, -50%); z-index: 100;"></div>
+
+    <script>
+
+        function Bl() {
+            var x = document.getElementById("gameFrame");
+            x.style.backgroundColor = "black";
+        }
+
+        function HBC(url) {
+            const gameFrame = document.getElementById("gameFrame");
+            const fullscreenBtn = document.getElementById("fullscreenBtn");
+            const overlay = document.getElementById("overlayy");
+
+            gameFrame.style.display = "block"; 
+            gameFrame.src = url;               
+            fullscreenBtn.style.display = "block"; 
+            overlay.style.display = "block"; 
+
+            localStorage.setItem('lastClickedAppUrl', url);
+
+            disableScrolling();
+        }
+
+        window.addEventListener('load', () => {
+            const savedappUrl = localStorage.getItem('lastClickeAppdUrl');
+            if (savedappUrl) {
+                HBC(savedappUrl); 
+            }
+        });
+
+        function toggleFullscreen() {
+            const iframe = document.getElementById("gameFrame");
+            if (document.fullscreenElement) {
+                document.exitFullscreen();
+            } else if (iframe.requestFullscreen) {
+                iframe.requestFullscreen();
+            } else if (iframe.mozRequestFullScreen) { 
+                iframe.mozRequestFullScreen();
+            } else if (iframe.webkitRequestFullscreen) { 
+                iframe.webkitRequestFullscreen();
+            } else if (iframe.msRequestFullscreen) { 
+                iframe.msRequestFullscreen();
+            }
+        }
+
+        function hideContent() {
+            var gameFrame = document.getElementById("gameFrame");
+            gameFrame.style.display = "none"; 
+
+            var fullscreenBtn = document.getElementById("fullscreenBtn");
+            fullscreenBtn.style.display = "none"; 
+
+            var overlay = document.getElementById("overlay");
+            overlay.style.display = "none"; 
+
+            enableScrolling();
+        }
+
+        function disableScrolling() {
+            document.body.style.overflow = "hidden"; 
+        }
+
+        function enableScrolling() {
+            document.body.style.overflow = ""; 
+        }
+
+        document.querySelectorAll('.btn').forEach(function(button) {
+            button.addEventListener('click', function() {
+
+                window.scrollTo(0, 0);
+
+                disableScrolling();
+            });
+        });
+        document.addEventListener('mouseleave', () => {
+    customCursor.style.display = 'none'; 
+});
+
+document.addEventListener('mouseenter', () => {
+    customCursor.style.display = 'block'; 
+});
+
+    const customCursor = document.getElementById('customCursor');
+    const spikes = document.getElementById('spikes');
+    let mouseX = 0;
+    let mouseY = 0;
+    let zoomFactor = 0.8; // Match your CSS zoom value
+
+    document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX / zoomFactor; 
+        mouseY = e.clientY / zoomFactor;
+        customCursor.style.display = 'block'; 
+    });
+
+    document.addEventListener('mouseleave', () => {
+        customCursor.style.display = 'none'; 
+    });
+
+    document.addEventListener('mouseenter', () => {
+        customCursor.style.display = 'block'; 
+    });
+
+    function updateCursor() {
+        customCursor.style.left = `${mouseX}px`;
+        customCursor.style.top = `${mouseY}px`;
+
+        const cursorRect = customCursor.getBoundingClientRect();
+        if (Math.abs(mouseX - cursorRect.left) > 10 || Math.abs(mouseY - cursorRect.top) > 10) {
+            customCursor.style.left = `${mouseX}px`;
+            customCursor.style.top = `${mouseY}px`;
+        }
+        requestAnimationFrame(updateCursor);
+    }
+    requestAnimationFrame(updateCursor);
+
+    const hoverElements = document.querySelectorAll('.nav-button');
+    hoverElements.forEach(element => {
+        element.addEventListener('mouseenter', () => {
+            spikes.classList.add('visible');
+        });
+        element.addEventListener('mouseleave', () => {
+            spikes.classList.remove('visible');
+        });
+    });
+
+
+        function myFunction() {
+            var input, filter, ul, li, a, i, txtValue, buttons, btnText, btnAlt;
+            input = document.getElementById('myInput');
+            filter = input.value.toUpperCase();
+            ul = document.getElementById("myUL");
+            li = ul.getElementsByTagName('li');
+
+            for (i = 0; i < li.length; i++) {
+                a = li[i].getElementsByTagName("a")[0];
+                txtValue = a ? (a.textContent || a.innerText) : "";
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    li[i].style.display = "";
+                } else {
+                    li[i].style.display = "none";
+                }
+            }
+
+            buttons = document.querySelectorAll(".btn");
+            buttons.forEach(function(button) {
+                btnText = button ? (button.textContent || button.innerText) : "";
+                btnAlt = button.querySelector("img") ? button.querySelector("img").alt : "";
+                if (btnText.toUpperCase().indexOf(filter) > -1 || btnAlt.toUpperCase().indexOf(filter) > -1) {
+                    button.style.display = "";
+                } else {
+                    button.style.display = "none";
+                }
+            });
+        }
+    </script>
+
+    <script>
+
+        function clearAppAutoOpen() {
+            localStorage.removeItem('lastClickedAppUrl');
+        }
+    </script>
+    <script>
+    const buttons = document.querySelectorAll('.btn');
+    const searchBar = document.getElementById('myInput'); 
+
+    let instantLoadTriggered = false; 
+
+    buttons.forEach((button, index) => {
+        button.style.animationDelay = `${index * 0.03}s`;
+    });
+
+    searchBar.addEventListener('input', () => {
+        if (searchBar.value.trim() !== '' && !instantLoadTriggered) {
+
+            buttons.forEach(button => {
+                button.style.animationDelay = '0s';
+            });
+            instantLoadTriggered = true;
+        }
+    });
+
+    </script>
+    <script>
+
+    if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+    }
+
+    window.addEventListener('load', () => {
+        window.scrollTo(0, 0);
+    });
+
+    </script>
+    <script>
+        window.addEventListener('load', () => {
+        const savedappUrl = localStorage.getItem('lastClickedAppUrl');
+        if (savedappUrl) {
+            HBC(savedappUrl);
+        }
+    });
+
+    </script>
+        <script>
+            window.addEventListener('DOMContentLoaded', (event) => {
+        const savedBg = localStorage.getItem('bgColor');
+        if (savedBg) {
+            document.body.style.backgroundImage = savedBg;
+        }
+    });
+
+        </script>
+    </body>
+    </html>

@@ -242,6 +242,17 @@ i[class="fas fa-cog"]:hover {
     flex-wrap: nowrap;
     overflow-x: auto;
 }
+.tabs-container::after {
+    content: '';
+    display: block;
+    height: 5px;
+    width: 100%;
+    background-color: transparent;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    cursor: default;
+  }
 #stitle {
     text-align: center;
     font-size: 10rem; 
@@ -264,7 +275,6 @@ i[class="fas fa-cog"]:hover {
 }
 #memo {
     text-align: center;
-    align: center;
     font-size: 1.1em;
     color: #f0f0f0;
     margin-top: 10px; 
@@ -293,6 +303,7 @@ i[class="fas fa-cog"]:hover {
     align-items: center;
     gap: 5px;
     animation: appear 0.3s ease-in-out; 
+    height: 40px;
 }
 
 @keyframes appear {

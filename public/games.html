@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="referrer" content="no-referrer">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#222831">
+    <meta name="googlebot" content="index, follow, snippet">
+    <meta name="robots" content="index, follow">
+    <title>Pulsar</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/games.css">
+    <link rel="icon" type="image/x-icon" href="Imgs/favicon.ico">
+</head>
+<body>
+<a class="sigma-button" href="games.html" onclick="clearGameAutoOpen()" class="fa-brands fa-gamepad"></a>
+    <div class="custom-cursor" id="customCursor"></div>
+    </div>
+
+<h3 id="gameSection">
+    <div class="nav-barr">
+        <i class="fa fa-search" id="searchIcon" onclick="toggleSearchBar()"></i>
+        <button id="Toggle">Toggle Categories</button>
+        <div id="searchWrapper">
+            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for games...">
+        </div>
+    </div>
+
+<h5>
+
+<input type="file" id="fileInput" style="display: none;">
+<ul id="myUL">
+</h5>
+</h3>
+<h4>
+</h4>
+</div>
+</br>
+</br>    <ul id="favoriteList"></ul>
+<script>
+window.onload = function () {
+    const favoriteList = document.getElementById("favoriteList");
+
+    for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i);
+        const isFavorited = localStorage.getItem(key) === 'true';
+
+        // Ensure it's a favorited game and doesn't contain unwanted words
+        if (isFavorited && !key.includes("-liked") && !key.includes("-disliked") && !key.includes("Settings") && !key.includes(".html")) {
+            const listItem = document.createElement("li");
+            listItem.textContent = key.replace("HTML Games/", ""); // Remove "HTML Games/" prefix if present
+            favoriteList.appendChild(listItem);
+        }
+    }
+};
+
+
+</script>
+</br>
+</br>
+</br>
+<div style="padding: 2px;"> </div>
+<div class="h6-container" style="position: relative;">
+<li><h6>Recommended</h6></li>
+<button class="scroll-arrow left-arrow"><i class="fas fa-angle-left"></i></button> <!-- Left scroll arrow -->
+<button class="scroll-arrow right-arrow"><i class="fas fa-angle-right"></i></button> <!-- Right scroll arrow -->
+</div>
+</br>
+</br>
+<div class="btnn-container">
+</li><button class="btn" data-path="Games/Bit Planes/CLICK ME.html"><img class="imgg" src="Imgs/Bit Planes.png" alt="Bit Planes">Bit Planes</button></li>
+</li><button class="btn" data-path="Games/Time Shooter 2.html"><img class="imgg" src=" Imgs/Time Shooter 2.png" alt=" Time Shooter 2">Time Shooter 2</button></li>
+</li><button class="btn" data-path="Games/Time Shooter 3.html"><img class="imgg" src=" Imgs/Time Shooter 3.png" alt=" Time Shooter 3">Time Shooter 3</button></li>
+</li><button class="btn" data-path="Games/Paper.io 2.html"><img class="imgg" src="Imgs/Paper.io 2.png" alt="Paper.io 2">Paper.io 2</button></li>
+</li><button class="btn" data-path="Games/Wordle.html"><img class="imgg" src=" Imgs/Wordle.png" alt=" Wordle">Wordle</button></li>
+</li><button class="btn" data-path="Games/99 Balls.html"><img class="imgg" src="Imgs/99 Balls.png" alt="99 Balls">99 Balls</button></li>
+</li><button class="btn" data-path="Games/Paperclips/CLICK ME.html"><img class="imgg" src="Imgs/Paperclips.png" alt="Paperclips">Paperclips</button></li>
+</li><button class="btn" data-path="Games/Bitlife/index.html"><img class="imgg" src="Imgs/Bitlife.png" alt="Bitlife">Bitife</button></li>
+</li><button class="btn" data-path="Games/Cube Field/CLICK ME.html"><img class="imgg" src="Imgs/Cube Field.png" alt="Cube Field">Cube Field</button></li>
+</li><button class="btn" data-path="Games/Just One Boss.html"><img class="imgg" src="Imgs/Just One Boss.png" alt="Just One Boss">Just One Boss</button></li>
+</li><button class="btn" data-path="Games/Space Garden.html"><img class="imgg" src=" Imgs/Space Garden.png" alt=" Space Garden">Space Garden</button></li>
+</li><button class="btn" data-path="Games/Tunnel Rush.html"><img class="imgg" src=" Imgs/Tunnel Rush.png" alt=" Tunnel Rush">Tunnel Rush</button></li>
+
+</div>
+<div class="btnn-container">
+</li><button class="btn" data-path="Games/Ascii Space.html"><img class="imgg" src="Imgs/Ascii Space.png" alt="Ascii Space">Ascii Space</button></li>
+</li><button class="btn" data-path="Games/N-Gon Master/index.html"><img class="imgg" src="Imgs/N-Gon Master.png" alt="N-Gon Master">N-Gon Master</button></li>
+</li><button class="btn" data-path="Games/Recoil.html"><img class="imgg" src=" Imgs/Recoil.png" alt=" Recoil">Recoil</button></li>
+</li><button class="btn" data-path="Games/Konnekt/CLICK ME.html"><img class="imgg" src="Imgs/Konnekt.png" alt="Konnekt">Konnekt</button></li>
+</li><button class="btn" data-path="Games/Super Fowlest.html"><img class="imgg" src=" Imgs/Super Fowlest.png" alt=" Super Fowlest">Super Fowlest</button></li>
+</li><button class="btn" data-path="Games/Territorial.io.html"><img class="imgg" src=" Imgs/Territorial.io.png" alt=" Territorial.io">Territorial.io</button></li>
+</li><button class="btn" data-path="Games/2048/CLICK ME.html"><img class="imgg" src="Imgs/2048.png" alt="2048">2048</button></li>
+</li><button class="btn" data-path="Games/Drive Mad.html"><img class="imgg" src="Imgs/Drive Mad.png" alt="Drive Mad">Drive Mad</button></li>
+</li><button class="btn" data-path="Games/Nut Simulator/CLICK ME.html"><img class="imgg" src="Imgs/Nut Simulator.png" alt="Nut Simulator">Nut Simulator</button></li>
+</li><button class="btn" data-path="Games/Drift Mania/CLICK ME.html"><img class="imgg" src="Imgs/Drift Mania.png" alt="Drift Mania">Drift Mania</button></li>
+</li><button class="btn" data-path="Games/Snow Rider 3D/index.html"><img class="imgg" src=" Imgs/Snow Rider 3D.png" alt=" Snow Rider 3D">Snow Rider 3D</button></li>
+</li><button class="btn" data-path="Games/Tomb Of The Mask.html"><img class="imgg" src=" Imgs/Tomb Of The Mask.png" alt=" Tomb Of The Mask">Tomb Of The Mask</button></li>
+
+</div>
+</br>
+</br>
+<div class="h6-container" style="position: relative;">
+<li><h6>Shooter Games</h6></li>
+<button class="scroll-arrow left-arrow"><i class="fas fa-angle-left"></i></button> <!-- Left scroll arrow -->
+<button class="scroll-arrow right-arrow"><i class="fas fa-angle-right"></i></button> <!-- Right scroll arrow -->
+</div>
+</br>
+</br>
+
+<div class="btn-container">
+</li><button class="btn" data-path="Games/1v1.lol/CLICK ME.html"><img class="imgg"src="Imgs/1v1.lol.png"alt="1v1.LOL">1v1.LOL</button></li>
+</li><button class="btn" data-path="Games/Asteroids/CLICK ME.html"><img class="imgg" src="Imgs/Asteroids.png" alt="Asteroids">Asteroids</button></li>
+</li><button class="btn" data-path="Games/Ascii Space.html"><img class="imgg" src="Imgs/Ascii Space.png" alt="Ascii Space">Ascii Space</button></li>
+</li><button class="btn" data-path="Games/Awesome Tanks.html"><img class="imgg" src="Imgs/Awesome Tanks.png" alt="Awesome Tanks">Awesome Tanks</button></li>
+</li><button class="btn" data-path="Games/Ball Blast.html"><img class="imgg" src="Imgs/Ball Blast.png" alt="Ball Blast">Ball Blast</button></li>
+</li><button class="btn" data-path="Games/Bit Planes/CLICK ME.html"><img class="imgg" src="Imgs/Bit Planes.png" alt="Bit Planes">Bit Planes</button></li>
+</li><button class="btn" data-path="Games/Chroma Incident/CLICK ME.html"><img class="imgg" src="Imgs/Chroma Incident.png" alt="Chroma Incident">Chroma Incident</button></li>
+</li><button class="btn" data-path="Games/Evil Glitch/CLICK ME.html"><img class="imgg" src="Imgs/Evil Glitch.png" alt="Evil Glitch">Evil Glitch</button></li>
+</li><button class="btn" data-path="Games/Johnny Upgrade.html"><img class="imgg" src="Imgs/Johnny Upgrade.png" alt="Johnny Upgrade">Johnny Upgrade</button></li>
+</li><button class="btn" data-path="Games/Laser Lord.html"><img class="imgg" src="Imgs/Laser Lord.png" alt="Laser Lord">Laser Lord</button></li>
+</li><button class="btn" data-path="Games/N-Gon Master/index.html"><img class="imgg" src="Imgs/N-Gon Master.png" alt="N-Gon Master">N-Gon Master</button></li>
+</li><button class="btn" data-path="Games/Pixel Shooter.html"><img class="imgg" src="Imgs/Pixel Shooter.png" alt="Pixel Shooter">Pixel Shooter</button></li>
+</li><button class="btn" data-path="Games/Planetesimals/CLICK ME.html"><img class="imgg" src="Imgs/Planetesimals.png" alt="Planetesimals">Planetesimals</button></li>
+</li><button class="btn" data-path="Games/Recoil.html"><img class="imgg" src=" Imgs/Recoil.png" alt=" Recoil">Recoil</button></li>
+</li><button class="btn" data-path="Games/Reload.html"><img class="imgg" src=" Imgs/Reload.png" alt=" Reload">Reload</button></li>
+</li><button class="btn" data-path="Games/Rocket.html"><img class="imgg" src=" Imgs/Rocket.png" alt=" Rocket">Rocket</button></li>
+</li><button class="btn" data-path="Games/Scratch Brawl 1.html"><img class="imgg" src=" Imgs/Scratch Brawl 1.png" alt=" Scratch Brawl 1">Scratch Brawl 1</button></li>
+</li><button class="btn" data-path="Games/Scratch Brawl 2.html"><img class="imgg" src=" Imgs/Scratch Brawl 2.png" alt=" Scratch Brawl 2">Scratch Brawl 2</button></li>
+</li><button class="btn" data-path="Games/Time Shooter 2.html"><img class="imgg" src=" Imgs/Time Shooter 2.png" alt=" Time Shooter 2">Time Shooter 2</button></li>
+</li><button class="btn" data-path="Games/Time Shooter 3.html"><img class="imgg" src=" Imgs/Time Shooter 3.png" alt=" Time Shooter 3">Time Shooter 3</button></li>
+
+</div>
+
+</br>
+</br>
+<div style="padding: 2px;"> </div>
+<div class="h6-container" style="position: relative;">
+<li><h6>Combat Games</h6></li>
+<button class="scroll-arrow left-arrow"><i class="fas fa-angle-left"></i></button> <!-- Left scroll arrow -->
+<button class="scroll-arrow right-arrow"><i class="fas fa-angle-right"></i></button> <!-- Right scroll arrow -->
+</div>
+</br>
+</br>
+<div class="btn-container">
+</li><button class="btn" data-path="Games/1v1.lol/CLICK ME.html"><img class="imgg"src="Imgs/1v1.lol.png"alt="1v1.LOL">1v1.LOL</button></li>
+</li><button class="btn" data-path="Games/Dungeon Raid.html"><img class="imgg" src="Imgs/Dungeon Raid.png" alt="Dungeon Raid">Dungeon Raid</button></li>
+</li><button class="btn" data-path="Games/Konnekt/CLICK ME.html"><img class="imgg" src="Imgs/Konnekt.png" alt="Konnekt">Konnekt</button></li>
+</li><button class="btn" data-path="Games/N-Gon Master/index.html"><img class="imgg" src="Imgs/N-Gon Master.png" alt="N-Gon Master">N-Gon Master</button></li>
+</li><button class="btn" data-path="Games/Paper.io 2.html"><img class="imgg" src="Imgs/Paper.io 2.png" alt="Paper.io 2">Paper.io 2</button></li>
+</li><button class="btn" data-path="Games/Paper.io 3D.html"><img class="imgg" src="Imgs/Paper.io 3D.png" alt="Paper.io 3D">Paper.io 3D</button></li>
+</li><button class="btn" data-path="Games/Scratch Brawl 1.html"><img class="imgg" src=" Imgs/Scratch Brawl 1.png" alt=" Scratch Brawl 1">Scratch Brawl 1</button></li>
+</li><button class="btn" data-path="Games/Scratch Brawl 2.html"><img class="imgg" src=" Imgs/Scratch Brawl 2.png" alt=" Scratch Brawl 2">Scratch Brawl 2</button></li>
+</li><button class="btn" data-path="Games/Slime Ninja.html"><img class="imgg" src=" Imgs/Slime Ninja.png" alt=" Slime Ninja">Slime Ninja</button></li>
+</li><button class="btn" data-path="Games/Super Fowlest.html"><img class="imgg" src=" Imgs/Super Fowlest.png" alt=" Super Fowlest">Super Fowlest</button></li>
+</li><button class="btn" data-path="Games/Super Scratch Bros.html"><img class="imgg" src=" Imgs/Super Scratch Bros.png" alt=" Super Scratch Bros">Super Scratch Bros</button></li>
+</li><button class="btn" data-path="Games/Terraria.html"><img class="imgg" src=" Imgs/Terraria.png" alt=" Terraria">Terarria</button></li>
+</li><button class="btn" data-path="Games/Territorial.io.html"><img class="imgg" src=" Imgs/Territorial.io.png" alt=" Territorial.io">Territorial.io</button></li>
+
+</div>
+
+</br>
+</br>
+<div style="padding: 2px;"> </div>
+<div class="h6-container" style="position: relative;">
+<li><h6>Puzzle Games</h6></li>
+<button class="scroll-arrow left-arrow"><i class="fas fa-angle-left"></i></button> <!-- Left scroll arrow -->
+<button class="scroll-arrow right-arrow"><i class="fas fa-angle-right"></i></button> <!-- Right scroll arrow -->
+</div>
+</br>
+</br>
+<div class="btn-container">
+</li><button class="btn" data-path="Games/2048/CLICK ME.html"><img class="imgg" src="Imgs/2048.png" alt="2048">2048</button></li>
+</li><button class="btn" data-path="Games/2048 9007199254740992/CLICK ME.html"><img class="imgg" src="Imgs/2048 9007199254740992.png" alt="2048 9007199254740992">2048 9007199254740992</button></li>
+</li><button class="btn" data-path="Games/2048 Couch/CLICK ME.html"><img class="imgg" src="Imgs/2048 Couch.png" alt="2048 Couch">2048 Couch</button></li>
+</li><button class="btn" data-path="Games/2048 Doge/CLICK ME.html"><img class="imgg" src="Imgs/2048 Doge.png" alt="2048 Doge">2048 Doge</button></li>
+</li><button class="btn" data-path="Games/2048 Meme/CLICK ME.html"><img class="imgg" src="Imgs/2048 Meme.png" alt="2048 Meme">2048 Meme</button></li>
+</li><button class="btn" data-path="Games/2048 Reverse/CLICK ME.html"><img class="imgg" src="Imgs/2048 Reverse.png" alt="2048 Reverse">2048 Reverse</button></li>
+</li><button class="btn" data-path="Games/99 Balls.html"><img class="imgg" src="Imgs/99 Balls.png" alt="99 Balls">99 Balls</button></li>
+</li><button class="btn" data-path="Games/Ball Sort Halloween/CLICK ME.html"><img class="imgg" src="Imgs/Ball Sort Halloween.png" alt="Ball Sort Halloween">Ball Sort Halloween</button></li>
+</li><button class="btn" data-path="Games/Ball Sort Puzzle/CLICK ME.html"><img class="imgg" src="Imgs/Ball Sort Puzzle.png" alt="Ball Sort Puzzle">Ball Sort Puzzle</button></li>
+</li><button class="btn" data-path="Games/Ball Sort Soccer/CLICK ME.html"><img class="imgg" src="Imgs/Ball Sort Soccer.png" alt="Ball Sort Soccer">Ball Sort Soccer</button></li>
+</li><button class="btn" data-path="Games/Black Hole Square/CLICK ME.html"><img class="imgg" src="Imgs/Black Hole Square.png" alt="Black Hole Square">Black Hole Square</button></li>
+</li><button class="btn" data-path="Games/Bob The Robber.html"><img class="imgg" src="Imgs/Bob The Robber.png" alt="Bob The Robber">Bob The Robber</button></li>
+</li><button class="btn" data-path="Games/Break Lock/CLICK ME.html"><img class="imgg" src="Imgs/Break Lock.png" alt="Break Lock">Break Lock</button></li>
+</li><button class="btn" data-path="Games/Circle O.html"><img class="imgg" src="Imgs/Circle O.png" alt="Circle O">Circle O</button></li>
+</li><button class="btn" data-path="Games/Connect 3/CLICK ME.html"><img class="imgg" src="Imgs/Connect 3.png" alt="Connect 3">Connect 3</button></li>
+</li><button class="btn" data-path="Games/Core Ball/CLICK ME.html"><img class="imgg" src="Imgs/Core Ball.png" alt="Core Ball">Core Ball</button></li>
+</li><button class="btn" data-path="Games/Drive Mad.html"><img class="imgg" src="Imgs/Drive Mad.png" alt="Drive Mad">Drive Mad</button></li>
+</li><button class="btn" data-path="Games/Edge Not Found.html"><img class="imgg" src="Imgs/Edge Not Found.png" alt="Edge Not Found">Edge Not Found</button></li>
+</li><button class="btn" data-path="Games/Egg That Dino 3.html"><img class="imgg" src="Imgs/Egg That Dino 3" alt="Egg That Dino 3">Egg That Dino 3</button></li>
+</li><button class="btn" data-path="Games/Fill Infinite.html"><img class="imgg" src="Imgs/Fill Infinite.png" alt="Fill Infinite">Fill Infinite</button></li>
+</li><button class="btn" data-path="Games/Hextris/CLICK ME.html"><img class="imgg" src="Imgs/Hextris.png" alt="Hextris">Hextris</button></li>
+</li><button class="btn" data-path="Games/Konnekt/CLICK ME.html"><img class="imgg" src="Imgs/Konnekt.png" alt="Konnekt">Konnekt</button></li>
+</li><button class="btn" data-path="Games/Packabunchas.html"><img class="imgg" src="Imgs/Packabunchas.png" alt="Packabunchas">Packabunchas</button></li>
+</li><button class="btn" data-path="Games/Push Back/CLICK ME.html"><img class="imgg" src=" Imgs/Push Back.png" alt=" Push Back">Push Back</button></li>
+</li><button class="btn" data-path="Games/Rise Higher/CLICK ME.html"><img class="imgg" src=" Imgs/Rise Higher.png" alt=" Rise Higher">Rise Higher</button></li>
+</li><button class="btn" data-path="Games/Roadblocks/CLICK ME.html"><img class="imgg" src=" Imgs/Roadblocks.png" alt=" Roadblocks">Roadblocks</button></li>
+</li><button class="btn" data-path="Games/Suika Game (Watermelon Game).html"><img class="imgg" src=" Imgs/Suika Game (Watermelon Game).png" alt=" Suika Game (Watermelon Game)">Suika Game (Watermelon Game)</button></li>
+</li><button class="btn" data-path="Games/Water Sort.html"><img class="imgg" src=" Imgs/Water Sort.png" alt=" Water Sort">Water Sort</button></li>
+</li><button class="btn" data-path="Games/Wordle.html"><img class="imgg" src=" Imgs/Wordle.png" alt=" Wordle">Wordle</button></li>
+</li><button class="btn" data-path="Games/xx142-b2.html"><img class="imgg" src=" Imgs/xx142-b2.exe.png" alt=" xx142-b2.exe">xx142-b2.exe</button></li>
+
+</div>
+
+</br>
+</br>
+<div style="padding: 2px;"> </div>
+<div class="h6-container" style="position: relative;">
+<li><h6>Multiplayer Games</h6></li>
+<button class="scroll-arrow left-arrow"><i class="fas fa-angle-left"></i></button> <!-- Left scroll arrow -->
+<button class="scroll-arrow right-arrow"><i class="fas fa-angle-right"></i></button> <!-- Right scroll arrow -->
+</div>
+</br>
+</br>
+<div class="btn-container">
+</li><button class="btn" data-path="Games/1v1.lol/CLICK ME.html"><img class="imgg"src="Imgs/1v1.lol.png"alt="1v1.LOL">1v1.LOL</button></li>
+</li><button class="btn" data-path="Games/2D Rocket League/CLICK ME.html"><img class="imgg" src="Imgs/2D Rocket League.png" alt="2D Rocket League">2D Rocket League</button></li>
+</li><button class="btn" data-path="Games/4 Player Arcade.html"><img class="imgg" src="Imgs/4 Player Arcade.png" alt="4 Player Arcade">4 Player Arcade</button></li>
+</li><button class="btn" data-path="Games/Territorial.io.html"><img class="imgg" src=" Imgs/Territorial.io.png" alt=" Territorial.io">Territorial.io</button></li>
+</li><button class="btn" data-path="Games/Tube Jumpers.html"><img class="imgg" src=" Imgs/Tube Jumpers.png" alt=" Tube Jumpers">Tube Jumpers</button></li>
+
+</div>
+
+</br>
+</br>
+<div style="padding: 2px;"> </div>
+<div class="h6-container" style="position: relative;">
+<li><h6>Adventure Games</h6></li>
+<button class="scroll-arrow left-arrow"><i class="fas fa-angle-left"></i></button> <!-- Left scroll arrow -->
+<button class="scroll-arrow right-arrow"><i class="fas fa-angle-right"></i></button> <!-- Right scroll arrow -->
+</div>
+</br>
+</br>
+<div class="btn-container">
+</li><button class="btn" data-path="Games/Bee Swarm Simulator.html"><img class="imgg" src="Imgs/Bee Swarm Simulator.png" alt="Bee Swarm Simulator">Bee Swarm Simulator</button></li>
+</li><button class="btn" data-path="Games/Bitlife/index.html"><img class="imgg" src="Imgs/Bitlife.png" alt="Bitlife">Bitife</button></li>
+</li><button class="btn" data-path="Games/Bob The Robber.html"><img class="imgg" src="Imgs/Bob The Robber.png" alt="Bob The Robber">Bob The Robber</button></li>
+</li><button class="btn" data-path="Games/Bounce Back/CLICK ME.html"><img class="imgg" src="Imgs/Bounce Back.png" alt="Bounce Back">Bounce Back</button></li>
+</li><button class="btn" data-path="Games/Chroma Incident/CLICK ME.html"><img class="imgg" src="Imgs/Chroma Incident.png" alt="Chroma Incident">Chroma Incident</button></li>
+</li><button class="btn" data-path="Games/Epic Ninja.html"><img class="imgg" src="Imgs/Epic Ninja.png" alt="Epic Ninja">Epic Ninja</button></li> 
+</li><button class="btn" data-path="Games/Johnny Upgrade.html"><img class="imgg" src="Imgs/Johnny Upgrade.png" alt="Johnny Upgrade">Johnny Upgrade</button></li>
+</li><button class="btn" data-path="Games/Eaglercraft/Eaglercraft 1.3.html"><img class="imgg" src="Imgs/Eaglercraft 1.3.png" alt="Eaglercraft 1.3">Eaglercraft 1.3</button></li>
+</li><button class="btn" data-path="Games/Eaglercraft/Eaglercraft 1.5.html"><img class="imgg" src="Imgs/Eaglercraft 1.5.png" alt="Eaglercraft 1.5">Eaglercraft 1.5</button></li>
+</li><button class="btn" data-path="Games/Eaglercraft/Eaglercraft 1.8.html"><img class="imgg" src="Imgs/Eaglercraft 1.8.png" alt="Eaglercraft 1.8">Eaglercraft 1.8</button></li>
+</li><button class="btn" data-path="Games/Moonwalk.html"><img class="imgg" src="Imgs/Moonwalk.png" alt="Moonwalk">Moonwalk</button></li>
+</li><button class="btn" data-path="Games/N-Gon Master/index.html"><img class="imgg" src="Imgs/N-Gon Master.png" alt="N-Gon Master">N-Gon Master</button></li>
+</li><button class="btn" data-path="Games/Not That Dead.html"><img class="imgg" src="Imgs/Not That Dead.png" alt="Not That Dead">Not That Dead</button></li>
+</li><button class="btn" data-path="Games/Plantale.html"><img class="imgg" src="Imgs/Plantale.png" alt="Plantale">Plantale</button></li>
+</li><button class="btn" data-path="Games/Reload.html"><img class="imgg" src=" Imgs/Reload.png" alt=" Reload">Reload</button></li>
+</li><button class="btn" data-path="Games/Space Garden.html"><img class="imgg" src=" Imgs/Space Garden.png" alt=" Space Garden">Space Garden</button></li>
+</li><button class="btn" data-path="Games/Space Huggers.html"><img class="imgg" src=" Imgs/Space Huggers.png" alt=" Space Huggers">Space Huggers</button></li>
+</li><button class="btn" data-path="Games/Super Fowlest.html"><img class="imgg" src=" Imgs/Super Fowlest.png" alt=" Super Fowlest">Super Fowlest</button></li>
+</li><button class="btn" data-path="Games/Terraria.html"><img class="imgg" src=" Imgs/Terraria.png" alt=" Terraria">Terarria</button></li>
+</li><button class="btn" data-path="Games/The Ninja 1.html"><img class="imgg" src=" Imgs/The Ninja 1.png" alt=" The Ninja 1">The Ninja 1</button></li>
+</li><button class="btn" data-path="Games/The Ninja 2.html"><img class="imgg" src=" Imgs/The Ninja 2.png" alt=" The Ninja 2">The Ninja 2</button></li>
+</li><button class="btn" data-path="Games/The Ninja 3.html"><img class="imgg" src=" Imgs/The Ninja 3.png" alt=" The Ninja 3">The Ninja 3</button></li>
+</li><button class="btn" data-path="Games/The Ninja 4.html"><img class="imgg" src=" Imgs/The Ninja 4.png" alt=" The Ninja 4">The Ninja 4</button></li>
+</li><button class="btn" data-path="Games/The Ninja 5.html"><img class="imgg" src=" Imgs/The Ninja 5.png" alt=" The Ninja 5">The Ninja 5</button></li>
+</li><button class="btn" data-path="Games/The Ninja Level Creator.html"><img class="imgg" src=" Imgs/The Ninja Level Creator.png" alt=" The Ninja Level Creator">The Ninja Level Creator</button></li>
+</li><button class="btn" data-path="Games/The Ninja Master.html"><img class="imgg" src=" Imgs/The Ninja Master.png" alt=" The Ninja Master">The Ninja Master</button></li>
+
+</div>
+
+</br>
+</br>
+<div style="padding: 2px;"> </div>
+<div class="h6-container" style="position: relative;">
+<li><h6>Clicker Games</h6></li>
+<button class="scroll-arrow left-arrow"><i class="fas fa-angle-left"></i></button> <!-- Left scroll arrow -->
+<button class="scroll-arrow right-arrow"><i class="fas fa-angle-right"></i></button> <!-- Right scroll arrow -->
+</div>
+</br>
+</br>
+<div class="btn-container">
+</li><button class="btn" data-path="Games/A Dark Room/CLICK ME.html"><img class="imgg" src="Imgs/A Dark Room.png" alt="A Dark Room">A Dark Room</button></li>
+</li><button class="btn" data-path="Games/Bitcoin Clicker/CLICK ME.html"><img class="imgg" src="Imgs/Bitcoin Clicker.png" alt="Bitcoin Clicker">Bitcoin Clicker</button></li>
+</li><button class="btn" data-path="Games/Cookie Clicker/index.html"><img class="imgg" src="Imgs/Cookie Clicker.png" alt="Cookie Clicker">Cookie Clicker</button></li>
+</li><button class="btn" data-path="Games/Doge Miner/CLICK ME.html"><img class="imgg" src="Imgs/Doge Miner.png" alt="Doge Miner">Doge Miner</button></li>
+</li><button class="btn" data-path="Games/Gun Spin/index.html"><img class="imgg" src="Imgs/Gun Spin.png" alt="Gun Spin">Gun Spin</button></li>
+</li><button class="btn" data-path="Games/Nut Simulator/CLICK ME.html"><img class="imgg" src="Imgs/Nut Simulator.png" alt="Nut Simulator">Nut Simulator</button></li>
+</li><button class="btn" data-path="Games/Paperclips/CLICK ME.html"><img class="imgg" src="Imgs/Paperclips.png" alt="Paperclips">Paperclips</button></li>
+</li><button class="btn" data-path="Games/Space Company/CLICK ME.html"><img class="imgg" src=" Imgs/Space Company.png" alt=" Space Company">Space Company</button></li>
+</li><button class="btn" data-path="Games/Trimps/CLICK ME.html"><img class="imgg" src=" Imgs/Trimps.png" alt=" Trimps">Trimps</button></li>
+
+</div>
+
+</br>
+</br>
+<div style="padding: 2px;"> </div>
+<div class="h6-container" style="position: relative;">
+<li><h6>Survival Games</h6></li>
+<button class="scroll-arrow left-arrow"><i class="fas fa-angle-left"></i></button> <!-- Left scroll arrow -->
+<button class="scroll-arrow right-arrow"><i class="fas fa-angle-right"></i></button>
+</div>
+</br>
+<div class="btn-container">
+</li><button class="btn" data-path="Games/1v1.lol/CLICK ME.html"><img class="imgg"src="Imgs/1v1.lol.png"alt="1v1.LOL">1v1.LOL</button></li>
+</li><button class="btn" data-path="Games/Appel.html"><img class="imgg" src="Imgs/Appel.png" alt="Appel">Appel</button></li>
+</li><button class="btn" data-path="Games/Arrow.html"><img class="imgg" src="Imgs/Arrow.png" alt="Arrow">Arrow</button></li>
+</li><button class="btn" data-path="Games/Asteroids/CLICK ME.html"><img class="imgg" src="Imgs/Asteroids.png" alt="Asteroids">Asteroids</button></li>   
+</li><button class="btn" data-path="Games/Ascii Space.html"><img class="imgg" src="Imgs/Ascii Space.png" alt="Ascii Space">Ascii Space</button></li> 
+</li><button class="btn" data-path="Games/Awesome Tanks.html"><img class="imgg" src="Imgs/Awesome Tanks.png" alt="Awesome Tanks">Awesome Tanks</button></li>
+</li><button class="btn" data-path="Games/Bit Planes/CLICK ME.html"><img class="imgg" src="Imgs/Bit Planes.png" alt="Bit Planes">Bit Planes</button></li>
+</li><button class="btn" data-path="Games/Bitlife/index.html"><img class="imgg" src="Imgs/Bitlife.png" alt="Bitlife">Bitife</button></li>
+</li><button class="btn" data-path="Games/Blob.html"><img class="imgg" src="Imgs/Blob.png" alt="Blob">Blob</button></li>
+</li><button class="btn" data-path="Games/Bob The Robber.html"><img class="imgg" src="Imgs/Bob The Robber.png" alt="Bob The Robber">Bob The Robber</button></li>
+</li><button class="btn" data-path="Games/Bounce Back/CLICK ME.html"><img class="imgg" src="Imgs/Bounce Back.png" alt="Bounce Back">Bounce Back</button></li>
+</li><button class="btn" data-path="Games/Bouncy Ninja 1.html"><img class="imgg" src="Imgs/Bouncy Ninja 1.png" alt="Bouncy Ninja 1">Bouncy Ninja 1</button></li>
+</li><button class="btn" data-path="Games/Bouncy Ninja 2.html"><img class="imgg" src="Imgs/Bouncy Ninja 2.png" alt="Bouncy Ninja 2">Bouncy Ninja 2</button></li>
+</li><button class="btn" data-path="Games/Captain Callisto.html"><img class="imgg" src="Imgs/Captain Callisto.png" alt="Captain Callisto">Captain Callisto</button></li>
+</li><button class="btn" data-path="Games/Celeste/CLICK ME.html"><img class="imgg" src="Imgs/Celeste.png" alt="Celeste">Celeste</button></li>
+</li><button class="btn" data-path="Games/Chroma Incident/CLICK ME.html"><img class="imgg" src="Imgs/Chroma Incident.png" alt="Chroma Incident">Chroma Incident</button></li>
+</li><button class="btn" data-path="Games/Cluster Rush/index.html"><img class="imgg" src="Imgs/Cluster Rush.png" alt="Cluster Rush">Cluster Rush</button></li>
+</li><button class="btn" data-path="Games/Cube Field/CLICK ME.html"><img class="imgg" src="Imgs/Cube Field.png" alt="Cube Field">Cube Field</button></li>
+</li><button class="btn" data-path="Games/Dungeon Raid.html"><img class="imgg" src="Imgs/Dungeon Raid.png" alt="Dungeon Raid">Dungeon Raid</button></li>
+</li><button class="btn" data-path="Games/Epic Ninja.html"><img class="imgg" src="Imgs/Epic Ninja.png" alt="Epic Ninja">Epic Ninja</button></li> 
+</li><button class="btn" data-path="Games/Evil Glitch/CLICK ME.html"><img class="imgg" src="Imgs/Evil Glitch.png" alt="Evil Glitch">Evil Glitch</button></li>
+</li><button class="btn" data-path="Games/Helix Jump/CLICK ME.html"><img class="imgg" src="Imgs/Helix Jump.png" alt="Helix Jump">Helix Jump</button></li>
+</li><button class="btn" data-path="Games/Its Raining Boxes.html"><img class="imgg" src="Imgs/Its Raining Boxes.png" alt="It's Raining Boxes">It's Raining Boxes</button></li>
+</li><button class="btn" data-path="Games/Just One Boss.html"><img class="imgg" src="Imgs/Just One Boss.png" alt="Just One Boss">Just One Boss</button></li>
+</li><button class="btn" data-path="Games/Just Shapes And Beats.html"><img class="imgg" src="Imgs/Just Shapes And Beats.png" alt="Just Shapes And Beats">Just Shapes And Beats</button></li>
+</li><button class="btn" data-path="Games/Konnekt/CLICK ME.html"><img class="imgg" src="Imgs/Konnekt.png" alt="Konnekt">Konnekt</button></li>
+</li><button class="btn" data-path="Games/Laser Lord.html"><img class="imgg" src="Imgs/Laser Lord.png" alt="Laser Lord">Laser Lord</button></li>
+</li><button class="btn" data-path="Games/Eaglercraft/Eaglercraft 1.3.html"><img class="imgg" src="Imgs/Eaglercraft 1.3.png" alt="Eaglercraft 1.3">Eaglercraft 1.3</button></li>
+</li><button class="btn" data-path="Games/Eaglercraft/Eaglercraft 1.5.html"><img class="imgg" src="Imgs/Eaglercraft 1.5.png" alt="Eaglercraft 1.5">Eaglercraft 1.5</button></li>
+</li><button class="btn" data-path="Games/Eaglercraft/Eaglercraft 1.8.html"><img class="imgg" src="Imgs/Eaglercraft 1.8.png" alt="Eaglercraft 1.8">Eaglercraft 1.8</button></li>
+</li><button class="btn" data-path="Games/N-Gon Master/index.html"><img class="imgg" src="Imgs/N-Gon Master.png" alt="N-Gon Master">N-Gon Master</button></li>
+</li><button class="btn" data-path="Games/Pacman Classic/CLICK ME.html"><img class="imgg" src="Imgs/Pacman Classic.png" alt="Pacman Classic">Pacman Classic</button></li>
+</li><button class="btn" data-path="Games/Paper.io 2.html"><img class="imgg" src="Imgs/Paper.io 2.png" alt="Paper.io 2">Paper.io 2</button></li>
+</li><button class="btn" data-path="Games/Paper.io 3D.html"><img class="imgg" src="Imgs/Paper.io 3D.png" alt="Paper.io 3D">Paper.io 3D</button></li>
+</li><button class="btn" data-path="Games/Pixel Shooter.html"><img class="imgg" src="Imgs/Pixel Shooter.png" alt="Pixel Shooter">Pixel Shooter</button></li>
+</li><button class="btn" data-path="Games/Planetesimals/CLICK ME.html"><img class="imgg" src="Imgs/Planetesimals.png" alt="Planetesimals">Planetesimals</button></li>
+</li><button class="btn" data-path="Games/Rolling Forests.html"><img class="imgg" src=" Imgs/Rolling Forests.png" alt=" Rolling Forests">Rolling Forests</button></li>
+</li><button class="btn" data-path="Games/Rolling Forests.html"><img class="imgg" src=" Imgs/Rolling Forests.png" alt=" Rolling Forests">Rolling Forests</button></li>
+</li><button class="btn" data-path="Games/Sausage Run.html"><img class="imgg" src=" Imgs/Sausage Run.png" alt=" Sausage Run">Sausage Run</button></li>
+</li><button class="btn" data-path="Games/Shuttle Deck.html"><img class="imgg" src=" Imgs/Shuttle Deck.png" alt=" Shuttle Deck">Shuttle Deck</button></li>
+</li><button class="btn" data-path="Games/Slope.html"><img class="imgg" src=" Imgs/Slope.png" alt=" Slope">Slope</button></li>
+</li><button class="btn" data-path="Games/Snow Rider 3D/index.html"><img class="imgg" src=" Imgs/Snow Rider 3D.png" alt=" Snow Rider 3D">Snow Rider 3D</button></li>
+</li><button class="btn" data-path="Games/Super Fowlest.html"><img class="imgg" src=" Imgs/Super Fowlest.png" alt=" Super Fowlest">Super Fowlest</button></li>
+</li><button class="btn" data-path="Games/Terraria.html"><img class="imgg" src=" Imgs/Terraria.png" alt=" Terraria">Terarria</button></li>
+</li><button class="btn" data-path="Games/Tomb Of The Mask.html"><img class="imgg" src=" Imgs/Tomb Of The Mask.png" alt=" Tomb Of The Mask">Tomb Of The Mask</button></li>
+</li><button class="btn" data-path="Games/Tunnel Rush.html"><img class="imgg" src=" Imgs/Tunnel Rush.png" alt=" Tunnel Rush">Tunnel Rush</button></li>
+
+</div>
+
+</br>
+</br>
+<div style="padding: 2px;"> </div>
+<div class="h6-container" style="position: relative;">
+<li><h6>Racing Games</h6></li>
+<button class="scroll-arrow left-arrow"><i class="fas fa-angle-left"></i></button> <!-- Left scroll arrow -->
+<button class="scroll-arrow right-arrow"><i class="fas fa-angle-right"></i></button> <!-- Right scroll arrow -->
+</div>
+</br>
+</br>
+<div class="btn-container">
+</li><button class="btn" data-path="Games/Cluster Rush/index.html"><img class="imgg" src="Imgs/Cluster Rush.png" alt="Cluster Rush">Cluster Rush</button></li>
+</li><button class="btn" data-path="Games/Drift Mania/CLICK ME.html"><img class="imgg" src="Imgs/Drift Mania.png" alt="Drift Mania">Drift Mania</button></li>
+</li><button class="btn" data-path="Games/Geometry Dash.html"><img class="imgg" src="Imgs/Geometry Dash.png" alt="Geometry Dash">Geometry Dash</button></li>
+</li><button class="btn" data-path="Games/Getting Over It.html"><img class="imgg" src="Imgs/Getting Over It.png" alt="Getting Over It">Getting Over It</button></li>
+</li><button class="btn" data-path="Games/Gun Spin/index.html"><img class="imgg" src="Imgs/Gun Spin.png" alt="Gun Spin">Gun Spin</button></li>
+</li><button class="btn" data-path="Games/OvO.html"><img class="imgg" src="Imgs/OvO.png" alt="OvO">OvO</button></li>
+</li><button class="btn" data-path="Games/Racer/CLICK ME.html"><img class="imgg" src=" Imgs/Racer.png" alt=" Racer">Racer</button></li>
+</li><button class="btn" data-path="Games/Snow Rider 3D/index.html"><img class="imgg" src=" Imgs/Snow Rider 3D.png" alt=" Snow Rider 3D">Snow Rider 3D</button></li>
+
+</div>
+
+</br>
+</br>
+<div style="padding: 2px;"> </div>
+<div class="h6-container" style="position: relative;">
+<li><h6>Minigames</h6></li>
+<button class="scroll-arrow left-arrow"><i class="fas fa-angle-left"></i></button> <!-- Left scroll arrow -->
+<button class="scroll-arrow right-arrow"><i class="fas fa-angle-right"></i></button> <!-- Right scroll arrow -->
+</div>
+</br>
+</br>
+<div class="btn-container">
+</li><button class="btn" data-path="Games/4 Player Arcade.html"><img class="imgg" src="Imgs/4 Player Arcade.png" alt="4 Player Arcade">4 Player Arcade</button></li>
+</li><button class="btn" data-path="Games/Arrow.html"><img class="imgg" src="Imgs/Arrow.png" alt="Arrow">Arrow</button></li>
+</li><button class="btn" data-path="Games/Asteroids/CLICK ME.html"><img class="imgg" src="Imgs/Asteroids.png" alt="Asteroids">Asteroids</button></li>   
+</li><button class="btn" data-path="Games/Bouncy Ninja 1.html"><img class="imgg" src="Imgs/Bouncy Ninja 1.png" alt="Bouncy Ninja 1">Bouncy Ninja 1</button></li>
+</li><button class="btn" data-path="Games/Bouncy Ninja 2.html"><img class="imgg" src="Imgs/Bouncy Ninja 2.png" alt="Bouncy Ninja 2">Bouncy Ninja 2</button></li>
+</li><button class="btn" data-path="Games/Captain Rocket.html"><img class="imgg" src="Imgs/Captain Rocket.png" alt="Captain Rocket">Captain Rocket</button></li>
+</li><button class="btn" data-path="Games/Circle O.html"><img class="imgg" src="Imgs/Circle O.png" alt="Circle O">Circle O</button></li>
+</li><button class="btn" data-path="Games/Climber Man.html"><img class="imgg" src="Imgs/Climber Man.png" alt="Climber Man">Climber Man</button></li>
+</li><button class="btn" data-path="Games/Coil Master/CLICK ME.html"><img class="imgg" src="Imgs/Coil Master.png" alt="Coil Master">Coil Master</button></li>
+</li><button class="btn" data-path="Games/Color.html"><img class="imgg" src="Imgs/Color.png" alt="Color">Color</button></li>
+</li><button class="btn" data-path="Games/Core Ball/CLICK ME.html"><img class="imgg" src="Imgs/Core Ball.png" alt="Core Ball">Core Ball</button></li>
+</li><button class="btn" data-path="Games/Cube Field/CLICK ME.html"><img class="imgg" src="Imgs/Cube Field.png" alt="Cube Field">Cube Field</button></li>
+</li><button class="btn" data-path="Games/Dino Game 1.html"><img class="imgg" src="Imgs/Dino Game 1.png" alt="Dino Game 1">Dino Game 1</button></li>
+</li><button class="btn" data-path="Games/Dino Game 2/CLICK ME.html"><img class="imgg" src="Imgs/Dino Game 2.png" alt="Dino Game 2">Dino Game 2</button></li>
+</li><button class="btn" data-path="Games/Drift Chase.html"><img class="imgg" src="Imgs/Drift Chase.png" alt="Drift Chase">Drift Chase</button></li>
+</li><button class="btn" data-path="Games/Drop The Ball 1.html"><img class="imgg" src="Imgs/Drop The Ball 1.png" alt="Drop The Ball 1">Drop The Ball 1</button></li>
+</li><button class="btn" data-path="Games/Drop The Ball 2.html"><img class="imgg" src="Imgs/Drop The Ball 2.png" alt="Drop The Ball 2">Drop The Ball 2</button></li>
+</li><button class="btn" data-path="Games/Dunk Shot.html"><img class="imgg" src="Imgs/Dunk Shot.png" alt="Dunk Shot">Dunk Shot</button></li>
+</li><button class="btn" data-path="Games/Elastic Man.html"><img class="imgg" src="Imgs/Elastic Man.png" alt="Elastic Man">Elastic Man</button></li>
+</li><button class="btn" data-path="Games/Flappy Bird/CLICK ME.html"><img class="imgg" src="Imgs/Flappy Bird.png" alt="Flappy Bird">Flappy Bird</button></li>
+</li><button class="btn" data-path="Games/Flappy Copter/CLICK ME.html"><img class="imgg" src="Imgs/Flappy Copter.png" alt="Flappy Copter">Flappy Copter</button></li>
+</li><button class="btn" data-path="Games/Google Snake.html"><img class="imgg" src="Imgs/Google Snake.png" alt="Google Snake">Google Snake</button></li>
+</li><button class="btn" data-path="Games/Neon Foosball.html"><img class="imgg" src="Imgs/Neon Foosball.png" alt="Neon Foosball">Neon Foosball</button></li>
+</li><button class="btn" data-path="Games/Nitro Clash.html"><img class="imgg" src="Imgs/Nitro Clash.png" alt="Nitro Clash">Nitro Clash</button></li>
+</li><button class="btn" data-path="Games/Pong/CLICK ME.html"><img class="imgg" src="Imgs/Pong.png" alt="Pong">Pong</button></li>
+</li><button class="btn" data-path="Games/Rope Slide 2.html"><img class="imgg" src=" Imgs/Rope Slide 2.png" alt=" Rope Slide 2">Rope Slide 2</button></li>
+</li><button class="btn" data-path="Games/Slime Ninja.html"><img class="imgg" src=" Imgs/Slime Ninja.png" alt=" Slime Ninja">Slime Ninja</button></li>
+</li><button class="btn" data-path="Games/Sling Drift.html"><img class="imgg" src=" Imgs/Sling Drift.png" alt=" Sling Drift">Sling Drift</button></li>
+</li><button class="btn" data-path="Games/Slope.html"><img class="imgg" src=" Imgs/Slope.png" alt=" Slope">Slope</button></li>
+</li><button class="btn" data-path="Games/Smove.html"><img class="imgg" src=" Imgs/Smove.png" alt=" Smove">Smove</button></li>
+</li><button class="btn" data-path="Games/Stack.html"><img class="imgg" src=" Imgs/Stack.png" alt=" Stack">Stack</button></li>
+</li><button class="btn" data-path="Games/Suika Game (Watermelon Game).html"><img class="imgg" src=" Imgs/Suika Game (Watermelon Game).png" alt=" Suika Game (Watermelon Game)">Suika Game (Watermelon Game)</button></li>
+</li><button class="btn" data-path="Games/Tappy Tadpole.html"><img class="imgg" src=" Imgs/Tappy Tadpole.png" alt=" Tappy Tadpole">Tappy Tadpole</button></li>
+</li><button class="btn" data-path="Games/Temple Leap.html"><img class="imgg" src=" Imgs/Temple Leap.png" alt=" Temple Leap">Temple Leap</button></li>
+</li><button class="btn" data-path="Games/Tower Master/CLICK ME.html"><img class="imgg" src=" Imgs/Tower Master.png" alt=" Tower Master">Tower Master</button></li>
+</li><button class="btn" data-path="Games/Tunnel Rush.html"><img class="imgg" src=" Imgs/Tunnel Rush.png" alt=" Tunnel Rush">Tunnel Rush</button></li>
+
+</div>
+
+</br>
+</br>
+<div style="padding: 2px;"> </div>
+<div class="h6-container" style="position: relative;">
+<li><h6>Simulator Games</h6></li>
+<button class="scroll-arrow left-arrow"><i class="fas fa-angle-left"></i></button> <!-- Left scroll arrow -->
+<button class="scroll-arrow right-arrow"><i class="fas fa-angle-right"></i></button> <!-- Right scroll arrow -->
+</div>
+</br>
+</br>
+<div class="btn-container">
+</li><button class="btn" data-path="Games/Bee Swarm Simulator.html"><img class="imgg" src="Imgs/Bee Swarm Simulator.png" alt="Bee Swarm Simulator">Bee Swarm Simulator</button></li>
+</li><button class="btn" data-path="Games/Bitlife/index.html"><img class="imgg" src="Imgs/Bitlife.png" alt="Bitlife">Bitife</button></li>
+</li><button class="btn" data-path="Games/Fluidism/CLICK ME.html"><img class="imgg" src="Imgs/Fluidism.png" alt="Fluidism">Fluidism</button></li>
+</li><button class="btn" data-path="Games/Monkey Mart.html"><img class="imgg" src="Imgs/Monkey Mart.png" alt="Monkey Mart">Monkey Mart</button></li>
+</li><button class="btn" data-path="Games/Sand Game.html"><img class="imgg" src=" Imgs/Sand Game.png" alt=" Sand Game">Sand Game</button></li>
+
+</div>
+
+</br>
+</br>
+<div style="padding: 2px;"> </div>
+<div class="h6-container" style="position: relative;">
+<li><h6>Platformer Games</h6></li>
+<button class="scroll-arrow left-arrow"><i class="fas fa-angle-left"></i></button> <!-- Left scroll arrow -->
+<button class="scroll-arrow right-arrow"><i class="fas fa-angle-right"></i></button> <!-- Right scroll arrow -->
+</div>
+</br>
+</br>
+<div class="btn-container">
+</li><button class="btn" data-path="Games/Appel.html"><img class="imgg" src="Imgs/Appel.png" alt="Appel">Appel</button></li>
+</li><button class="btn" data-path="Games/Blob.html"><img class="imgg" src="Imgs/Blob.png" alt="Blob">Blob</button></li>
+</li><button class="btn" data-path="Games/Circle O.html"><img class="imgg" src="Imgs/Circle O.png" alt="Circle O">Circle O</button></li>
+</li><button class="btn" data-path="Games/Dante.html"><img class="imgg" src="Imgs/Dante.png" alt="Dante">Dante</button></li>
+</li><button class="btn" data-path="Games/Dont Fall.html"><img class="imgg" src="Imgs/Dont Fall.png" alt="Don't Fall">Don't Fall</button></li>
+</li><button class="btn" data-path="Games/Doodle Jump.html"><img class="imgg" src="Imgs/Doodle Jump.png" alt="Doodle Jump">Doodle Jump</button></li>
+</li><button class="btn" data-path="Games/Drive Mad.html"><img class="imgg" src="Imgs/Drive Mad.png" alt="Drive Mad">Drive Mad</button></li>
+</li><button class="btn" data-path="Games/Epic Ninja.html"><img class="imgg" src="Imgs/Epic Ninja.png" alt="Epic Ninja">Epic Ninja</button></li> 
+</li><button class="btn" data-path="Games/Geometry Dash.html"><img class="imgg" src="Imgs/Geometry Dash.png" alt="Geometry Dash">Geometry Dash</button></li>
+</li><button class="btn" data-path="Games/Getting Over It.html"><img class="imgg" src="Imgs/Getting Over It.png" alt="Getting Over It">Getting Over It</button></li>
+</li><button class="btn" data-path="Games/Helix Jump/CLICK ME.html"><img class="imgg" src="Imgs/Helix Jump.png" alt="Helix Jump">Helix Jump</button></li>
+</li><button class="btn" data-path="Games/Its Raining Boxes.html"><img class="imgg" src="Imgs/Its Raining Boxes.png" alt="It's Raining Boxes">It's Raining Boxes</button></li>
+</li><button class="btn" data-path="Games/Johnny Upgrade.html"><img class="imgg" src="Imgs/Johnny Upgrade.png" alt="Johnny Upgrade">Johnny Upgrade</button></li>
+</li><button class="btn" data-path="Games/N-Gon Master/index.html"><img class="imgg" src="Imgs/N-Gon Master.png" alt="N-Gon Master">N-Gon Master</button></li>
+</li><button class="btn" data-path="Games/Ninja Vs. Evilcorp.html"><img class="imgg" src="Imgs/Ninja Vs. Evilcorp.png" alt="Ninja Vs. Evilcorp">Ninja Vs. Evilcorp</button></li>
+</li><button class="btn" data-path="Games/Offline Paradise.html"><img class="imgg" src="Imgs/Offline Paradise.png" alt="Offline Paradise">Offline Paradise</button></li>
+</li><button class="btn" data-path="Games/OvO.html"><img class="imgg" src="Imgs/OvO.png" alt="OvO">OvO</button></li>
+</li><button class="btn" data-path="Games/Plantale.html"><img class="imgg" src="Imgs/Plantale.png" alt="Plantale">Plantale</button></li>
+</li><button class="btn" data-path="Games/Retro Haunt/CLICK ME.html"><img class="imgg" src=" Imgs/Retro Haunt.png" alt=" Retro Haunt">Retro Haunt</button></li>
+</li><button class="btn" data-path="Games/Snail Platformer.html"><img class="imgg" src=" Imgs/Snail Platformer.png" alt=" Snail Platformer">Snail Platformer</button></li>
+</li><button class="btn" data-path="Games/Stickman Climb 1.html"><img class="imgg" src=" Imgs/Stickman Climb 1.png" alt=" Stickman Climb 1">Stickman Climb 1</button></li>
+</li><button class="btn" data-path="Games/Stickman Climb 2.html"><img class="imgg" src=" Imgs/Stickman Climb 2.png" alt=" Stickman Climb 2">Stickman Climb 2</button></li>
+</li><button class="btn" data-path="Games/Tomb Of The Mask.html"><img class="imgg" src=" Imgs/Tomb Of The Mask.png" alt=" Tomb Of The Mask">Tomb Of The Mask</button></li>
+</li><button class="btn" data-path="Games/Twisted Mind.html"><img class="imgg" src=" Imgs/Twisted Mind.png" alt=" Twisted Mind">Twisted Mind</button></li>
+</li><button class="btn" data-path="Games/Worlds Hardest Game 2/CLICK ME.html"><img class="imgg" src=" Imgs/Worlds Hardest Game 2.png" alt=" Worlds Hardest Game 2">Worlds Hardest Game 2</button></li>
+</li><button class="btn" data-path="Games/xx142-b2.html"><img class="imgg" src=" Imgs/xx142-b2.exe.png" alt=" xx142-b2.exe">xx142-b2.exe</button></li>
+
+</div>
+
+</br>
+</br>
+<div style="padding: 2px;"> </div>
+<div class="h6-container" style="position: relative;">
+<li><h6>Sports Games</h6></li>
+<button class="scroll-arrow left-arrow"><i class="fas fa-angle-left"></i></button> <!-- Left scroll arrow -->
+<button class="scroll-arrow right-arrow"><i class="fas fa-angle-right"></i></button> <!-- Right scroll arrow -->
+</div>
+</br>
+</br>
+<div class="btn-container">
+</li><button class="btn" data-path="Games/Drift Mania/CLICK ME.html"><img class="imgg" src="Imgs/Drift Mania.png" alt="Drift Mania">Drift Mania</button></li>
+</li><button class="btn" data-path="Games/Neon Foosball.html"><img class="imgg" src="Imgs/Neon Foosball.png" alt="Neon Foosball">Neon Foosball</button></li>
+</li><button class="btn" data-path="Games/Nitro Clash.html"><img class="imgg" src="Imgs/Nitro Clash.png" alt="Nitro Clash">Nitro Clash</button></li>
+</li><button class="btn" data-path="Games/Racer/CLICK ME.html"><img class="imgg" src=" Imgs/Racer.png" alt=" Racer">Racer</button></li>
+</li><button class="btn" data-path="Games/Retro Bowl.html"><img class="imgg" src=" Imgs/Retro Bowl.png" alt=" Retro Bowl">Retro Bowl</button></li>
+</li><button class="btn" data-path="Games/Stunt Cars 2/CLICK ME.html"><img class="imgg" src=" Imgs/Stunt Cars 2.png" alt=" Stunt Cars 2">Stunt Cars 2</button></li>
+</li><button class="btn" data-path="Games/Super Stickman Golf/CLICK ME.html"><img class="imgg" src=" Imgs/Super Stickman Golf.png" alt=" Super Stickman Golf">Super Stickman Golf</button></li>
+</li><button class="btn" data-path="Games/Tiny Fishing.html"><img class="imgg" src=" Imgs/Tiny Fishing.png" alt=" Tiny Fishing">Tiny Fishing</button></li>
+</div>
+</br>
+</br>
+<div style="padding: 2px;"> </div>
+<div class="h6-container" style="position: relative;">
+<li><h6>All Games</h6></li>
+</div>
+</br>
+<div class="btnnn-container">
+</li><button class="btn" data-path="Games/1v1.LOL/CLICK ME.html"><img class="imgg"src="Imgs/1v1.LOL.png"alt="1v1.LOL">1v1.LOL</button></li> 
+</li><button class="btn" data-path="Games/2D Rocket League/CLICK ME.html"><img class="imgg" src="Imgs/2D Rocket League.png" alt="2D Rocket League">2D Rocket League</button></li>
+</li><button class="btn" data-path="Games/2048/CLICK ME.html"><img class="imgg" src="Imgs/2048.png" alt="2048">2048</button></li>
+</li><button class="btn" data-path="Games/2048 9007199254740992/CLICK ME.html"><img class="imgg" src="Imgs/2048 9007199254740992.png" alt="2048 9007199254740992">2048 9007199254740992</button></li>
+</li><button class="btn" data-path="Games/2048 Couch/CLICK ME.html"><img class="imgg" src="Imgs/2048 Couch.png" alt="2048 Couch">2048 Couch</button></li>
+</li><button class="btn" data-path="Games/2048 Doge/CLICK ME.html"><img class="imgg" src="Imgs/2048 Doge.png" alt="2048 Doge">2048 Doge</button></li>
+</li><button class="btn" data-path="Games/2048 Meme/CLICK ME.html"><img class="imgg" src="Imgs/2048 Meme.png" alt="2048 Meme">2048 Meme</button></li>
+</li><button class="btn" data-path="Games/2048 Reverse/CLICK ME.html"><img class="imgg" src="Imgs/2048 Reverse.png" alt="2048 Reverse">2048 Reverse</button></li>
+</li><button class="btn" data-path="Games/4 Player Arcade.html"><img class="imgg" src="Imgs/4 Player Arcade.png" alt="4 Player Arcade">4 Player Arcade</button></li>
+</li><button class="btn" data-path="Games/99 Balls.html"><img class="imgg" src="Imgs/99 Balls.png" alt="99 Balls">99 Balls</button></li>
+</li><button class="btn" data-path="Games/A Dark Room/CLICK ME.html"><img class="imgg" src="Imgs/A Dark Room.png" alt="A Dark Room">A Dark Room</button></li>
+</li><button class="btn" data-path="Games/Appel.html"><img class="imgg" src="Imgs/Appel.png" alt="Appel">Appel</button></li>
+</li><button class="btn" data-path="Games/Arrow.html"><img class="imgg" src="Imgs/Arrow.png" alt="Arrow">Arrow</button></li>
+</li><button class="btn" data-path="Games/Asteroids/CLICK ME.html"><img class="imgg" src="Imgs/Asteroids.png" alt="Asteroids">Asteroids</button></li>
+</li><button class="btn" data-path="Games/Ascii Space.html"><img class="imgg" src="Imgs/Ascii Space.png" alt="Ascii Space">Ascii Space</button></li>
+</li><button class="btn" data-path="Games/Awesome Tanks.html"><img class="imgg" src="Imgs/Awesome Tanks.png" alt="Awesome Tanks">Awesome Tanks</button></li>
+</li><button class="btn" data-path="Games/Ball Blast.html"><img class="imgg" src="Imgs/Ball Blast.png" alt="Ball Blast">Ball Blast</button></li>
+</li><button class="btn" data-path="Games/Ball Sort Halloween/CLICK ME.html"><img class="imgg" src="Imgs/Ball Sort Halloween.png" alt="Ball Sort Halloween">Ball Sort Halloween</button></li>
+</li><button class="btn" data-path="Games/Ball Sort Puzzle/CLICK ME.html"><img class="imgg" src="Imgs/Ball Sort Puzzle.png" alt="Ball Sort Puzzle">Ball Sort Puzzle</button></li>
+</li><button class="btn" data-path="Games/Ball Sort Soccer/CLICK ME.html"><img class="imgg" src="Imgs/Ball Sort Soccer.png" alt="Ball Sort Soccer">Ball Sort Soccer</button></li>
+</li><button class="btn" data-path="Games/Bee Swarm Simulator.html"><img class="imgg" src="Imgs/Bee Swarm Simulator.png" alt="Bee Swarm Simulator">Bee Swarm Simulator</button></li>
+</li><button class="btn" data-path="Games/Bitcoin Clicker/CLICK ME.html"><img class="imgg" src="Imgs/Bitcoin Clicker.png" alt="Bitcoin Clicker">Bitcoin Clicker</button></li>
+</li><button class="btn" data-path="Games/Bitlife/index.html"><img class="imgg" src="Imgs/Bitlife.png" alt="Bitlife">Bitife</button></li>
+</li><button class="btn" data-path="Games/Bit Planes/CLICK ME.html"><img class="imgg" src="Imgs/Bit Planes.png" alt="Bit Planes">Bit Planes</button></li>
+</li><button class="btn" data-path="Games/Black Hole Square/CLICK ME.html"><img class="imgg" src="Imgs/Black Hole Square.png" alt="Black Hole Square">Black Hole Square</button></li>
+</li><button class="btn" data-path="Games/Blob.html"><img class="imgg" src="Imgs/Blob.png" alt="Blob">Blob</button></li>
+</li><button class="btn" data-path="Games/Bob The Robber.html"><img class="imgg" src="Imgs/Bob The Robber.png" alt="Bob The Robber">Bob The Robber</button></li>
+</li><button class="btn" data-path="Games/Bounce Back/CLICK ME.html"><img class="imgg" src="Imgs/Bounce Back.png" alt="Bounce Back">Bounce Back</button></li>
+</li><button class="btn" data-path="Games/Bouncy Ninja 1.html"><img class="imgg" src="Imgs/Bouncy Ninja 1.png" alt="Bouncy Ninja 1">Bouncy Ninja 1</button></li>
+</li><button class="btn" data-path="Games/Bouncy Ninja 2.html"><img class="imgg" src="Imgs/Bouncy Ninja 2.png" alt="Bouncy Ninja 2">Bouncy Ninja 2</button></li>
+</li><button class="btn" data-path="Games/Break Lock/CLICK ME.html"><img class="imgg" src="Imgs/Break Lock.png" alt="Break Lock">Break Lock</button></li>
+</li><button class="btn" data-path="Games/Captain Callisto.html"><img class="imgg" src="Imgs/Captain Callisto.png" alt="Captain Callisto">Captain Callisto</button></li>
+</li><button class="btn" data-path="Games/Captain Rocket.html"><img class="imgg" src="Imgs/Captain Rocket.png" alt="Captain Rocket">Captain Rocket</button></li>
+</li><button class="btn" data-path="Games/Celeste/CLICK ME.html"><img class="imgg" src="Imgs/Celeste.png" alt="Celeste">Celeste</button></li>
+</li><button class="btn" data-path="Games/Chroma Incident/CLICK ME.html"><img class="imgg" src="Imgs/Chroma Incident.png" alt="Chroma Incident">Chroma Incident</button></li>
+</li><button class="btn" data-path="Games/Circle O.html"><img class="imgg" src="Imgs/Circle O.png" alt="Circle O">Circle O</button></li>
+</li><button class="btn" data-path="Games/Climber Man.html"><img class="imgg" src="Imgs/Climber Man.png" alt="Climber Man">Climber Man</button></li>
+</li><button class="btn" data-path="Games/Cluster Rush/index.html"><img class="imgg" src="Imgs/Cluster Rush.png" alt="Cluster Rush">Cluster Rush</button></li>
+</li><button class="btn" data-path="Games/Coil Master/CLICK ME.html"><img class="imgg" src="Imgs/Coil Master.png" alt="Coil Master">Coil Master</button></li>
+</li><button class="btn" data-path="Games/Color.html"><img class="imgg" src="Imgs/Color.png" alt="Color">Color</button></li>
+</li><button class="btn" data-path="Games/Connect 3/CLICK ME.html"><img class="imgg" src="Imgs/Connect 3.png" alt="Connect 3">Connect 3</button></li>
+</li><button class="btn" data-path="Games/Cookie Clicker/index.html"><img class="imgg" src="Imgs/Cookie Clicker.png" alt="Cookie Clicker">Cookie Clicker</button></li>
+</li><button class="btn" data-path="Games/Core Ball/CLICK ME.html"><img class="imgg" src="Imgs/Core Ball.png" alt="Core Ball">Core Ball</button></li>
+</li><button class="btn" data-path="Games/Cube Field/CLICK ME.html"><img class="imgg" src="Imgs/Cube Field.png" alt="Cube Field">Cube Field</button></li>
+</li><button class="btn" data-path="Games/Dante.html"><img class="imgg" src="Imgs/Dante.png" alt="Dante">Dante</button></li>
+</li><button class="btn" data-path="Games/Dino Game 1.html"><img class="imgg" src="Imgs/Dino Game 1.png" alt="Dino Game 1">Dino Game 1</button></li>
+</li><button class="btn" data-path="Games/Dino Game 2/CLICK ME.html"><img class="imgg" src="Imgs/Dino Game 2.png" alt="Dino Game 2">Dino Game 2</button></li>
+</li><button class="btn" data-path="Games/Doge Miner/CLICK ME.html"><img class="imgg" src="Imgs/Doge Miner.png" alt="Doge Miner">Doge Miner</button></li>
+</li><button class="btn" data-path="Games/Dont Fall.html"><img class="imgg" src="Imgs/Dont Fall.png" alt="Don't Fall">Don't Fall</button></li>
+</li><button class="btn" data-path="Games/Doodle Jump.html"><img class="imgg" src="Imgs/Doodle Jump.png" alt="Doodle Jump">Doodle Jump</button></li>
+</li><button class="btn" data-path="Games/Drift Mania/CLICK ME.html"><img class="imgg" src="Imgs/Drift Mania.png" alt="Drift Mania">Drift Mania</button></li>
+</li><button class="btn" data-path="Games/Drift Chase.html"><img class="imgg" src="Imgs/Drift Chase.png" alt="Drift Chase">Drift Chase</button></li>
+</li><button class="btn" data-path="Games/Drive Mad.html"><img class="imgg" src="Imgs/Drive Mad.png" alt="Drive Mad">Drive Mad</button></li>
+</li><button class="btn" data-path="Games/Drop The Ball 1.html"><img class="imgg" src="Imgs/Drop The Ball 1.png" alt="Drop The Ball 1">Drop The Ball 1</button></li>
+</li><button class="btn" data-path="Games/Drop The Ball 2.html"><img class="imgg" src="Imgs/Drop The Ball 2.png" alt="Drop The Ball 2">Drop The Ball 2</button></li>
+</li><button class="btn" data-path="Games/Dungeon Raid.html"><img class="imgg" src="Imgs/Dungeon Raid.png" alt="Dungeon Raid">Dungeon Raid</button></li>
+</li><button class="btn" data-path="Games/Dunk Shot.html"><img class="imgg" src="Imgs/Dunk Shot.png" alt="Dunk Shot">Dunk Shot</button></li>
+</li><button class="btn" data-path="Games/Edge Not Found.html"><img class="imgg" src="Imgs/Edge Not Found.png" alt="Edge Not Found">Edge Not Found</button></li>
+</li><button class="btn" data-path="Games/Elastic Man.html"><img class="imgg" src="Imgs/Elastic Man.png" alt="Elastic Man">Elastic Man</button></li>
+</li><button class="btn" data-path="Games/Epic Ninja.html"><img class="imgg" src="Imgs/Epic Ninja.png" alt="Epic Ninja">Epic Ninja</button></li> 
+</li><button class="btn" data-path="Games/Evil Glitch/CLICK ME.html"><img class="imgg" src="Imgs/Evil Glitch.png" alt="Evil Glitch">Evil Glitch</button></li>
+</li><button class="btn" data-path="Games/Fill Infinite.html"><img class="imgg" src="Imgs/Fill Infinite.png" alt="Fill Infinite">Fill Infinite</button></li>
+</li><button class="btn" data-path="Games/Flappy Bird/CLICK ME.html"><img class="imgg" src="Imgs/Flappy Bird.png" alt="Flappy Bird">Flappy Bird</button></li>
+</li><button class="btn" data-path="Games/Flappy Copter/CLICK ME.html"><img class="imgg" src="Imgs/Flappy Copter.png" alt="Flappy Copter">Flappy Copter</button></li>
+</li><button class="btn" data-path="Games/Fluidism/CLICK ME.html"><img class="imgg" src="Imgs/Fluidism.png" alt="Fluidism">Fluidism</button></li>
+</li><button class="btn" data-path="Games/Geometry Dash.html"><img class="imgg" src="Imgs/Geometry Dash.png" alt="Geometry Dash">Geometry Dash</button></li>
+</li><button class="btn" data-path="Games/Getting Over It.html"><img class="imgg" src="Imgs/Getting Over It.png" alt="Getting Over It">Getting Over It</button></li>
+</li><button class="btn" data-path="Games/Google Snake.html"><img class="imgg" src="Imgs/Google Snake.png" alt="Google Snake">Google Snake</button></li>
+</li><button class="btn" data-path="Games/Gun Spin/index.html"><img class="imgg" src="Imgs/Gun Spin.png" alt="Gun Spin">Gun Spin</button></li>
+</li><button class="btn" data-path="Games/Helix Jump/CLICK ME.html"><img class="imgg" src="Imgs/Helix Jump.png" alt="Helix Jump">Helix Jump</button></li>
+</li><button class="btn" data-path="Games/Hextris/CLICK ME.html"><img class="imgg" src="Imgs/Hextris.png" alt="Hextris">Hextris</button></li>
+</li><button class="btn" data-path="Games/Its Raining Boxes.html"><img class="imgg" src="Imgs/Its Raining Boxes.png" alt="It's Raining Boxes">It's Raining Boxes</button></li>
+</li><button class="btn" data-path="Games/Johnny Upgrade.html"><img class="imgg" src="Imgs/Johnny Upgrade.png" alt="Johnny Upgrade">Johnny Upgrade</button></li>
+</li><button class="btn" data-path="Games/Just One Boss.html"><img class="imgg" src="Imgs/Just One Boss.png" alt="Just One Boss">Just One Boss</button></li>
+</li><button class="btn" data-path="Games/Just Shapes And Beats.html"><img class="imgg" src="Imgs/Just Shapes And Beats.png" alt="Just Shapes And Beats">Just Shapes And Beats</button></li>
+</li><button class="btn" data-path="Games/Konnekt/CLICK ME.html"><img class="imgg" src="Imgs/Konnekt.png" alt="Konnekt">Konnekt</button></li>
+</li><button class="btn" data-path="Games/Laser Lord.html"><img class="imgg" src="Imgs/Laser Lord.png" alt="Laser Lord">Laser Lord</button></li>
+</li><button class="btn" data-path="Games/Eaglercraft/Eaglercraft 1.3.html"><img class="imgg" src="Imgs/Eaglercraft 1.3.png" alt="Eaglercraft 1.3">Eaglercraft 1.3</button></li>
+</li><button class="btn" data-path="Games/Eaglercraft/Eaglercraft 1.5.html"><img class="imgg" src="Imgs/Eaglercraft 1.5.png" alt="Eaglercraft 1.5">Eaglercraft 1.5</button></li>
+</li><button class="btn" data-path="Games/Eaglercraft/Eaglercraft 1.8.html"><img class="imgg" src="Imgs/Eaglercraft 1.8.png" alt="Eaglercraft 1.8">Eaglercraft 1.8</button></li>
+</li><button class="btn" data-path="Games/Monkey Mart.html"><img class="imgg" src="Imgs/Monkey Mart.png" alt="Monkey Mart">Monkey Mart</button></li>
+</li><button class="btn" data-path="Games/Moonwalk.html"><img class="imgg" src="Imgs/Moonwalk.png" alt="Moonwalk">Moonwalk</button></li>
+</li><button class="btn" data-path="Games/Neon Foosball.html"><img class="imgg" src="Imgs/Neon Foosball.png" alt="Neon Foosball">Neon Foosball</button></li>
+</li><button class="btn" data-path="Games/N-Gon Master/index.html"><img class="imgg" src="Imgs/N-Gon Master.png" alt="N-Gon Master">N-Gon Master</button></li>
+</li><button class="btn" data-path="Games/Ninja Vs. Evilcorp.html"><img class="imgg" src="Imgs/Ninja Vs. Evilcorp.png" alt="Ninja Vs. Evilcorp">Ninja Vs. Evilcorp</button></li>
+</li><button class="btn" data-path="Games/Nitro Clash.html"><img class="imgg" src="Imgs/Nitro Clash.png" alt="Nitro Clash">Nitro Clash</button></li>
+</li><button class="btn" data-path="Games/Not That Dead.html"><img class="imgg" src="Imgs/Not That Dead.png" alt="Not That Dead">Not That Dead</button></li>
+</li><button class="btn" data-path="Games/Nut Simulator/CLICK ME.html"><img class="imgg" src="Imgs/Nut Simulator.png" alt="Nut Simulator">Nut Simulator</button></li>
+</li><button class="btn" data-path="Games/Offline Paradise.html"><img class="imgg" src="Imgs/Offline Paradise.png" alt="Offline Paradise">Offline Paradise</button></li>
+</li><button class="btn" data-path="Games/OvO.html"><img class="imgg" src="Imgs/OvO.png" alt="OvO">OvO</button></li>
+</li><button class="btn" data-path="Games/Pacman Classic/CLICK ME.html"><img class="imgg" src="Imgs/Pacman Classic.png" alt="Pacman Classic">Pacman Classic</button></li>
+</li><button class="btn" data-path="Games/Packabunchas.html"><img class="imgg" src="Imgs/Packabunchas.png" alt="Packabunchas">Packabunchas</button></li>
+</li><button class="btn" data-path="Games/Paperclips/CLICK ME.html"><img class="imgg" src="Imgs/Paperclips.png" alt="Paperclips">Paperclips</button></li>
+</li><button class="btn" data-path="Games/Paper.io 2.html"><img class="imgg" src="Imgs/Paper.io 2.png" alt="Paper.io 2">Paper.io 2</button></li>
+</li><button class="btn" data-path="Games/Paper.io 3D.html"><img class="imgg" src="Imgs/Paper.io 3D.png" alt="Paper.io 3D">Paper.io 3D</button></li>
+</li><button class="btn" data-path="Games/Pixel Shooter.html"><img class="imgg" src="Imgs/Pixel Shooter.png" alt="Pixel Shooter">Pixel Shooter</button></li>
+</li><button class="btn" data-path="Games/Planetesimals/CLICK ME.html"><img class="imgg" src="Imgs/Planetesimals.png" alt="Planetesimals">Planetesimals</button></li>
+</li><button class="btn" data-path="Games/Plantale.html"><img class="imgg" src="Imgs/Plantale.png" alt="Plantale">Plantale</button></li>
+</li><button class="btn" data-path="Games/Pong/CLICK ME.html"><img class="imgg" src="Imgs/Pong.png" alt="Pong">Pong</button></li>
+</li><button class="btn" data-path="Games/Pop The Lock 2.html"><img class="imgg" src="Imgs/Pop The Lock 2.png" alt="Pop The Lock 2">Pop The Lock 2</button></li>
+</li><button class="btn" data-path="Games/Push Back/CLICK ME.html"><img class="imgg" src=" Imgs/Push Back.png" alt=" Push Back">Push Back</button></li>
+</li><button class="btn" data-path="Games/Racer/CLICK ME.html"><img class="imgg" src=" Imgs/Racer.png" alt=" Racer">Racer</button></li>
+</li><button class="btn" data-path="Games/Recoil.html"><img class="imgg" src=" Imgs/Recoil.png" alt=" Recoil">Recoil</button></li>
+</li><button class="btn" data-path="Games/Reload.html"><img class="imgg" src=" Imgs/Reload.png" alt=" Reload">Reload</button></li>
+</li><button class="btn" data-path="Games/Retro Bowl.html"><img class="imgg" src=" Imgs/Retro Bowl.png" alt=" Retro Bowl">Retro Bowl</button></li>
+</li><button class="btn" data-path="Games/Retro Haunt/CLICK ME.html"><img class="imgg" src=" Imgs/Retro Haunt.png" alt=" Retro Haunt">Retro Haunt</button></li>
+</li><button class="btn" data-path="Games/Rise Higher/CLICK ME.html"><img class="imgg" src=" Imgs/Rise Higher.png" alt=" Rise Higher">Rise Higher</button></li>
+</li><button class="btn" data-path="Games/Roadblocks/CLICK ME.html"><img class="imgg" src=" Imgs/Roadblocks.png" alt=" Roadblocks">Roadblocks</button></li>
+</li><button class="btn" data-path="Games/Rocket.html"><img class="imgg" src=" Imgs/Rocket.png" alt=" Rocket">Rocket</button></li>
+</li><button class="btn" data-path="Games/Rolling Forests.html"><img class="imgg" src=" Imgs/Rolling Forests.png" alt=" Rolling Forests">Rolling Forests</button></li>
+</li><button class="btn" data-path="Games/Rope Slide 2.html"><img class="imgg" src=" Imgs/Rope Slide 2.png" alt=" Rope Slide 2">Rope Slide 2</button></li>
+</li><button class="btn" data-path="Games/Sand Game.html"><img class="imgg" src=" Imgs/Sand Game.png" alt=" Sand Game">Sand Game</button></li>
+</li><button class="btn" data-path="Games/Sausage Run.html"><img class="imgg" src=" Imgs/Sausage Run.png" alt=" Sausage Run">Sausage Run</button></li>
+</li><button class="btn" data-path="Games/Scratch Brawl 1.html"><img class="imgg" src=" Imgs/Scratch Brawl 1.png" alt=" Scratch Brawl 1">Scratch Brawl 1</button></li>
+</li><button class="btn" data-path="Games/Scratch Brawl 2.html"><img class="imgg" src=" Imgs/Scratch Brawl 2.png" alt=" Scratch Brawl 2">Scratch Brawl 2</button></li>
+</li><button class="btn" data-path="Games/Shuttle Deck.html"><img class="imgg" src=" Imgs/Shuttle Deck.png" alt=" Shuttle Deck">Shuttle Deck</button></li>
+</li><button class="btn" data-path="Games/Slime Ninja.html"><img class="imgg" src=" Imgs/Slime Ninja.png" alt=" Slime Ninja">Slime Ninja</button></li>
+</li><button class="btn" data-path="Games/Sling Drift.html"><img class="imgg" src=" Imgs/Sling Drift.png" alt=" Sling Drift">Sling Drift</button></li>
+</li><button class="btn" data-path="Games/Slope.html"><img class="imgg" src=" Imgs/Slope.png" alt=" Slope">Slope</button></li>
+</li><button class="btn" data-path="Games/Smove.html"><img class="imgg" src=" Imgs/Smove.png" alt=" Smove">Smove</button></li>
+</li><button class="btn" data-path="Games/Snail Platformer.html"><img class="imgg" src=" Imgs/Snail Platformer.png" alt=" Snail Platformer">Snail Platformer</button></li>
+</li><button class="btn" data-path="Games/Snow Rider 3D/index.html"><img class="imgg" src=" Imgs/Snow Rider 3D.png" alt=" Snow Rider 3D">Snow Rider 3D</button></li>
+</li><button class="btn" data-path="Games/Space Company/CLICK ME.html"><img class="imgg" src=" Imgs/Space Company.png" alt=" Space Company">Space Company</button></li>
+</li><button class="btn" data-path="Games/Space Garden.html"><img class="imgg" src=" Imgs/Space Garden.png" alt=" Space Garden">Space Garden</button></li>
+</li><button class="btn" data-path="Games/Space Huggers.html"><img class="imgg" src=" Imgs/Space Huggers.png" alt=" Space Huggers">Space Huggers</button></li>
+</li><button class="btn" data-path="Games/Stack.html"><img class="imgg" src=" Imgs/Stack.png" alt=" Stack">Stack</button></li>
+</li><button class="btn" data-path="Games/Stickman Climb 1.html"><img class="imgg" src=" Imgs/Stickman Climb 1.png" alt=" Stickman Climb 1">Stickman Climb 1</button></li>
+</li><button class="btn" data-path="Games/Stickman Climb 2.html"><img class="imgg" src=" Imgs/Stickman Climb 2.png" alt=" Stickman Climb 2">Stickman Climb 2</button></li>
+</li><button class="btn" data-path="Games/Stunt Cars 2/CLICK ME.html"><img class="imgg" src=" Imgs/Stunt Cars 2.png" alt=" Stunt Cars 2">Stunt Cars 2</button></li>
+</li><button class="btn" data-path="Games/Suika Game (Watermelon Game).html"><img class="imgg" src=" Imgs/Suika Game (Watermelon Game).png" alt=" Suika Game (Watermelon Game)">Suika Game (Watermelon Game)</button></li>
+</li><button class="btn" data-path="Games/Super Fowlest.html"><img class="imgg" src=" Imgs/Super Fowlest.png" alt=" Super Fowlest">Super Fowlest</button></li>
+</li><button class="btn" data-path="Games/Super Scratch Bros.html"><img class="imgg" src=" Imgs/Super Scratch Bros.png" alt=" Super Scratch Bros">Super Scratch Bros</button></li>
+</li><button class="btn" data-path="Games/Super Stickman Golf/CLICK ME.html"><img class="imgg" src=" Imgs/Super Stickman Golf.png" alt=" Super Stickman Golf">Super Stickman Golf</button></li>
+</li><button class="btn" data-path="Games/Tappy Tadpole.html"><img class="imgg" src=" Imgs/Tappy Tadpole.png" alt=" Tappy Tadpole">Tappy Tadpole</button></li>
+</li><button class="btn" data-path="Games/Tiny Fishing.html"><img class="imgg" src=" Imgs/Tiny Fishing.png" alt=" Tiny Fishing">Tiny Fishing</button></li>
+</li><button class="btn" data-path="Games/Temple Leap.html"><img class="imgg" src=" Imgs/Temple Leap.png" alt=" Temple Leap">Temple Leap</button></li>
+</li><button class="btn" data-path="Games/Terraria.html"><img class="imgg" src=" Imgs/Terraria.png" alt=" Terraria">Terarria</button></li>
+</li><button class="btn" data-path="Games/Territorial.io.html"><img class="imgg" src=" Imgs/Territorial.io.png" alt=" Territorial.io">Territorial.io</button></li>
+</li><button class="btn" data-path="Games/The Ninja 1.html"><img class="imgg" src=" Imgs/The Ninja 1.png" alt=" The Ninja 1">The Ninja 1</button></li>
+</li><button class="btn" data-path="Games/The Ninja 2.html"><img class="imgg" src=" Imgs/The Ninja 2.png" alt=" The Ninja 2">The Ninja 2</button></li>
+</li><button class="btn" data-path="Games/The Ninja 3.html"><img class="imgg" src=" Imgs/The Ninja 3.png" alt=" The Ninja 3">The Ninja 3</button></li>
+</li><button class="btn" data-path="Games/The Ninja 4.html"><img class="imgg" src=" Imgs/The Ninja 4.png" alt=" The Ninja 4">The Ninja 4</button></li>
+</li><button class="btn" data-path="Games/The Ninja 5.html"><img class="imgg" src=" Imgs/The Ninja 5.png" alt=" The Ninja 5">The Ninja 5</button></li>
+</li><button class="btn" data-path="Games/The Ninja Level Creator.html"><img class="imgg" src=" Imgs/The Ninja Level Creator.png" alt=" The Ninja Level Creator">The Ninja Level Creator</button></li>
+</li><button class="btn" data-path="Games/The Ninja Master.html"><img class="imgg" src=" Imgs/The Ninja Master.png" alt=" The Ninja Master">The Ninja Master</button></li>
+</li><button class="btn" data-path="Games/Time Shooter 2.html"><img class="imgg" src=" Imgs/Time Shooter 2.png" alt=" Time Shooter 2">Time Shooter 2</button></li>
+</li><button class="btn" data-path="Games/Time Shooter 3.html"><img class="imgg" src=" Imgs/Time Shooter 3.png" alt=" Time Shooter 3">Time Shooter 3</button></li>
+</li><button class="btn" data-path="Games/Tomb Of The Mask.html"><img class="imgg" src=" Imgs/Tomb Of The Mask.png" alt=" Tomb Of The Mask">Tomb Of The Mask</button></li>
+</li><button class="btn" data-path="Games/Tower Master/CLICK ME.html"><img class="imgg" src=" Imgs/Tower Master.png" alt=" Tower Master">Tower Master</button></li>
+</li><button class="btn" data-path="Games/Trimps/CLICK ME.html"><img class="imgg" src=" Imgs/Trimps.png" alt=" Trimps">Trimps</button></li>
+</li><button class="btn" data-path="Games/Tube Jumpers.html"><img class="imgg" src=" Imgs/Tube Jumpers.png" alt=" Tube Jumpers">Tube Jumpers</button></li>
+</li><button class="btn" data-path="Games/Tunnel Rush.html"><img class="imgg" src=" Imgs/Tunnel Rush.png" alt=" Tunnel Rush">Tunnel Rush</button></li>
+</li><button class="btn" data-path="Games/Twisted Mind.html"><img class="imgg" src=" Imgs/Twisted Mind.png" alt=" Twisted Mind">Twisted Mind</button></li>
+</li><button class="btn" data-path="Games/Water Sort.html"><img class="imgg" src=" Imgs/Water Sort.png" alt=" Water Sort">Water Sort</button></li>
+</li><button class="btn" data-path="Games/Wordle.html"><img class="imgg" src=" Imgs/Wordle.png" alt=" Wordle">Wordle</button></li>
+</li><button class="btn" data-path="Games/Worlds Hardest Game 2/CLICK ME.html"><img class="imgg" src=" Imgs/Worlds Hardest Game 2.png" alt=" Worlds Hardest Game 2">Worlds Hardest Game 2</button></li>
+</li><button class="btn" data-path="Games/xx142-b2.html"><img class="imgg" src=" Imgs/xx142-b2.exe.png" alt=" xx142-b2.exe">xx142-b2.exe</button></li>
+</div>
+
+<!-- Custom cursor element -->
+<div id="customCursor" style="position: absolute; pointer-events: none; width: 20px; height: 20px; border-radius: 50%; background-color: white; display: none; transform: translate(-50%, -50%); z-index: 100;"></div>
+
+<script>
+
+function toggleSearchBar() {
+    const searchWrapper = document.getElementById('searchWrapper');
+    searchWrapper.classList.toggle('show'); 
+}
+
+function myFunction() {
+    const searchBar = document.getElementById('myInput');
+    const filter = searchBar.value.toLowerCase(); 
+
+    console.log("Search text:", filter);
+}
+
+document.addEventListener('click', function(event) {
+
+    if (!searchIcon.contains(event.target) && !searchWrapper.contains(event.target)) {
+
+        searchWrapper.classList.remove('show');
+    }
+});
+
+</script>
+<script>
+
+const h6Containers = document.querySelectorAll('.h6-container');
+
+h6Containers.forEach((h6Container) => {
+
+    const btnContainer = h6Container.nextElementSibling;
+
+    const leftArrow = h6Container.querySelector('.left-arrow');
+    const rightArrow = h6Container.querySelector('.right-arrow');
+
+    btnContainer.scrollLeft = 0;
+
+    btnContainer.addEventListener('scroll', () => {
+        if (btnContainer.scrollLeft > 0) {
+            leftArrow.style.display = 'block'; 
+        } else {
+            leftArrow.style.display = 'none'; 
+        }
+    });
+
+    let clickCount = 0;
+    let clickTimer;
+
+    rightArrow.addEventListener('click', () => {
+        clickCount++;
+
+        if (clickCount === 1) {
+
+            clickTimer = setTimeout(() => {
+                btnContainer.scrollBy({
+                    left: 1000,
+                    behavior: 'smooth'
+                });
+                clickCount = 0; 
+            }, 300); 
+        } else if (clickCount === 2) {
+
+            clearTimeout(clickTimer); 
+            btnContainer.scrollBy({
+                left: 2000,
+                behavior: 'smooth'
+            });
+            clickCount = 0; 
+        } else if (clickCount === 3) {
+
+            clearTimeout(clickTimer); 
+            btnContainer.scrollBy({
+                left: 3000,
+                behavior: 'smooth'
+            });
+            clickCount = 0; 
+        }
+    });
+
+    leftArrow.addEventListener('click', () => {
+        clickCount++;
+
+        if (clickCount === 1) {
+
+            clickTimer = setTimeout(() => {
+                btnContainer.scrollBy({
+                    left: -1000,
+                    behavior: 'smooth'
+                });
+                clickCount = 0; 
+            }, 300); 
+        } else if (clickCount === 2) {
+
+            clearTimeout(clickTimer); 
+            btnContainer.scrollBy({
+                left: -2000,
+                behavior: 'smooth'
+            });
+            clickCount = 0; 
+        } else if (clickCount === 3) {
+
+            clearTimeout(clickTimer); 
+            btnContainer.scrollBy({
+                left: -3000,
+                behavior: 'smooth'
+            });
+            clickCount = 0; 
+        }
+    });
+
+    btnContainer.addEventListener('scroll', () => {
+        if (btnContainer.scrollLeft <= 0) {
+            btnContainer.scrollLeft = 0; 
+        }
+    });
+
+    leftArrow.style.display = 'none'; 
+});
+
+</script>
+<script>
+
+document.getElementById('savebutton').addEventListener('click', function() {
+
+  var pageHTML = document.documentElement.outerHTML;
+
+  var iframeContents = [];
+  var iframes = document.getElementsByTagName('iframe');
+  for (var i = 0; i < iframes.length; i++) {
+    iframeContents.push(iframes[i].contentDocument.documentElement.outerHTML);
+  }
+
+  var data = {
+    pageHTML: pageHTML,
+    iframeContents: iframeContents
+  };
+
+  var dataJSON = JSON.stringify(data);
+
+  var downloadLink = document.createElement('a');
+  downloadLink.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(dataJSON));
+  downloadLink.setAttribute('download', 'page_data.json');
+
+  document.body.appendChild(downloadLink);
+  downloadLink.click();
+  document.body.removeChild(downloadLink);
+});
+
+document.getElementById('uploadbutton').addEventListener('click', function() {
+
+  var fileInput = document.createElement('input');
+  fileInput.type = 'file';
+  fileInput.style.display = 'none';
+  document.body.appendChild(fileInput);
+
+  fileInput.addEventListener('change', function() {
+
+    var file = this.files[0];
+
+    var reader = new FileReader();
+    reader.onload = function(e) {
+
+      var data = JSON.parse(e.target.result);
+
+      document.documentElement.outerHTML = data.pageHTML;
+      var iframes = document.getElementsByTagName('iframe');
+      for (var i = 0; i < iframes.length; i++) {
+        iframes[i].contentDocument.documentElement.outerHTML = data.iframeContents[i];
+      }
+    };
+    reader.readAsText(file);
+
+    document.body.removeChild(fileInput);
+  });
+
+  fileInput.click();
+});
+
+window.addEventListener('load', function() {
+  document.getElementById('uploadbutton').click();
+});
+</script>
+
+<script>
+
+    function Bl() {
+        var x = document.getElementById("gameFrame");
+        x.style.backgroundColor = "black";
+    }
+
+    function HBC(url) {
+    const gameFrame = document.getElementById("gameFrame");
+    const fullscreenBtn = document.getElementById("fullscreenBtn");
+    const overlay = document.getElementById("overlayy");
+
+    gameFrame.style.display = "block"; 
+    gameFrame.src = url;               
+    fullscreenBtn.style.display = "block"; 
+    overlay.style.display = "block"; 
+
+    localStorage.setItem('lastClickedUrl', url);
+    localStorage.setItem('lastClickedGame', gameName);
+
+    disableScrolling();
+}
+
+    window.addEventListener('load', () => {
+        const savedUrl = localStorage.getItem('lastClickedUrl');
+        if (savedUrl) {
+            HBC(savedUrl); 
+        }
+    });
+
+    function toggleFullscreen() {
+        const iframe = document.getElementById("gameFrame");
+        if (document.fullscreenElement) {
+            document.exitFullscreen();
+        } else if (iframe.requestFullscreen) {
+            iframe.requestFullscreen();
+        } else if (iframe.mozRequestFullScreen) { 
+            iframe.mozRequestFullScreen();
+        } else if (iframe.webkitRequestFullscreen) { 
+            iframe.webkitRequestFullscreen();
+        } else if (iframe.msRequestFullscreen) { 
+            iframe.msRequestFullscreen();
+        }
+    }
+
+    document.addEventListener('mouseleave', () => {
+    customCursor.style.display = 'none'; 
+});
+
+document.addEventListener('mouseenter', () => {
+    customCursor.style.display = 'block'; 
+});
+
+    function hideContent() {
+        var gameFrame = document.getElementById("gameFrame");
+        gameFrame.style.display = "none"; 
+
+        var fullscreenBtn = document.getElementById("fullscreenBtn");
+        fullscreenBtn.style.display = "none"; 
+
+        var overlay = document.getElementById("overlay");
+        overlay.style.display = "none"; 
+
+        enableScrolling();
+    }
+
+    function disableScrolling() {
+        document.body.style.overflow = "hidden"; 
+    }
+
+    function enableScrolling() {
+        document.body.style.overflow = ""; 
+    }
+
+    document.querySelectorAll('.btn').forEach(function(button) {
+        button.addEventListener('click', function() {
+
+            window.scrollTo(0, 0);
+
+            disableScrolling();
+        });
+    });
+
+    function clearGameAutoOpen() {
+        localStorage.removeItem('lastClickedUrl');
+    }
+
+    const customCursor = document.getElementById('customCursor');
+    const spikes = document.getElementById('spikes');
+    let mouseX = 0;
+    let mouseY = 0;
+    let zoomFactor = 0.8; 
+
+    document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX / zoomFactor; 
+        mouseY = e.clientY / zoomFactor;
+        customCursor.style.display = 'block'; 
+    });
+
+    document.addEventListener('mouseleave', () => {
+        customCursor.style.display = 'none'; 
+    });
+
+    document.addEventListener('mouseenter', () => {
+        customCursor.style.display = 'block'; 
+    });
+
+    function updateCursor() {
+        customCursor.style.left = `${mouseX}px`;
+        customCursor.style.top = `${mouseY}px`;
+
+        const cursorRect = customCursor.getBoundingClientRect();
+        if (Math.abs(mouseX - cursorRect.left) > 10 || Math.abs(mouseY - cursorRect.top) > 10) {
+            customCursor.style.left = `${mouseX}px`;
+            customCursor.style.top = `${mouseY}px`;
+        }
+        requestAnimationFrame(updateCursor);
+    }
+    requestAnimationFrame(updateCursor);
+
+    const hoverElements = document.querySelectorAll('.nav-button');
+    hoverElements.forEach(element => {
+        element.addEventListener('mouseenter', () => {
+            spikes.classList.add('visible');
+        });
+        element.addEventListener('mouseleave', () => {
+            spikes.classList.remove('visible');
+        });
+    });
+
+    function myFunction() {
+        var input, filter, ul, li, a, i, txtValue, buttons, btnText, btnAlt;
+        input = document.getElementById('myInput');
+        filter = input.value.toUpperCase();
+        ul = document.getElementById("myUL");
+        li = ul.getElementsByTagName('li');
+
+        for (i = 0; i < li.length; i++) {
+            a = li[i].getElementsByTagName("a")[0];
+            txtValue = a ? (a.textContent || a.innerText) : "";
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                li[i].style.display = "";
+            } else {
+                li[i].style.display = "none";
+            }
+        }
+
+        buttons = document.querySelectorAll(".btn");
+        buttons.forEach(function(button) {
+            btnText = button ? (button.textContent || button.innerText) : "";
+            btnAlt = button.querySelector("img") ? button.querySelector("img").alt : "";
+            if (btnText.toUpperCase().indexOf(filter) > -1 || btnAlt.toUpperCase().indexOf(filter) > -1) {
+                button.style.display = "";
+            } else {
+                button.style.display = "none";
+            }
+        });
+    }
+</script>
+
+<script>
+    const buttons = document.querySelectorAll('.btn');
+    const searchBar = document.getElementById('myInput'); 
+    const arrowButtons = document.querySelectorAll('.scroll-arrow'); 
+    const h6Tags = document.querySelectorAll('h6'); 
+    const brTags = document.querySelectorAll('br'); 
+
+    let instantLoadTriggered = false; 
+
+    buttons.forEach((button, index) => {
+        button.style.animationDelay = `${index * 0.03}s`;
+    });
+
+    searchBar.addEventListener('input', () => {
+        if (searchBar.value.trim() !== '') {
+
+            buttons.forEach(button => {
+                button.style.animationDelay = '0s';
+            });
+            instantLoadTriggered = true;
+
+            arrowButtons.forEach(arrow => {
+                arrow.style.display = 'none'; 
+            });
+            h6Tags.forEach(h6 => {
+                h6.style.display = 'none'; 
+            });
+            brTags.forEach(br => {
+                br.style.display = 'none'; 
+            });
+        } else {
+
+            arrowButtons.forEach(arrow => {
+                arrow.style.display = 'block'; 
+            });
+            h6Tags.forEach(h6 => {
+                h6.style.display = 'block'; 
+            });
+            brTags.forEach(br => {
+                br.style.display = 'block'; 
+            });
+        }
+    });
+</script>
+<script>
+    window.addEventListener('DOMContentLoaded', (event) => {
+const savedBg = localStorage.getItem('bgColor');
+if (savedBg) {
+    document.body.style.backgroundImage = savedBg;
+}
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const containerClasses = ['btn-container', 'btnn-container', 'btnnn-container'];
+
+    containerClasses.forEach(containerClass => {
+        const buttonContainers = document.querySelectorAll(`.${containerClass}`);
+
+        buttonContainers.forEach(container => {
+            const buttons = container.querySelectorAll('.btn');
+
+            buttons.forEach(button => {
+                // Extract text without affecting images or other HTML content
+                const buttonName = button.textContent.trim();
+                
+                // Create a new span element
+                const span = document.createElement('span');
+                span.classList.add('button-text');
+                span.textContent = buttonName;
+                
+                // Append the span directly to the button without replacing innerHTML
+                button.appendChild(span);
+            });
+        });
+    });
+});
+
+</script>
+<script>
+document.querySelectorAll(".btn").forEach(button => {
+    button.addEventListener("click", function() {
+        const path = this.getAttribute("data-path");
+        const name = this.querySelector("span").innerText.trim();
+        
+        localStorage.setItem("lastClickedUrl", path);
+        localStorage.setItem("lastClickedGame", name);
+        window.location.href = "game.html";
+    });
+});
+</script>
+<script>
+    document.querySelectorAll('.btn').forEach(button => {
+        // Extract the game name from the data-path
+        let gamePath = button.getAttribute('data-path');
+        let gameName = gamePath.split('/')[2];  // Extract the game name after "
+        // Games/"
+    
+        // If the game name ends with .html, remove it
+        if (gameName.endsWith('.html')) {
+            gameName = gameName.replace('.html', '');
+        }
+    
+        // Find the span inside the button and set it as the button text
+        const span = button.querySelector('span');
+        span.textContent = gameName;
+    
+        // Dynamically create the image tag
+        const img = document.createElement('img');
+        img.classList.add('imgg');
+        img.src = `Imgs/${gameName}.png`;
+        img.alt = gameName;
+    
+        // Insert the image before the span inside the button
+        button.insertBefore(img, span);
+        
+        // Add click event
+        button.addEventListener('click', function() {
+            localStorage.setItem('lastClickedUrl', gamePath);
+            localStorage.setItem('lastClickedGame', gameName);
+            window.location.href = 'game.html';
+        });
+    });
+    </script>
+    
+</body>
+</html>

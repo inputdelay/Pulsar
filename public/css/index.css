@@ -3,9 +3,10 @@
     padding: 0;
     box-sizing: border-box;
 } 
+
 body {
     font-family: "Varela Round", sans-serif;
-    background-image: linear-gradient(315deg, #080ba3, black);
+    background: linear-gradient(135deg, #0f0063, #4e06a0, #b300ff);
     background-size: 200% 200%; 
     animation: gradAnimate 30s ease-in-out infinite; 
     color: #c0c0c0;
@@ -16,61 +17,6 @@ body {
     background-attachment: fixed;
     zoom: 0.8;
   }
-
-  @keyframes gradAnimate {
-    0% {
-      background-position: 0% 0%;
-    }
-    50% {
-      background-position: 30% 30%;
-    }
-    100% {
-      background-position: 0% 0%;
-    }
-  }
-  .pulsar {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background: transparent;
-    overflow: hidden;
-    z-index: -1;
-}
-
-.pulsar::before {
-    content: "";
-    position: absolute;
-    width: 300%;
-    height: 300%;
-    bottom: -25%;
-    left: -25%;
-    background: radial-gradient(circle, rgba(0, 81, 255, 0.3) 15%, transparent 25%);
-    animation: ripple 10s infinite linear;
-    opacity: 1.7;
-}
-
-@keyframes ripple {
-    0% {
-        transform: scale(0.6);
-        opacity: 0.7;
-    }
-    10% {
-        transform: scale(0.6);
-        opacity: 0.7;
-    }
-    50% {
-        transform: scale(6.5);
-        opacity: 0.4;
-    }
-    90% {
-        transform: scale(1.6);
-        opacity: 0.7;
-    }
-    100% {
-        transform: scale(0.6);
-        opacity: 0.7;
-    }
-}
 .top-bar {
     width: 100%;
     height: 8vh;
