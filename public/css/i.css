@@ -10,8 +10,7 @@
 }
 body {
 font-family: "Varela Round", sans-serif;
-background-image: linear-gradient(315deg, #080ba3, black);
-animation-name: gradAnimate;
+background-image: linear-gradient(135deg, #0f0063, #4e06a0, #b300ff);
 animation-duration: 10s;
 animation-iteration-count: infinite;
 animation-timing-function: ease;

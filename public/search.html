@@ -19,6 +19,10 @@
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/i.css">
 <style>
+    body, html {
+        background-image: none;
+        background-color: black;
+    }
             .iframe-container {
             position: absolute;
             width: 100%;
@@ -60,60 +64,6 @@
             </div>
         </div>
     </div>
-    <script>
-    const updropButton = document.querySelector('.updrop-button');
-    const updropMenu = document.querySelector('.updrop-menu');
-    const menuOptions = document.querySelectorAll('.updrop-menu li');
-    const pulsarDiv = document.querySelector('.pulsar');
-    const resetColorOption = document.getElementById('reset-color');
-    
-    updropButton.addEventListener('click', () => {
-        updropMenu.classList.toggle('active');
-    });
-    
-    menuOptions.forEach(option => {
-        option.addEventListener('click', () => {
-            if (option.id === 'reset-color') {
-                document.body.style.backgroundImage = 'none';
-                localStorage.removeItem('bgColor');
-                pulsarDiv.style.display = 'none';
-            } else {
-                const color = option.getAttribute('data-color');
-                if (color === 'black-gradient') {
-                    document.body.style.backgroundImage = 'linear-gradient(315deg, #080ba3, black)';
-                } else if (color === 'blue-gradient') {
-                    document.body.style.backgroundImage = 'linear-gradient(315deg, #00aaff, #0044cc)';
-                } else if (color === 'green-gradient') {
-                    document.body.style.backgroundImage = 'linear-gradient(315deg, #00cc66, #003300)';
-                } else if (color === 'red-gradient') {
-                    document.body.style.backgroundImage = 'linear-gradient(315deg, #ff0000, #8b0000)';
-                } else if (color === 'black-solid') {
-                    document.body.style.backgroundImage = 'linear-gradient(315deg, #000000, #000000)';
-                } else if (color === 'white-gradient') {
-                    document.body.style.backgroundImage = 'linear-gradient(315deg, #ffffff, #f0f0f0)';
-                } else if (color === 'yellow-gradient') {
-                    document.body.style.backgroundImage = 'linear-gradient(315deg, #ffff00, #ffcc00)';
-                } else if (color === 'orange-gradient') {
-                    document.body.style.backgroundImage = 'linear-gradient(315deg, #ff6600, #ff3300)';
-                } else if (color === 'blu-gradient') {
-                    document.body.style.backgroundImage = 'linear-gradient(315deg, #080ba3, black)';
-                }
-    
-                localStorage.setItem('bgColor', document.body.style.backgroundImage);
-                pulsarDiv.style.display = 'block';
-            }
-    
-            updropMenu.classList.remove('active'); // Close the menu after a selection
-        });
-    });
-    
-    document.addEventListener('click', (e) => {
-        if (!updropButton.contains(e.target) && !updropMenu.contains(e.target)) {
-            updropMenu.classList.remove('active'); // Close the menu if clicked outside
-        }
-    });
-    
-    </script>    
     <script>
     const color = option.getAttribute('data-color');
     
@@ -326,15 +276,6 @@ document.head.appendChild(style);
             });
         </script>
         
-    <script>
-        window.addEventListener('DOMContentLoaded', (event) => {
-    const savedBg = localStorage.getItem('bgColor');
-    if (savedBg) {
-        document.body.style.backgroundImage = savedBg;
-    }
-    });
-    
-    </script>
 <script>
  window.addEventListener("message", (event) => {
     if (event.origin === window.origin) {
