@@ -814,6 +814,16 @@ function toggleDivVisibility() {
     const menuOptions = document.querySelectorAll('.updrop-menu li');
     const pulsarDiv = document.querySelector('.pulsar');
 
+    document.addEventListener('DOMContentLoaded', () => {
+    const savedColor = localStorage.getItem('bgColor');
+
+    if (savedColor) {
+        document.body.style.backgroundImage = savedColor;
+    } else {
+        document.body.style.backgroundImage = 'linear-gradient(135deg, #0f0063, #4e06a0, #b300ff)';
+    }
+});
+
     updropButton.addEventListener('click', () => {
         updropMenu.classList.toggle('active');
     });
