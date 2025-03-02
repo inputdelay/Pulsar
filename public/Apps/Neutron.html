@@ -7,7 +7,12 @@
     <link rel="icon" href="neutron_logo.png" type="image/png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        body { margin: 0; overflow: hidden; background: black; display: flex; flex-direction: row; }
+        body { 
+            margin: 0; overflow: hidden; 
+            background: black; 
+            display: flex; flex-direction: row;
+            touch-action: none; 
+        }
         #navbar { 
             width: 100%; 
             height: 50px; 
@@ -32,6 +37,7 @@
             cursor: pointer; 
             border-radius: 5px; 
             transition: all 0.3s ease; 
+            touch-action: manipulation;
         }
         button:hover {
             background: #0051ff; 
@@ -58,7 +64,10 @@
             width: 100%;
             height: 100%;
         }
-        canvas { background: black; cursor: crosshair; }
+        canvas { 
+            background: black; cursor: crosshair; 
+            touch-action: none;
+        }
         
         .dropdown {
             position: relative;
