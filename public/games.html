@@ -49,25 +49,6 @@ body {
 </div>
 </br>
 </br>    <ul id="favoriteList"></ul>
-<script>
-window.onload = function () {
-    const favoriteList = document.getElementById("favoriteList");
-
-    for (let i = 0; i < localStorage.length; i++) {
-        const key = localStorage.key(i);
-        const isFavorited = localStorage.getItem(key) === 'true';
-
-        // Ensure it's a favorited game and doesn't contain unwanted words
-        if (isFavorited && !key.includes("-liked") && !key.includes("-disliked") && !key.includes("Settings") && !key.includes(".html")) {
-            const listItem = document.createElement("li");
-            listItem.textContent = key.replace("HTML Games/", ""); // Remove "HTML Games/" prefix if present
-            favoriteList.appendChild(listItem);
-        }
-    }
-};
-
-
-</script>
 </br>
 </br>
 </br>
@@ -1273,15 +1254,13 @@ document.addEventListener('DOMContentLoaded', function() {
             const buttons = container.querySelectorAll('.btn');
 
             buttons.forEach(button => {
-                // Extract text without affecting images or other HTML content
+
                 const buttonName = button.textContent.trim();
-                
-                // Create a new span element
+
                 const span = document.createElement('span');
                 span.classList.add('button-text');
                 span.textContent = buttonName;
-                
-                // Append the span directly to the button without replacing innerHTML
+
                 button.appendChild(span);
             });
         });
@@ -1294,7 +1273,7 @@ document.querySelectorAll(".btn").forEach(button => {
     button.addEventListener("click", function() {
         const path = this.getAttribute("data-path");
         const name = this.querySelector("span").innerText.trim();
-        
+
         localStorage.setItem("lastClickedUrl", path);
         localStorage.setItem("lastClickedGame", name);
         window.location.href = "game.html";
@@ -1303,30 +1282,24 @@ document.querySelectorAll(".btn").forEach(button => {
 </script>
 <script>
     document.querySelectorAll('.btn').forEach(button => {
-        // Extract the game name from the data-path
+
         let gamePath = button.getAttribute('data-path');
-        let gameName = gamePath.split('/')[2];  // Extract the game name after "
-        // Games/"
-    
-        // If the game name ends with .html, remove it
+        let gameName = gamePath.split('/')[2];  
+
         if (gameName.endsWith('.html')) {
             gameName = gameName.replace('.html', '');
         }
-    
-        // Find the span inside the button and set it as the button text
+
         const span = button.querySelector('span');
         span.textContent = gameName;
-    
-        // Dynamically create the image tag
+
         const img = document.createElement('img');
         img.classList.add('imgg');
         img.src = `Imgs/${gameName}.png`;
         img.alt = gameName;
-    
-        // Insert the image before the span inside the button
+
         button.insertBefore(img, span);
-        
-        // Add click event
+
         button.addEventListener('click', function() {
             localStorage.setItem('lastClickedUrl', gamePath);
             localStorage.setItem('lastClickedGame', gameName);
@@ -1355,13 +1328,30 @@ document.querySelectorAll(".btn").forEach(button => {
     if (!div.hasOwnProperty('originalDisplay')) {
         div.originalDisplay = div.style.display;
     }
-    
+
     if (div.offsetParent !== null) {
         div.style.display = 'none';
     } else {
         div.style.display = div.originalDisplay;
     }
 }
+    </script>
+<script>
+    window.onload = function () {
+        const favoriteList = document.getElementById("favoriteList");
+
+        for (let i = 0; i < localStorage.length; i++) {
+            const key = localStorage.key(i);
+            const isFavorited = localStorage.getItem(key) === 'true';
+
+            if (isFavorited && !key.includes("-liked") && !key.includes("-disliked") && !key.includes("Settings") && !key.includes(".html")) {
+                const listItem = document.createElement("li");
+                listItem.textContent = key.replace("HTML Games/", ""); 
+                favoriteList.appendChild(listItem);
+            }
+        }
+    };
+
     </script>
 </body>
 </html>
