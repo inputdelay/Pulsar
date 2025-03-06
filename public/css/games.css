@@ -27,7 +27,9 @@ ul, ol, li {
     margin: 0;
     padding: 0;
 }
-
+.category-container {
+    display: block;
+}
 h6 {
     color: #ffffff;
     margin-left: 40px;

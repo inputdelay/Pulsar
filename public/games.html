@@ -31,8 +31,8 @@ body {
 
 <h3 id="gameSection">
     <div class="nav-barr">
-        <i class="fa fa-search" id="searchIcon" onclick="toggleSearchBar()"></i>
-        <button id="Toggle">Toggle Categories</button>
+        <i class="fa fa-search" id="searchIcon" onclick="toggleSearchBar(); toggleeDivVisibility()"></i>
+        <button id="Toggle" onclick="toggleDivVisibility()">Toggle Categories</button>
         <div id="searchWrapper">
             <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for games...">
         </div>
@@ -71,6 +71,7 @@ window.onload = function () {
 </br>
 </br>
 </br>
+<div class="category-container">
 <div style="padding: 2px;"> </div>
 <div class="h6-container" style="position: relative;">
 <li><h6>Recommended</h6></li>
@@ -283,8 +284,6 @@ window.onload = function () {
 </li><button class="btn" data-path="Games/Volley Random/index.html"><img class="imgg" src="" alt="">Volley Random</button></li>
 </li><button class="btn" data-path="Games/Tube Jumpers.html"><img class="imgg" src="" alt="">Tube Jumpers</button></li>
 </li><button class="btn" data-path="Games/Boxing Random/index.html"><img class="imgg" src="" alt="">Boxing Random</button></li>
-
-</div>
 
 </div>
 
@@ -628,6 +627,7 @@ window.onload = function () {
 </div>
 </br>
 </br>
+</div>
 <div style="padding: 2px;"> </div>
 <div class="h6-container" style="position: relative;">
 <li><h6>All Games</h6></li>
@@ -1345,5 +1345,23 @@ document.querySelectorAll(".btn").forEach(button => {
     }
 });
 </script>
+<script>
+    function toggleDivVisibility() {
+        const div = document.querySelector('.category-container');
+        div.style.display = div.style.display === 'none' ? 'block' : 'none';
+    }
+    function toggleeDivVisibility() {
+    const div = document.querySelector('.category-container');
+    if (!div.hasOwnProperty('originalDisplay')) {
+        div.originalDisplay = div.style.display;
+    }
+    
+    if (div.offsetParent !== null) {
+        div.style.display = 'none';
+    } else {
+        div.style.display = div.originalDisplay;
+    }
+}
+    </script>
 </body>
 </html>
