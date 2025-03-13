@@ -12,6 +12,9 @@
 .btn-container {
     position: relative;
 }
+.favorite-container {
+    position: relative;
+}
 .btnn-container {
     position: relative;
 }
@@ -130,6 +133,9 @@ h6 {
 .btn-container::-webkit-scrollbar {
     display: none;
 }
+.favorite-container::-webkit-scrollbar {
+    display: none;
+}
 .btnn-container::-webkit-scrollbar {
     display: none;
 }
@@ -154,7 +160,18 @@ h6 {
     scrollbar-width: none;
     box-sizing: border-box;
 }
-
+.favorite-container {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    justify-content: flex-start;
+    padding: 10px 0;
+    gap: 0;
+    width: 100%;
+    scrollbar-width: none;
+    box-sizing: border-box;
+}
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
@@ -438,3 +455,32 @@ body::before {
     margin-top: 0;
     padding-top: 0;
 }
+.heart {
+    color: rgb(255, 255, 255);
+}
+
+#heartIcon {
+    position: absolute;
+    bottom: 8%;
+    right: 4%;
+    font-size: 24px;
+    z-index: -1;
+    pointer-events: none; /* Prevents the heart icon from being clicked when not hovered */
+  }
+  
+  .btn:hover #heartIcon {
+    z-index: 1;
+    pointer-events: auto; /* Allows the heart icon to be clickable when hovered */
+  }
+  .heartOverlay {
+    position: absolute;
+    bottom: 8%;
+    right: 4%;
+    width: 244px; /* Width of the clickable area */
+    height: 244px; /* Height of the clickable area */
+    z-index: 99999999; /* Ensure it covers the button */
+    background: transparent; /* Transparent layer covering the button */
+  }
+  .hearted {
+    color: rgb(0, 132, 255);
+  }
