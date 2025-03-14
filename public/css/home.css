@@ -17,7 +17,7 @@ body {
 }
 .updrop-container {
     position: absolute;
-    bottom: 52vh;
+    bottom: 50%;
     right: 31%;
     z-index: 9000;
 }
@@ -29,8 +29,9 @@ body {
     font-size: 26px;
     top: 20%;
     left: 50%;
-    width: 10%;
+    width: 8%;
     cursor: none;
+    border-radius: 15px;
 }
 .updrop-button {
     background-color: #00000000;
@@ -51,7 +52,7 @@ body {
 .updrop-menu {
     display: block;
     position: absolute;
-    bottom: 50px;
+    bottom: 0;
     right: 0;
     background-color: #000000;
     border-radius: 8px;

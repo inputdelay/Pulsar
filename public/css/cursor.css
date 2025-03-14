@@ -1,0 +1,99 @@
+.custom-cursor {
+    display: none; 
+    position: fixed;
+    width: 25px;
+    height: 35px;
+    background-color: rgba(0, 0, 0, 0.8); 
+    clip-path: polygon(0 0, 100% 50%, 0 80%); 
+    transform: translate(0%, 0%); 
+    pointer-events: none;
+    z-index: 9999999;
+    border-color: white;
+}
+
+.custom-cursor::after {
+    content: '';
+    position: absolute;
+    width: 20px; 
+    height: 30px; 
+    background-color: white; 
+    clip-path: polygon(0% 0%, 100% 50%, 0 80%); 
+    top: 2.2px; 
+    left: 1.4px; 
+    pointer-events: none;
+    z-index: 1; 
+}
+
+body:hover .custom-cursor {
+    display: block; 
+}
+.custom-cursor.style9 {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+.custom-cursor.style9::after {
+    background-color: #ffffff;
+}
+
+.custom-cursor.style1 {
+    background-color: rgba(255, 255, 0, 0.8);
+}
+
+.custom-cursor.style1::after {
+    background-color: gold;
+}
+
+.custom-cursor.style2 {
+    background-color: rgba(255, 140, 0, 0.8);
+}
+
+.custom-cursor.style2::after {
+    background-color: darkorange;
+}
+
+.custom-cursor.style3 {
+    background-color: rgba(255, 0, 0, 0.8);
+}
+
+.custom-cursor.style3::after {
+    background-color: darkred;
+}
+
+.custom-cursor.style4 {
+    background-color: rgba(128, 0, 128, 0.8);
+}
+
+.custom-cursor.style4::after {
+    background-color: #4B0082;
+}
+
+.custom-cursor.style5 {
+    background-color: rgba(0, 128, 0, 0.8);
+}
+
+.custom-cursor.style5::after {
+    background-color: darkgreen;
+}
+
+.custom-cursor.style6 {
+    background-color: rgba(0, 0, 255, 0.8);
+}
+
+.custom-cursor.style6::after {
+    background-color: darkblue;
+}
+
+.custom-cursor.style7 {
+    background-color: rgba(139, 69, 19, 0.8);
+}
+
+.custom-cursor.style7::after {
+    background-color: #5C3317;
+}
+
+.custom-cursor.style8 {
+    background-color: rgb(255, 255, 255);
+}
+
+.custom-cursor.style8::after {
+    background-color: #000000;
+}

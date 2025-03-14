@@ -155,43 +155,6 @@ body {
     margin: 0;
 }
 
-.custom-cursor {
-    display: none; 
-    position: fixed;
-    width: 25px;
-    height: 35px;
-    background-color: rgba(0, 0, 0, 0.8); 
-        clip-path: polygon(
-        0 0,        
-        100% 50%,   
-        0 80%       
-    ); 
-    transform: translate(0%, 0%); 
-    pointer-events: none;
-    z-index: 9999999;
-}
-
-.custom-cursor::after {
-    content: '';
-    position: absolute;
-    width: 20px; 
-    height: 30px; 
-    background-color: white; 
-    clip-path: polygon(
-        0% 0%,        
-        100% 50%,   
-        0 80%       
-    ); 
-    top: 2.2px; 
-    left: 1.4px; 
-    pointer-events: none;
-    z-index: 1; 
-}
-
-body:hover .custom-cursor {
-    display: block; 
-}
-
 .custom-dropdown {
     background-color: black;
     top: 0%;

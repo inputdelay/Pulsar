@@ -17,6 +17,7 @@
     <link rel="stylesheet" type="text/css" href="css/index.css">
     <link rel="stylesheet" type="text/css" href="css/home.css">
     <link rel="stylesheet" type="text/css" href="css/games.css">
+    <link rel="stylesheet" type="text/css" href="css/cursor.css">
 
 </head>
 <body>
@@ -141,7 +142,7 @@
         <span class="tooltiptext" id="tooltipText"></span>    
     </div>
     
-    <button class="setting-button" onclick="toggleDivVisibility()">
+    <button class="setting-button" onclick="toggleStyling1()">
     <i class="fas fa-cog"></i> 
 </button>
 </div>
@@ -149,10 +150,10 @@
 <!-- Div to Toggle -->
 <div class="containerrr" style="display: none;">
     <div class="blud-bar">
-        <button class="blud-button" onclick="toggleStyling()"><i class="fa-solid fa-square-pen"></i></a>
+        <button class="blud-button" onclick="toggleStyling2()"><i class="fa-solid fa-square-pen"></i></a>
     </div>
     <div class="blud-bar" style="bottom: 66%;">
-        <button class="blud-button" onclick="toggleStyling()"><i class="fa-solid fa-arrow-pointer"></i></a>
+        <button class="blud-button" onclick="toggleStyling2()"><i class="fa-solid fa-arrow-pointer"></i></a>
     </div>
     <div class="blud-line"></div>
     <div style="
@@ -165,7 +166,6 @@
     background-color: black; 
     border-radius: 4%;
     padding: 10px;
-    border: 1px solid;
 ">
 
 </div>
@@ -173,11 +173,12 @@
     <button class="settingpic"><img class="settingimgg" src="Imgs/Spacepic.png"></button>    
     <button class="settingpic" style="left: 55%"><img class="settingimgg" style="left: 55%" src="Imgs/Globbypic.png"></button>  
     <button class="settingpic" style="top: 40%"><img class="settingimgg" style="top: 40%" src="Imgs/Yellowglowpic.png"></button>    
-    <button class="settingpic" style="top: 40; left: 55%"><img class="settingimgg" style="top: 40%; left: 55%" src="Imgs/Dunespic.png"></button>    
+    <button class="settingpic" style="top: 40%; left: 55%"><img class="settingimgg" style="top: 40%; left: 55%" src="Imgs/Dunespic.png"></button>    
   
     <div class="updrop-container">
         <button class="updrop-button"><i class="fa-solid fa-square-pen"></i></button>
         <ul class="updrop-menu">
+            <li data-color="white-gradient" style="background: linear-gradient(white, gray);"></li>
             <li data-color="yellow-gradient" style="background: linear-gradient(yellow, gold);"></li>
             <li data-color="orange-gradient" style="background: linear-gradient(orange, darkorange);"></li>
             <li data-color="red-gradient" style="background: linear-gradient(red, darkred);"></li>
@@ -190,13 +191,51 @@
     </div>
     <input type="file" id="uploadButton" accept="image/*">
 
+    <div class="toggleStyling2" style="display: none;">
+        <div class="blud-bar">
+            <button class="blud-button" onclick="toggleStyling2()"><i class="fa-solid fa-square-pen"></i></button>
+        </div>
+        <div class="blud-bar" style="bottom: 66%;">
+            <button class="blud-button" onclick="toggleStyling2()"><i class="fa-solid fa-arrow-pointer"></i></button>
+        </div>
+        <div class="blud-line"></div>
+        <div style="position: absolute; top: 59%; left: 46%; transform: translate(-50%, -50%); align-content: center; text-align: center; background-color: black; border-radius: 4%; padding: 10px;">
+        </div>
+        <div class="the-set"> </div>
+        <button class="cursorpic" onclick="changeCursor('style1')"><img class="settingimgg" src="Imgs/Cursor1.png"></button>    
+        <button class="cursorpic" style="left: 55%" onclick="changeCursor('style2')"><img class="settingimgg" style="left: 55%" src="Imgs/Cursor2.png"></button>  
+        <button class="cursorpic" style="top: 40%" onclick="changeCursor('style3')"><img class="settingimgg" style="top: 40%" src="Imgs/Cursor3.png"></button>    
+        <button class="cursorpic" style="top: 40%; left: 55%" onclick="changeCursor('style4')"><img class="settingimgg" style="top: 40%; left: 55%" src="Imgs/Cursor4.png"></button>    
+        <div class="updrop-container">
+            <button class="updrop-button"><i class="fa-solid fa-square-pen"></i></button>
+            <ul class="updrop-menu">
+                <li onclick="changeCursor('style9')" style="background: linear-gradient(white, gray);"></li>
+                <li onclick="changeCursor('style1')" style="background: linear-gradient(yellow, gold);"></li>
+                <li onclick="changeCursor('style2')" style="background: linear-gradient(orange, darkorange);"></li>
+                <li onclick="changeCursor('style3')" style="background: linear-gradient(red, darkred);"></li>
+                <li onclick="changeCursor('style4')" style="background: linear-gradient(#800080, #4B0082);"></li>
+                <li onclick="changeCursor('style5')" style="background: linear-gradient(green, darkgreen);"></li>
+                <li onclick="changeCursor('style6')" style="background: linear-gradient(blue, darkblue);"></li>
+                <li onclick="changeCursor('style7')" style="background: linear-gradient(#8B4513, #5C3317);"></li>
+                <li onclick="changeCursor('style8')" style="background: black;"></li>
+            </ul>
+        </div>
+        
+        </div>
+        <input type="file" id="uploadButton" accept="image/*">
+    </div>
+    <div class="custom-cursor" id="customCursor"></div>
+    
 </div>
 <script>
-function toggleDivVisibility() {
+function toggleStyling1() {
     const div = document.querySelector('.containerrr');
     div.style.display = div.style.display === 'none' ? 'block' : 'none';
 }
-
+function toggleStyling2() {
+    const div = document.querySelector('.toggleStyling2');
+    div.style.display = div.style.display === 'none' ? 'block' : 'none';
+}
 </script>
 
 </div>
@@ -299,6 +338,9 @@ function toggleDivVisibility() {
                         break;
                     case 'yellow-gradient':
                         document.body.style.backgroundImage = 'linear-gradient(135deg, #f39c12, #ffb700, #e74c3c)';
+                        break;
+                    case 'white-gradient':
+                        document.body.style.backgroundImage = 'linear-gradient(135deg, #ffffff, #C0C0C0, #C0C0C0)';
                         break;
                     case 'orange-gradient':
                         document.body.style.backgroundImage = 'linear-gradient(135deg, #e74c3c, #f39c12, #ffbf00)';
@@ -971,6 +1013,29 @@ window.addEventListener('DOMContentLoaded', function() {
             });
         });
     </script>
-    
+    <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+    // Apply the saved cursor style from local storage on page load
+    const savedStyle = localStorage.getItem('cursorStyle');
+    if (savedStyle) {
+        changeCursor(savedStyle);
+    }
+
+    // Update cursor position
+    document.addEventListener('mousemove', (e) => {
+        const cursor = document.getElementById('customCursor');
+        cursor.style.left = e.pageX + 'px';
+        cursor.style.top = e.pageY + 'px';
+    });
+});
+
+// Function to change the cursor style and save it to local storage
+function changeCursor(style) {
+    const cursor = document.getElementById('customCursor');
+    cursor.className = 'custom-cursor ' + style;
+    localStorage.setItem('cursorStyle', style);
+}
+
+    </script>
 </body>
 </html>
