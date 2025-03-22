@@ -1,7 +1,11 @@
 
+<h1 align="center">Pulsar.</h1>
 
-# Pulsar.
-Faster, better, the future
+<p align="center">
+  <img src="Assets/PR.png" alt="Pulsar Logo" width="150">
+</p>
+
+<p align="center">Faster, better, the future</p>
 
 
 [![Join our Discord](https://invidget.switchblade.xyz/cnfk8Gbe)](https://discord.gg/cnfk8Gbe)
@@ -20,9 +24,13 @@ Faster, better, the future
 
 <div align="center">
   <a href="https://github.com/Yeti1o1/Pulsar/graphs/contributors">
-    <img src="https://contrib.rocks/image?repo=Yeti1o1/pulsar"/>
+    <img src="https://contrib.rocks/image?repo=Yeti1o1/pulsar" alt="Contributors"/>
   </a>
 </div>
+
+<p align="center">
+  Pulsar logo by <a href="https://agrumium.vercel.app/">Agrumium</a>
+</p>
 
 
 > [!IMPORTANT]
