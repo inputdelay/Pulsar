@@ -1,11 +1,9 @@
 
 <h1 align="center">Pulsar.</h1>
 
-<p align="center">
-  <img src="Assets/PR.png" alt="Pulsar Logo" width="150">
-</p>
 
-<p align="center">Faster, better, the future</p>
+
+<p align="center"><strong>Faster, better, the future</strong></p>
 
 
 [![Join our Discord](https://invidget.switchblade.xyz/cnfk8Gbe)](https://discord.gg/cnfk8Gbe)
