@@ -26,10 +26,6 @@
   </a>
 </div>
 
-<p align="center">
-  Pulsar logo by <a href="https://agrumium.vercel.app/">Agrumium</a>
-</p>
-
 
 > [!IMPORTANT]
 > Considering giving this repository a star if you do fork and use Pulsar. :)
