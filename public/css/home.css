@@ -510,7 +510,7 @@ body {
     background: #1d1c1c;
 }
 .containerrr {
-    z-index: 99999999;
+    z-index: 999999;
 }
 #fullscreenBtn {
     position: fixed;
