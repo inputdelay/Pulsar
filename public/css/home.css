@@ -349,8 +349,8 @@ body {
     white-space: nowrap; 
 }
 .nav-button {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     color: white;
     text-decoration: none;
     font-size: 1.2em;
@@ -385,8 +385,8 @@ body {
     border: none;
 }
 .app-button {
-    width: 90px;
-    height: 115px;
+    width: 95px;
+    height: 120px;
     color: white;
     text-decoration: none;
     justify-content: flex-start;
@@ -404,7 +404,8 @@ body {
     float: left;
     flex-direction: column;
     text-align: center;
-
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 @media (max-width: 95px) {
@@ -412,12 +413,21 @@ body {
         float: right;
     }
 }
+
 .app-button span {
     margin-top: auto;
     display: block;
-    height: 1.5em;
     font-weight: 5;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
 }
+
+
 .set-button {
     width: 50px;
     height: 50px;
@@ -436,8 +446,8 @@ body {
     z-index: 9999;
 }
 .sigma-button {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     color: white;
     text-decoration: none;
     font-size: 1.2em;
@@ -475,8 +485,8 @@ body {
 .setting-button {
     background-color: transparent;
     border: none;
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     color: rgb(255, 255, 255);
     text-decoration: none;
     font-size: 1.2em;
