@@ -13,18 +13,15 @@
 
 - Fast, Advanced & Powerful Web Proxy
 - Tons of apps
+- App grid and windowed style
 - Sleek & Clean UI
 - Search Bar
 - Games
+- Favoriting
+- Tabs
+- Customization
 - And a lot more features coming soon...
 
-## Credits:
-
-<div align="center">
-  <a href="https://github.com/Yeti1o1/Pulsar/graphs/contributors">
-    <img src="https://contrib.rocks/image?repo=Yeti1o1/pulsar" alt="Contributors"/>
-  </a>
-</div>
 
 
 > [!IMPORTANT]
