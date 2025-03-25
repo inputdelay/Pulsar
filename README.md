@@ -1,5 +1,5 @@
 
-<h1 align="center">Pulsar.</h1>
+<h1 align="center">Pulsar</h1>
 
 
 
