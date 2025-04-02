@@ -147,7 +147,28 @@
     <i class="fas fa-cog"></i> 
 </button>
 </div>
-
+<div class="Appa" style="display: none;">
+    <div class="the-setta"> </div>
+        <div class="appsa">
+            <a href="search.html" class="appa-button" id="0-"><img src="Imgs/Thebestlogo.png" alt="Search"><span>Search</span></a>
+            <a href="games.html" class="appa-button" id="2-"><img src="Imgs/Gamesicon.png" alt="Games"><span>Games</span></a>
+            <a href="ai.html" class="appa-button" id="3-"><img src="Imgs/AIicon.png" alt="Games"><span>Thunder-cloud AI</span></a>
+            <a href="Apps/Neutron.html" class="appa-button" id="4-"><img src="Imgs/Neutronicon.png"><span>Neutron</span></a>
+            <a href="Apps/Advanced Code Editor 1.html" class="appa-button" id="5-"><img src="Imgs/Advanced Code Editor 1icon.png" alt="Advanced Code Editor 1"><span>Advanced Code Editor 1</span></a>
+            <a href="Apps/Advanced Code Editor 2.html" class="appa-button" id="6-"><img src="Imgs/Advanced Code Editor 2icon.png" alt="Advanced Code Editor 2"><span>Advanced Code Editor 2</span></a>
+            <a href="Apps/Algebra Calculator.html" class="appa-button" id="7-"><img src="Imgs/Algebra Calculatoricon.png" alt="Algebra Calculator"><span>Algebra Calculator</span></a>
+            <a href="Apps/Simple Calculator.html" class="appa-button" id="8-"><img src="Imgs/Simple Calculatoricon.png" alt="Simple Calculator"><span>Simple Calculator</span></a>
+            <a href="Apps/Emulators/Emulator JS/Emulator JS.html" class="appa-button" id="9-"><img src="Imgs/Emulator JSicon.png" alt="Emulator JS"><span>Emulator JS</span></a>
+            <a href="Apps/HTML Unleashed/HTML Unleashed.html" class="appa-button" id="10-"><img src="Imgs/HTML Unleashedicon.png" alt="HTML Unleashed"><span>HTML Unleashed</span></a>
+            <a href="Apps/Ruffle/Ruffle.html" class="appa-button" id="11-"><img src="Imgs/Ruffleicon.png" alt="Ruffle"><span>Ruffle</span></a>
+            <a href="Apps/Turbowarp/Turbowarp.html" class="appa-button" id="12-"><img src="Imgs/Turbowarpicon.png" alt="Turbowarp"><span>Turbowarp</span></a>
+            <a href="Apps/Emulators/Emulator WebRetro/WebRetro.html" class="appa-button" id="13-"><img src="Imgs/Emulator WebRetroicon.png" alt="Emulator WebRetro"><span>WebRetro</span></a>
+            <a href="Apps/MiniWiki.html" class="appa-button" id="14-"><img src="Imgs/MiniWikiicon.png" alt="MiniWiki"><span>MiniWiki</span></a>
+            <a href="Apps/Wordle Bot/Wordle Bot.html" class="appa-button" id="15-"><img src="Imgs/Wordle Boticon.png" alt="Wordle Bot"><span>Wordle Bot</span></a>
+            <a href="Apps/Weavesilk/index.html" class="appa-button" id="16-"><img src="Imgs/Weavesilkicon.png" alt="Weavesilk"><span>Weavesilk</span></a>
+        
+        </div>
+</div>
 <!-- Div to Toggle -->
 <div class="containerrr" style="display: none;">
     <div class="blud-bar">
@@ -171,10 +192,10 @@
 
 </div>
     <div class="the-set"> </div>
-    <button class="settingpic"><img class="settingimgg" src="Imgs/Spacepic.png"></button>    
+    <button class="settingpicc" onclick="toggleBGoptions()"><img class="settingimgg" src="Imgs/Add More.png"></button>    
     <button class="settingpic" style="left: 55%"><img class="settingimgg" style="left: 55%" src="Imgs/Globbypic.png"></button>  
     <button class="settingpic" style="top: 40%"><img class="settingimgg" style="top: 40%" src="Imgs/Yellowglowpic.png"></button>    
-    <button class="settingpic" style="top: 40%; left: 55%"><img class="settingimgg" style="top: 40%; left: 55%" src="Imgs/Dunespic.png"></button>    
+    <button class="settingpic" style="top: 40%; left: 55%"><img class="settingimgg" style="top: 40%; left: 55%" src="Imgs/Spacepic.png"></button>    
   
     <div class="updrop-container">
         <button class="updrop-button"><i class="fa-solid fa-square-pen"></i></button>
@@ -191,11 +212,47 @@
         </ul>
     </div>
     <input type="file" id="uploadButton" accept="image/*">
+    <div class="toggleBGoptions" style="display: none;">
+        <div style="
+        position: absolute;
+        top: 0%; 
+        left: 0%; 
+        width: 100%;
+        height: 100%;
+        color: black;
+        align-content: center;
+        text-align: center; 
+        background-color: black; 
+        padding: 10px;
+        z-index: 9999;
+    ">
+    
+    </div>
+        <div style="z-index: 999999; position: relative;">
+            <button class="settingpic"><img class="settingimgg" src="Imgs/Spacepic.png"></button>    
+            <button class="settingpic" style="left: 5%"><img class="settingimgg" style="left: 5%" src="Imgs/Globbypic.png"></button>  
+            <button class="settingpic" style="top: 40%"><img class="settingimgg" style="top: 40%" src="Imgs/Yellowglowpic.png"></button>   
+            <button class="settingpic" style="top: 40%; left: 55%"><img class="settingimgg" style="top: 40%; left: 55%" src="Imgs/Dunespic.png"></button>  
+            
+            <button style="position: absolute; bottom: 40%; left: 50%; transform: translate(-50%, -50%); width: 40%; height: 70px; border-radius: 15px; background-color: white; border: none; font-size: 10rem; color: black; box-shadow: 0 4px 8px rgba(0,0,0,0.2);" onclick="toggleBGoptions()"></button>
 
-    <div class="toggleStyling2" style="display: none;">
-        <div class="blud-bar">
-            <button class="blud-button" onclick="toggleStyling2()"><i class="fa-solid fa-square-pen"></i></button>
         </div>
+    </div>
+    <div class="toggleStyling2" style="display: none;">
+        <div style="
+        position: absolute;
+        top: 39%; 
+        left: 46%; 
+        transform: translate(-50%, -50%);
+        align-content: center;
+        text-align: center; 
+        background-color: black; 
+        border-radius: 4%;
+        padding: 10px;
+    ">
+    
+    </div>
+                <button class="blud-button" onclick="toggleStyling2()"><i class="fa-solid fa-square-pen"></i></button>
         <div class="blud-bar" style="bottom: 66%;">
             <button class="blud-button" onclick="toggleStyling2()"><i class="fa-solid fa-arrow-pointer"></i></button>
         </div>
@@ -228,12 +285,20 @@
     
 </div>
 <script>
+function toggleAppaVisibility() {
+    const div = document.querySelector('.Appa');
+    div.style.display = div.style.display === 'none' ? 'block' : 'none';
+}
 function toggleStyling1() {
     const div = document.querySelector('.containerrr');
     div.style.display = div.style.display === 'none' ? 'block' : 'none';
 }
 function toggleStyling2() {
     const div = document.querySelector('.toggleStyling2');
+    div.style.display = div.style.display === 'none' ? 'block' : 'none';
+}
+function toggleBGoptions() {
+    const div = document.querySelector('.toggleBGoptions');
     div.style.display = div.style.display === 'none' ? 'block' : 'none';
 }
 </script>
@@ -487,10 +552,10 @@ function toggleStyling2() {
             let dynamicHeight = 0;
             if (window.innerHeight <= 900) {
 
-                dynamicHeight = window.innerHeight * 0.949;
+                dynamicHeight = window.innerHeight * 0.94;
             } else {
 
-                dynamicHeight = window.innerHeight * 0.949; 
+                dynamicHeight = window.innerHeight * 0.94; 
             }
 
             const adjustedHeight = dynamicHeight - sigmaBarHeight;
@@ -1003,8 +1068,7 @@ window.addEventListener('DOMContentLoaded', function() {
     
         document.querySelectorAll('.updrop-menu li').forEach(item => {
             item.addEventListener('click', function() {
-                const color = this.style.background;
-                localStorage.setItem('SavedBg', color); // Save the gradient/color to localStorage
+                const color = this.getAttribute('data-color'); localStorage.setItem('SavedBg', color);
                 document.body.style.background = color;
                 document.body.style.backgroundSize = '100% 100%';
                 document.body.style.backgroundRepeat = 'no-repeat';
@@ -1093,8 +1157,6 @@ function changeCursor(style) {
   
     window.addEventListener('load', restoreOrder);
   </script>
-  
-  
 
 </body>
 </html>

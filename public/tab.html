@@ -411,5 +411,108 @@ document.getElementById("reloadButton").addEventListener("click", function() {
 });
 
 </script>
+<script>
+    document.getElementById('uploadButton').addEventListener('change', function(event) {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const imageData = e.target.result;
+                localStorage.setItem('SavedBg', imageData);
+                document.body.style.backgroundImage = `url(${imageData})`;
+                document.body.style.backgroundSize = '100% 100%';
+                document.body.style.backgroundRepeat = 'no-repeat';
+                document.body.style.backgroundPosition = 'center center';
+                document.body.style.backgroundAttachment = 'fixed';
+            };
+            reader.readAsDataURL(file);
+        }
+    });
+
+    window.addEventListener('load', function() {
+        const savedImage = localStorage.getItem('SavedBg');
+        if (savedImage) {
+            document.body.style.backgroundImage = `url(${savedImage})`;
+            document.body.style.backgroundSize = '100% 100%';
+            document.body.style.backgroundRepeat = 'no-repeat';
+            document.body.style.backgroundPosition = 'center center';
+            document.body.style.backgroundAttachment = 'fixed';
+        }
+    });
+
+    document.querySelectorAll('.settingpic').forEach(button => {
+        button.addEventListener('click', function() {
+            const imageSrc = this.querySelector('.settingimgg').src;
+            if (imageSrc) {
+                localStorage.setItem('SavedBg', imageSrc); // Save the image to localStorage
+                document.body.style.backgroundImage = `url(${imageSrc})`;
+                document.body.style.backgroundSize = '100% 100%';
+                document.body.style.backgroundRepeat = 'no-repeat';
+                document.body.style.backgroundPosition = 'center center';
+                document.body.style.backgroundAttachment = 'fixed';
+            }
+        });
+    });
+</script>
+<script>
+document.getElementById('uploadButton').addEventListener('change', function(event) {
+    const file = event.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            const imageData = e.target.result;
+            localStorage.setItem('SavedBg', imageData);
+            document.body.style.backgroundImage = `url(${imageData})`;
+            document.body.style.backgroundSize = '100% 100%';
+            document.body.style.backgroundRepeat = 'no-repeat';
+            document.body.style.backgroundPosition = 'center center';
+            document.body.style.backgroundAttachment = 'fixed';
+        };
+        reader.readAsDataURL(file);
+    }
+});
+
+window.addEventListener('load', function() {
+    const savedBg = localStorage.getItem('SavedBg');
+    if (savedBg) {
+        if (savedBg.startsWith('url(')) {
+            document.body.style.backgroundImage = savedBg;
+        } else {
+            document.body.style.background = savedBg;
+        }
+        document.body.style.backgroundSize = '100% 100%';
+        document.body.style.backgroundRepeat = 'no-repeat';
+        document.body.style.backgroundPosition = 'center center';
+        document.body.style.backgroundAttachment = 'fixed';
+    }
+});
+
+document.querySelectorAll('.settingpic').forEach(button => {
+    button.addEventListener('click', function() {
+        const imageSrc = this.querySelector('.settingimgg').src;
+        if (imageSrc) {
+            const imageStyle = `url(${imageSrc})`;
+            localStorage.setItem('SavedBg', imageStyle); 
+            document.body.style.backgroundImage = imageStyle;
+            document.body.style.backgroundSize = '100% 100%';
+            document.body.style.backgroundRepeat = 'no-repeat';
+            document.body.style.backgroundPosition = 'center center';
+            document.body.style.backgroundAttachment = 'fixed';
+        }
+    });
+});
+
+document.querySelectorAll('.updrop-menu li').forEach(item => {
+    item.addEventListener('click', function() {
+        const color = this.getAttribute('data-color'); localStorage.setItem('SavedBg', color);
+        document.body.style.background = color;
+        document.body.style.backgroundSize = '100% 100%';
+        document.body.style.backgroundRepeat = 'no-repeat';
+        document.body.style.backgroundPosition = 'center center';
+        document.body.style.backgroundAttachment = 'fixed';
+    });
+});
+</script>
+
 </body>
 </html>
