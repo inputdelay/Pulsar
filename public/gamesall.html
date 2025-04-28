@@ -408,8 +408,6 @@ body::before {
         container.textContent = 'Failed to load games.';
       });
     </script>
-    
-    
 
         </div> <!-- Close categories-wrapper -->
 
@@ -422,9 +420,8 @@ body::before {
 
      <!-- --- Scripts --- -->
 
-    <!-- Utility: Debounce Function (Needs to be defined before used) -->
-    <script>
-        // Must be defined before it's used by other scripts
+     <script>
+        // --- Utility: Debounce Function ---
         function debounce(func, wait, immediate) {
           var timeout;
           return function() {
@@ -439,20 +436,17 @@ body::before {
             if (callNow) func.apply(context, args);
           };
         }
-      </script>
-
-      <!-- Utility: Get Button Name -->
-      <script>
+        </script>
+        
+        <script>
+        // --- Utility: Get Button Name ---
         function getButtonName(button) {
-           // Prioritize span.game-name text inside the info bar
            const spanText = button.querySelector('.game-info-bar .game-name')?.textContent.trim();
            if (spanText) return spanText;
-
-           // Fallback to img alt
+        
            const imgAlt = button.querySelector('.imgg')?.alt;
            if (imgAlt) return imgAlt;
-
-           // Fallback to text nodes directly inside the button (shouldn't exist with new structure)
+        
            let name = "";
            button.childNodes.forEach(node => {
              if (node.nodeType === Node.TEXT_NODE && node.textContent.trim() !== "") {
@@ -460,21 +454,86 @@ body::before {
              }
            });
            if (name) return name;
-
-           // Final fallback to data-path processing
+        
            const path = button.getAttribute('data-path');
            if (path) {
                let pathName = path.split('/').pop().split('.')[0].replace(/[-_]/g, ' ');
-               // Simple capitalization for path fallback
                return pathName.replace(/\b\w/g, l => l.toUpperCase());
            }
-
+        
            return 'Unknown Game';
         }
-      </script>
-
-      <!-- Core Logic Function Definitions -->
-      <script>
+        </script>
+        
+        <script>
+        // --- Save and Remove Favorites ---
+        function saveFavorite(button) {
+            const gameId = button.dataset.gameId;
+            let favorites = JSON.parse(localStorage.getItem('favoriteGames')) || [];
+        
+            if (!favorites.includes(gameId)) {
+                favorites.push(gameId);
+                localStorage.setItem('favoriteGames', JSON.stringify(favorites));
+            }
+        }
+        
+        function removeFavorite(button) {
+            const gameId = button.dataset.gameId;
+            let favorites = JSON.parse(localStorage.getItem('favoriteGames')) || [];
+        
+            favorites = favorites.filter(id => id !== gameId);
+            localStorage.setItem('favoriteGames', JSON.stringify(favorites));
+        }
+        </script>
+        
+        <script>
+        // --- Load Favorites on Page Load ---
+        function loadFavorites() {
+            const favoritesContainer = document.querySelector("#favoritesSection .favorite-container");
+            const favoritesSection = document.getElementById("favoritesSection");
+            const savedFavorites = JSON.parse(localStorage.getItem('favoriteGames')) || [];
+        
+            if (savedFavorites.length === 0) {
+                favoritesSection.style.display = "none";
+                return;
+            }
+        
+            fetch('games.html').then(res => res.text()).then(htmlText => {
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(htmlText, 'text/html');
+        
+                savedFavorites.forEach(gameId => {
+                    const button = doc.querySelector(`button[data-game-id="${gameId}"]`);
+                    if (button) {
+                        const clonedButton = button.cloneNode(true);
+        
+                        const heartIcon = clonedButton.querySelector('.heart-icon');
+                        if (heartIcon) {
+                            heartIcon.classList.add('hearted');
+                            heartIcon.addEventListener('click', event => {
+                                event.stopPropagation();
+                                removeFavorite(clonedButton);
+                                clonedButton.remove();
+                                if (favoritesContainer.children.length === 0) {
+                                    favoritesSection.style.display = "none";
+                                }
+                            });
+                        }
+        
+                        favoritesContainer.appendChild(clonedButton);
+                    }
+                });
+        
+                favoritesSection.style.display = "";
+            }).catch(() => {
+                favoritesContainer.innerHTML = 'Failed to load favorites.';
+            });
+        }
+        
+        document.addEventListener("DOMContentLoaded", loadFavorites);
+        </script>
+        
+<script>
         // Define functions needed by event listeners
 
         // --- Scroll Arrow Logic Definition ---

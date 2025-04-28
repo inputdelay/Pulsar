@@ -6,7 +6,7 @@
 
 body {
     font-family: "Varela Round", sans-serif;
-    background: linear-gradient(135deg, #0f0063, #4e06a0, #b300ff);
+    --dynamic-background: linear-gradient(135deg, #0f0063, #4e06a0, #b300ff); /* Default */
     background-size: 200% 200%; 
     animation: gradAnimate 30s ease-in-out infinite; 
     color: #c0c0c0;

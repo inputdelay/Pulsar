@@ -1974,7 +1974,7 @@ Game.Launch=function()
 		Game.wrapper=l('wrapper');
 		Game.bounds=0;//rectangle defining screen limits (right,left,bottom,top) updated every logic frame
 		
-		TopBarOffset=0;
+		TopBarOffset=32;
 		if (!App) Game.wrapper.classList.add('onWeb');
 		else {Game.wrapper.classList.add('offWeb');TopBarOffset=0;}
 		
@@ -2348,9 +2348,9 @@ Game.Launch=function()
 					else
 					{
 						X=rect.left+(rect.right-rect.left)/2-width/2-8;
-						Y=rect.top-height-16;
+						Y=rect.top-height-TopBarOffset-16;
 						X=Math.max(0,Math.min(Game.windowW-width-16,X));
-						if (Y<0) Y=rect.bottom;
+						if (Y<0) Y=rect.bottom-TopBarOffset;
 					}
 				}
 				else if (this.origin=='bottom-right')
@@ -2540,7 +2540,21 @@ Game.Launch=function()
 			{
 				Game.showLangSelection();
 			});
-		
+			
+			Game.attachTooltip(l('topbarOrteil'),'<div style="padding:8px;width:250px;text-align:center;">Back to Orteil\'s subdomain!<br>Lots of other games in there!</div>'+tinyIcon([17,5],'display:block;margin:-12px auto;'),'this');
+			Game.attachTooltip(l('topbarDashnet'),'<div style="padding:8px;width:250px;text-align:center;">Back to our homepage!</div>','this');
+			Game.attachTooltip(l('topbarTwitter'),'<div style="padding:8px;width:250px;text-align:center;">Orteil\'s twitter, which frequently features game updates.</div>','this');
+			Game.attachTooltip(l('topbarTumblr'),'<div style="padding:8px;width:250px;text-align:center;">Orteil\'s tumblr, which frequently features game updates.</div>','this');
+			Game.attachTooltip(l('topbarDiscord'),'<div style="padding:8px;width:250px;text-align:center;">Our official discord server.<br>You can share tips and questions about Cookie Clicker and all our other games!</div>','this');
+			Game.attachTooltip(l('topbarPatreon'),'<div style="padding:8px;width:250px;text-align:center;">Support us on Patreon and help us keep updating Cookie Clicker!<br>There\'s neat rewards for patrons too!</div>','this');
+			Game.attachTooltip(l('topbarMerch'),'<div style="padding:8px;width:250px;text-align:center;">Cookie Clicker shirts, hoodies and stickers!</div>','this');
+			Game.attachTooltip(l('topbarMobileCC'),'<div style="padding:8px;width:250px;text-align:center;">Play Cookie Clicker on your phone!<br>(Android only; iOS version will be released later)</div>','this');
+			Game.attachTooltip(l('topbarSteamCC'),'<div style="padding:8px;width:250px;text-align:center;">Get Cookie Clicker on Steam!<br>Featuring music by C418.</div>','this');
+			Game.attachTooltip(l('topbarRandomgen'),'<div style="padding:8px;width:250px;text-align:center;">A thing we made that lets you write random generators.</div>','this');
+			Game.attachTooltip(l('topbarIGM'),'<div style="padding:8px;width:250px;text-align:center;">A thing we made that lets you create your own idle games using a simple scripting language.</div>','this');
+			l('changeLanguage').innerHTML=loc("Change language");
+			l('links').childNodes[0].nodeValue=loc("Other versions");
+			//l('linkVersionBeta').innerHTML=loc("Beta");
 		}
 		
 		Game.attachTooltip(l('heralds'),function(){
@@ -4496,7 +4510,7 @@ Game.Launch=function()
 			
 			if (!silent)
 			{
-				var rect=l('lumpsIcon2').getBounds();Game.SparkleAt((rect.left+rect.right)/2,(rect.top+rect.bottom)/2-24+32);
+				var rect=l('lumpsIcon2').getBounds();Game.SparkleAt((rect.left+rect.right)/2,(rect.top+rect.bottom)/2-24+32-TopBarOffset);
 				if (total>0) Game.Popup('<small>+'+loc("%1 sugar lump",LBeautify(total))+'</small>',(rect.left+rect.right)/2,(rect.top+rect.bottom)/2-48);
 				else Game.Popup('<small>'+loc("Botched harvest!")+'</small>',(rect.left+rect.right)/2,(rect.top+rect.bottom)/2-48);
 				PlaySound('snd/pop'+Math.floor(Math.random()*3+1)+'.mp3',0.75);
@@ -6621,8 +6635,6 @@ Game.Launch=function()
 							'<br>'+
 							(App?Game.WritePrefButton('bgMusic','bgMusicButton',loc("Music in background")+ON,loc("Music in background")+OFF,'')+'<label>('+loc("music will keep playing even when the game window isn't focused")+')</label><br>':'')+
 							(App?Game.WritePrefButton('fullscreen','fullscreenButton',loc("Fullscreen")+ON,loc("Fullscreen")+OFF,'Game.ToggleFullscreen();')+'<br>':'')+
-							Game.WritePrefButton('cheat','cheatToggle',loc("Cheat menu")+ON,loc("Cheat menu")+OFF,'Game.OpenSesame();')+'<label>('+loc("enable the cheat menu that you usually get by adding saysopensesame to your name, only way to turn it off is by refreshing :D")+')</label><br>'+
-							Game.WritePrefButton('mod','modMenu',loc("Mod Menu"),loc("Mod Menu"),'Game.ModMenu();')+'<label>('+loc("wip, will be a menu to add a bunch of mods")+')</label><br>'+
 							Game.WritePrefButton('fancy','fancyButton',loc("Fancy graphics")+ON,loc("Fancy graphics")+OFF,'Game.ToggleFancy();')+'<label>('+loc("visual improvements; disabling may improve performance")+')</label><br>'+
 							Game.WritePrefButton('filters','filtersButton',loc("CSS filters")+ON,loc("CSS filters")+OFF,'Game.ToggleFilters();')+'<label>('+(EN?'cutting-edge visual improvements; disabling may improve performance':loc("visual improvements; disabling may improve performance"))+')</label><br>'+
 							Game.WritePrefButton('particles','particlesButton',loc("Particles")+ON,loc("Particles")+OFF)+(EN?'<label>(cookies falling down, etc; disabling may improve performance)</label>':'')+'<br>'+
@@ -8095,7 +8107,7 @@ Game.Launch=function()
 					if (!free) PlaySound('snd/upgrade.mp3',0.6);
 					Game.LoadMinigames();
 					me.refresh();
-					if (l('productLevel'+me.id)){var rect=l('productLevel'+me.id).getBounds();Game.SparkleAt((rect.left+rect.right)/2,(rect.top+rect.bottom)/2-24+32);}
+					if (l('productLevel'+me.id)){var rect=l('productLevel'+me.id).getBounds();Game.SparkleAt((rect.left+rect.right)/2,(rect.top+rect.bottom)/2-24+32-TopBarOffset);}
 					if (me.minigame && me.minigame.onLevel) me.minigame.onLevel(me.level);
 				},free)();};
 			}(this);
@@ -14747,7 +14759,7 @@ Game.Launch=function()
 				
 				Game.ToggleSpecialMenu(1);
 				
-				if (l('specialPic')){var rect=l('specialPic').getBounds();Game.SparkleAt((rect.left+rect.right)/2,(rect.top+rect.bottom)/2)+32;}
+				if (l('specialPic')){var rect=l('specialPic').getBounds();Game.SparkleAt((rect.left+rect.right)/2,(rect.top+rect.bottom)/2)+32-TopBarOffset;}
 				
 				if (Game.santaLevel>=6) Game.Win('Coming to town');
 				if (Game.santaLevel>=14) Game.Win('All hail Santa');
@@ -14920,7 +14932,7 @@ Game.Launch=function()
 				
 				if (Game.dragonLevel>=Game.dragonLevels.length-1) Game.Win('Here be dragon');
 				Game.ToggleSpecialMenu(1);
-				if (l('specialPic')){var rect=l('specialPic').getBounds();Game.SparkleAt((rect.left+rect.right)/2,(rect.top+rect.bottom)/2)+32;}
+				if (l('specialPic')){var rect=l('specialPic').getBounds();Game.SparkleAt((rect.left+rect.right)/2,(rect.top+rect.bottom)/2)+32-TopBarOffset;}
 				Game.recalculateGains=1;
 				Game.upgradesToRebuild=1;
 			}
@@ -16027,15 +16039,7 @@ Game.Launch=function()
 			Game.Achievements['Cheated cookies taste awful'].won=1;
 		}
 		
-		Game.ModMenu=function()
-		{
-			Game.modURL = ["mods/CookieMonster.js", "mods/BlackHoleInverter.js"]
-			Game.Prompt('<id ModMenu><h3>'+loc("Select a mod!")+'</h3><div class="block">'+loc("Here are a list of mods built into Selenite's Cookie Clicker. If you're curious about a mod, just look it up.")+'</div>' + 
-			Game.WritePrefButton('mod0','mod0',loc("Cookie Monster"),loc("Cookie Monster"),'Game.LoadMod(Game.modURL[0]);')+'<label>('+loc("Displays very useful data about your game")+')</label><br>'+'<br>'+
-			Game.WritePrefButton('mod1','mod1',loc("Black Hole Inverter"),loc("Black Hole Inverter"),'Game.LoadMod(Game.modURL[1]);')+'<label>('+loc("New building and achievements")+')</label><br>'+'<br>'
-		,[loc("All done!")
-		]);//prompt('Copy this text and keep it somewhere safe!',Game.WriteSave(1));
-		}
+		
 		Game.loadAscendCalibrator=function()
 		{
 			Game.loadAscendCalibrator=0;
@@ -16523,6 +16527,9 @@ Game.Launch=function()
 		
 		if (Game.T%(Game.fps*2)==0)
 		{
+			var title='Cookie Clicker';
+			if (Game.season=='fools') title='Cookie Baker';
+			document.title=(Game.OnAscend?(EN?'Ascending! ':(loc("Ascending")+' | ')):'')+loc("%1 cookie",LBeautify(Game.cookies))+' - '+title;
 		}
 		if (Game.T%15==0)
 		{

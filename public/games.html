@@ -356,7 +356,11 @@ body::before {
                    <i class="fa fa-search"></i>
                 </button>
             </div>
-            <a href="gamesall.html?category=all" style="text-decoration: none;"class="toggle-categories-btn">Hide Categories</a>
+            <a href="games.html" style="text-decoration: none;" class="toggle-categories-btn" hidden>View All Games</a>
+
+            <a href="gamesall.html?category=all" style="text-decoration: none;" class="toggle-categories-btn">Hide Categories</a>
+                 
+        
         </section>
 
         <!-- Container for Categories -->
@@ -365,8 +369,8 @@ body::before {
             <!-- Favorited Games Section (Correctly Placed) -->
             <section class="game-category favorites-section" id="favoritesSection" style="display: none;">
                  <div class="category-header">
-                    <h6><i class="fas fa-heart"></i> Favorited Games <a href="gamesall.html?category=favorited" style="text-decoration: none;"class="toggle-all-btn">View All</a></h6>
-                    <div class="scroll-arrows">
+                    <h6><i class="fas fa-heart"></i> Favorited Games <a href="#" style="text-decoration: none;" class="toggle-all-btn" onclick="showFavoritedGames(event)">View All</a></h6>
+                                          <div class="scroll-arrows">
                         <button class="scroll-arrow left-arrow" aria-label="Scroll Left"><i class="fas fa-angle-left"></i></button>
                         <button class="scroll-arrow right-arrow" aria-label="Scroll Right"><i class="fas fa-angle-right"></i></button>
                     </div>
@@ -379,6 +383,7 @@ body::before {
                 </div>
             </section>
 
+<div id="bigDivToHide">
  <!-- All Games Section -->
  <section class="game-category all-games-section">
     <div class="category-header">
@@ -394,7 +399,6 @@ body::before {
         <button class="btn" data-path="Games/1v1 Soccer/index.html" data-game-id="fav-Games-1v1-Soccer-index-html"><img class="imgg" src="Imgs/1v1 Soccer.png" alt="1v1 Soccer"><div class="game-info-bar"><span class="game-name">1v1 Soccer</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/2D Rocket League/index.html" data-game-id="fav-Games-2D-Rocket-League-index-html"><img class="imgg" src="Imgs/2D Rocket League.png" alt="2D Rocket League"><div class="game-info-bar"><span class="game-name">2D Rocket League</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/Shoot Out Reloaded/index.html" data-game-id="fav-Games-Shoot-Out-Reloaded-index-html"><img class="imgg" src="Imgs/Shoot Out Reloaded.png" alt="Shoot Out Reloaded"><div class="game-info-bar"><span class="game-name">Shoot Out Reloaded</span></div><i class="fa fa-heart heart-icon"></i></button>
-        <button class="btn" data-path="Games/2D Rocket League/index.html" data-game-id="fav-Games-2D-Rocket-League-index-html"><img class="imgg" src="Imgs/2D Rocket League.png" alt="2D Rocket League"><div class="game-info-bar"><span class="game-name">2D Rocket League</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/2048/index.html" data-game-id="fav-Games-2048-index-html"><img class="imgg" src="Imgs/2048.png" alt="2048"><div class="game-info-bar"><span class="game-name">2048</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/2048 9007199254740992/index.html" data-game-id="fav-Games-2048-9007199254740992-index-html"><img class="imgg" src="Imgs/2048 9007199254740992.png" alt="2048 9007199254740992"><div class="game-info-bar"><span class="game-name">2048 9007199254740992</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/2048 Couch/index.html" data-game-id="fav-Games-2048-Couch-index-html"><img class="imgg" src="Imgs/2048 Couch.png" alt="2048 Couch"><div class="game-info-bar"><span class="game-name">2048 Couch</span></div><i class="fa fa-heart heart-icon"></i></button>
@@ -1170,7 +1174,7 @@ body::before {
     </div>
     </div>
 </section>
-
+</div>
 
 
         </div> <!-- Close categories-wrapper -->
@@ -2004,6 +2008,51 @@ function debounce(func, wait) {
         });
         // console.log("Particles.js initialized successfully."); // DEBUG
       </script>
+<script>
+function showFavoritedGames(event) {
+  event.preventDefault();
 
+  // Hide the big div
+  const bigDiv = document.getElementById('bigDivToHide');
+  if (bigDiv) bigDiv.style.display = 'none';
+
+  // Hide the "View All" button inside favorites header
+  const clickedLink = event.currentTarget;
+  if (clickedLink) clickedLink.style.display = 'none';
+
+  // Hide all other categories except favorites
+  const categoriesWrapper = document.getElementById('categoriesWrapper');
+  if (categoriesWrapper) {
+    categoriesWrapper.querySelectorAll('section.game-category').forEach(section => {
+      if (!section.classList.contains('favorites-section')) {
+        section.style.display = 'none';
+      }
+    });
+  }
+
+  // Hide the scroll arrows inside favorites section
+  const favoritesSection = document.querySelector('section.favorites-section');
+  if (favoritesSection) {
+    favoritesSection.querySelectorAll('.scroll-arrows').forEach(arrowDiv => {
+      arrowDiv.style.display = 'none';
+    });
+
+    // Change favorites btn-container class to btnnn-container
+    const btnContainer = favoritesSection.querySelector('.btn-container');
+    if (btnContainer) {
+      btnContainer.classList.remove('btn-container');
+      btnContainer.classList.add('btnnn-container');
+    }
+  }
+
+  // Switch toggle buttons visibility
+  const viewAllBtn = document.querySelector('.toggle-categories-btn[href="games.html"]'); // "View All Games" button
+  const hideCategoriesBtn = document.querySelector('.toggle-categories-btn[href="gamesall.html?category=all"]'); // "Hide Categories" button
+
+  if (viewAllBtn) viewAllBtn.hidden = false;  // Show "View All Games"
+  if (hideCategoriesBtn) hideCategoriesBtn.hidden = true; // Hide "Hide Categories"
+}
+
+</script>
   </body>
   </html>

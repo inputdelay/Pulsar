@@ -52,6 +52,29 @@
         z-index: -11;
         pointer-events: none; /* Allow clicks through the overlay */
       }
+      .settings-active .apps {
+    z-index: 0; /* Move apps behind the settings panel */
+    pointer-events: none; /* Disable clicks on apps when settings are open */
+}
+.settings-active .containerrr {
+     z-index: 10; /* Bring settings panel to the front */
+     pointer-events: auto; /* Ensure settings are clickable */
+}
+.containerrr {
+    display: none;
+}
+#particles-js {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -10; /* Keep particles behind everything */
+      }
+      .hub-container {
+          position: relative; /* Needed for children z-index context */
+          z-index: 1; /* Ensure content is above particles initially */
+      }
 </style>
 </head>
 <body>
@@ -91,6 +114,45 @@
       </a>
             
 </div>
+<!-- Cookie Consent Banner -->
+<div id="cookieConsent" style="
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #222;
+  color: white;
+  padding: 15px;
+  text-align: center;
+  font-family: sans-serif;
+  z-index: 10000;
+">
+  This website uses cookies to improve your experience. By continuing to use the site, you accept our use of cookies.
+  <button id="acceptCookiesBtn" style="
+    margin-left: 15px;
+    background: #4caf50;
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-weight: bold;
+  ">Accept</button>
+</div>
+
+<script>
+  const cookieBanner = document.getElementById('cookieConsent');
+  const acceptBtn = document.getElementById('acceptCookiesBtn');
+
+  // Check if user already accepted
+  if (localStorage.getItem('cookiesAccepted') === 'true') {
+    cookieBanner.style.display = 'none';
+  }
+
+  acceptBtn.addEventListener('click', () => {
+    localStorage.setItem('cookiesAccepted', 'true');
+    cookieBanner.style.display = 'none';
+  });
+</script>
 
 <div class="nav-bar">
     <a href="search.html" class="nav-button"><i class="fa-solid fa-globe"></i></a>
