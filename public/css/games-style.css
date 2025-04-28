@@ -53,7 +53,7 @@ body::before {
     position: fixed;
     width: 100%;
     z-index: 100;
-    background: rgba(0, 0, 0, 0.7); /* Consistent background */
+    background: rgba(105, 91, 91, 0.7); /* Consistent background */
     border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Consistent border */
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Consistent shadow */
 
@@ -139,7 +139,7 @@ main.hub-container {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 30px;
-    padding: 15px;
+    padding: 8px;
     background: rgba(30, 30, 30, 0.5);
     border-radius: 8px;
     backdrop-filter: blur(5px);
@@ -480,11 +480,14 @@ main.hub-container {
 
 /* Keep Favorites Section Styling */
 .favorites-section {
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(0, 0, 0, 0.456);
     padding: 20px;
     border-radius: 8px;
     margin-bottom: 40px;
-    /* display: none; -- Controlled by JS */
+    background: rgba(30, 30, 30, 0.5);
+    border-radius: 8px;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
 }
 
 /* Message for no search results */
