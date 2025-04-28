@@ -19,6 +19,8 @@
     <link rel="stylesheet" type="text/css" href="css/games.css">
     <link rel="stylesheet" type="text/css" href="css/cursor.css">
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4207227785539100"
+    crossorigin="anonymous"></script>
 <style>
 
 #particles-js {
@@ -33,7 +35,23 @@
           position: relative; /* Needed for particles z-index */
           z-index: 1; /* Ensure content is above particles */
       }
-
+      body {
+        overflow-x: hidden;
+        position: relative;
+        background: linear-gradient(135deg, #0f0063, #4e06a0, #b300ff) !important; /* Consistent dark background */
+      }
+      /* Dark overlay - adds subtle depth */
+      body::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5); /* Adjusted opacity */
+        z-index: -11;
+        pointer-events: none; /* Allow clicks through the overlay */
+      }
 </style>
 </head>
 <body>
@@ -68,6 +86,10 @@
     <a href="https://discord.gg/9KKk4DNBPE" class="sigma-button"><i class="fa-brands fa-discord"></i></a>
     <a href="https://github.com/Yeti1o1/Pulsar" class="sigma-button"><i  class="fa-brands fa-github"></i></a>
     <a href="https://drive.google.com/file/d/1XCHdt4XntG4CMOaCeoJP75GkAfrV_2E4/view?usp=drivesdk" class="sigma-button"><i  class="fas fa-folder" ></i></a>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfa_z2rCmPxeGooJCXz9XP9TZPi8Rltb-eDCrsD9CffWi1Uwg/viewform" target="_blank" style="display:inline-flex;align-items:center;gap:8px;text-decoration:none;background-color:#111;color:white;padding:10px 20px;border-radius:8px;font-size:16px;font-weight:bold;transition:background-color 0.3s;">
+        <i class="fas fa-gavel" style="font-size:20px;"></i> <span>DMCA Takedown Form</span>
+      </a>
+            
 </div>
 
 <div class="nav-bar">
@@ -664,10 +686,6 @@ function toggleBGoptions() {
         });
     });
 </script>
-
-<div id="customCursor" style="position: absolute; pointer-events: none; width: 20px; height: 20px; border-radius: 50%; background-color: white; display: none; transform: translate(-50%, -50%); z-index: 100;"></div>
-<script>
-</script>
 <script>
     const customCursor = document.getElementById('customCursor');
     const spikes = document.getElementById('spikes');
@@ -1051,30 +1069,6 @@ window.addEventListener('DOMContentLoaded', function() {
                 document.body.style.backgroundAttachment = 'fixed';
             });
         });
-    </script>
-    <script>
-    document.addEventListener('DOMContentLoaded', (event) => {
-    // Apply the saved cursor style from local storage on page load
-    const savedStyle = localStorage.getItem('cursorStyle');
-    if (savedStyle) {
-        changeCursor(savedStyle);
-    }
-
-    // Update cursor position
-    document.addEventListener('mousemove', (e) => {
-        const cursor = document.getElementById('customCursor');
-        cursor.style.left = e.pageX + 'px';
-        cursor.style.top = e.pageY + 'px';
-    });
-});
-
-// Function to change the cursor style and save it to local storage
-function changeCursor(style) {
-    const cursor = document.getElementById('customCursor');
-    cursor.className = 'custom-cursor ' + style;
-    localStorage.setItem('cursorStyle', style);
-}
-
     </script>
 <script>
     let dragged = null;

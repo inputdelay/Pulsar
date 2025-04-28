@@ -190,7 +190,7 @@ main.hub-container {
 }
 
 .toggle-categories-btn {
-    background: linear-gradient(90deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.15));
+    background: rgba(255, 255, 255, 0.15);
     color: #e0e0e0;
     border: 1px solid rgba(255, 255, 255, 0.2);
     padding: 10px 20px;
@@ -203,9 +203,27 @@ main.hub-container {
     -webkit-backdrop-filter: blur(3px);
 }
 .toggle-categories-btn:hover {
-    background: linear-gradient(90deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.2));
-    box-shadow: 0 0 8px rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 8px rgba(206, 206, 206, 0.692);
     transform: translateY(-1px);
+    color: #fff;
+}
+.toggle-all-btn {
+    background: rgba(87, 87, 87, 0);
+    color: #ffffff;
+    border: 1px solid rgba(141, 141, 141, 0.5);
+    padding: 7.5px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.toggle-all-btn:hover {
+    background: rgba(110, 110, 110, 0.363);
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.15);
+    top: -1px;
     color: #fff;
 }
 
@@ -439,8 +457,8 @@ main.hub-container {
     top: 8px;
     right: 8px;
     font-size: 1.1rem;
-    color: rgba(255, 255, 255, 0.5);
-    background-color: rgba(0, 0, 0, 0.4);
+    color: rgba(255, 255, 255, 0.733);
+    background-color: rgba(0, 0, 0, 0.534);
     padding: 4px 5px;
     border-radius: 4px;
     transition: all 0.3s ease;
@@ -449,15 +467,15 @@ main.hub-container {
     pointer-events: auto;
 }
 .btn:hover .heart-icon {
-    color: rgba(255, 255, 255, 0.8);
-    background-color: rgba(0, 0, 0, 0.6);
+    color: rgba(255, 255, 255, 0.842);
+    background-color: rgba(0, 0, 0, 0.664);
 }
 .btn .heart-icon.hearted {
-    color: #ff6b6b;
-    text-shadow: 0 0 8px rgba(255, 107, 107, 0.8);
+    color: #ff0000;
+    text-shadow: 0 0 8px #ff2600;
 }
 .btn .heart-icon.hearted:hover {
-     color: #ff4747;
+     color: #9e0000a1;
 }
 
 /* Keep Favorites Section Styling */
@@ -563,4 +581,16 @@ main.hub-container {
 
 body {
     -ms-overflow-style: scrollbar; 
+}
+.btnnn-container {
+    display: flex;
+    flex-wrap: wrap;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 10px 0;
+    gap: 15px;
+    width: 100%;
+    scrollbar-width: none;
+    box-sizing: border-box;
+    justify-content: center;
 }

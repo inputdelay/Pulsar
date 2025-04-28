@@ -30,23 +30,25 @@
       /* * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Lato', sans-serif; scroll-behavior: smooth; } */
 
       body {
-        overflow-x: hidden;
-        position: relative;
-        background-color: #000000; /* Consistent dark background */
-      }
+  overflow-x: hidden;
+  position: relative;
+  background: linear-gradient(135deg, #0f0063, #3c0081, #500072);
+}
 
-      /* Dark overlay - adds subtle depth */
-      body::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.5); /* Adjusted opacity */
-        z-index: -11;
-        pointer-events: none; /* Allow clicks through the overlay */
-      }
+/* Dark overlay */
+body::before {
+  content: '';
+  position: fixed; /* fixed to stay on viewport */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #0f0063, #3c0081, #500072);
+  z-index: -11;
+  pointer-events: none;
+  opacity: 1;  /* start fully visible */
+  transition: opacity 0.3s ease-out;
+}
 
       /* Particles.js Container */
       #particles-js {
@@ -56,40 +58,6 @@
         width: 100%;
         height: 100%;
         z-index: -10;
-      }
-
-      /* Header */
-      header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 15px 40px; /* Consistent padding */
-        backdrop-filter: blur(12px); /* Consistent blur */
-        -webkit-backdrop-filter: blur(12px);
-        position: fixed;
-        width: 100%;
-        z-index: 100;
-        background: rgba(0, 0, 0, 0.7); /* Consistent background */
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Consistent border */
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Consistent shadow */
-
-        /* Initial state for animation */
-        opacity: 0;
-        transform: translateY(-50px);
-        animation: headerEntrance 0.5s ease-out forwards; /* Faster Animation, starts immediately */
-      }
-
-      @keyframes headerEntrance {
-          from { opacity: 0; transform: translateY(-50px); }
-          to { opacity: 1; transform: translateY(0); }
-      }
-
-      header img.header-logo { /* Target the logo specifically */
-          height: 50px; /* Keep size consistent */
-          /* Add animation for logo */
-          opacity: 0;
-          transform: translateX(-30px);
-          animation: logoEntrance 0.5s ease-out forwards 0.1s; /* Faster Animation with slight delay */
       }
 
       @keyframes logoEntrance {
@@ -110,28 +78,6 @@
         gap: 15px; /* Consistent gap */
         align-items: center;
       }
-
-      nav ul li {
-          /* Initial state for staggered animation */
-          opacity: 0;
-          transform: translateY(-20px);
-          animation: navItemEntrance 0.4s ease-out forwards; /* Faster Animation */
-      }
-
-      /* Staggering navigation items (Adjust delays to be faster) */
-      nav ul li:nth-child(1) { animation-delay: 0.2s; } /* Home */
-      nav ul li:nth-child(2) { animation-delay: 0.25s; } /* Games */
-      nav ul li:nth-child(3) { animation-delay: 0.3s; } /* Apps */
-      nav ul li:nth-child(4) { animation-delay: 0.35s; } /* DMCA */
-      nav ul li:nth-child(5) { animation-delay: 0.4s; } /* Built With Pulsar */
-      nav ul li:nth-child(6) { animation-delay: 0.45s; } /* Join Discord */
-
-
-      @keyframes navItemEntrance {
-          from { opacity: 0; transform: translateY(-20px); }
-          to { opacity: 1; transform: translateY(0); }
-      }
-
 
       nav ul li a {
         text-decoration: none;
@@ -168,12 +114,6 @@
         box-shadow: 0 0 10px rgba(114, 137, 218, 0.4); /* Discord color shadow */
         transition: all 0.3s ease;
       }
-
-      nav ul li .discord-btn:hover {
-        transform: translateY(-2px); /* Slight lift effect */
-        box-shadow: 0 0 20px rgba(114, 137, 218, 0.6);
-      }
-
 
       /* Main Content Area - Needs top padding to not be hidden by fixed header */
       .hub-container {
@@ -416,8 +356,7 @@
                    <i class="fa fa-search"></i>
                 </button>
             </div>
-             <!-- You might add a button here to toggle categories if needed based on original scripts -->
-             <!-- Example: <button id="Toggle" class="toggle-categories-btn">Hide Categories</button> -->
+            <a href="gamesall.html?category=all" style="text-decoration: none;"class="toggle-categories-btn">Hide Categories</a>
         </section>
 
         <!-- Container for Categories -->
@@ -426,32 +365,35 @@
             <!-- Favorited Games Section (Correctly Placed) -->
             <section class="game-category favorites-section" id="favoritesSection" style="display: none;">
                  <div class="category-header">
-                    <h6><i class="fas fa-heart"></i> Favorited Games</h6>
+                    <h6><i class="fas fa-heart"></i> Favorited Games <a href="gamesall.html?category=favorited" style="text-decoration: none;"class="toggle-all-btn">View All</a></h6>
                     <div class="scroll-arrows">
                         <button class="scroll-arrow left-arrow" aria-label="Scroll Left"><i class="fas fa-angle-left"></i></button>
                         <button class="scroll-arrow right-arrow" aria-label="Scroll Right"><i class="fas fa-angle-right"></i></button>
                     </div>
                 </div>
                 <!-- Standard btn-container for horizontal scroll -->
+                <div id="favorited-category">
                 <div class="btn-container favorite-container">
                     <!-- Favorite buttons added dynamically by JS -->
+                </div>
                 </div>
             </section>
 
  <!-- All Games Section -->
  <section class="game-category all-games-section">
     <div class="category-header">
-     <h6><i class="fas fa-star"></i> All Games</h6>
+     <h6><i class="fas fa-star"></i> All Games <a href="gamesall.html?category=all" style="text-decoration: none;"class="toggle-all-btn">View All</a></h6>
      <div class="scroll-arrows">
       <button class="scroll-arrow left-arrow" aria-label="Scroll Left"><i class="fas fa-angle-left"></i></button>
       <button class="scroll-arrow right-arrow" aria-label="Scroll Right"><i class="fas fa-angle-right"></i></button>
       </div>
     </div> <!-- Moved closing div here -->
+    <div id="all-category">
     <div class="btn-container"> <!-- btn-container is now sibling to category-header -->
         <button class="btn" data-path="Games/1v1.LOL/index.html" data-game-id="fav-Games-1v1-LOL-index-html"><img class="imgg" src="Imgs/1v1.LOL.png" alt="1v1.LOL"><div class="game-info-bar"><span class="game-name">1v1.LOL</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/1v1 Soccer/index.html" data-game-id="fav-Games-1v1-Soccer-index-html"><img class="imgg" src="Imgs/1v1 Soccer.png" alt="1v1 Soccer"><div class="game-info-bar"><span class="game-name">1v1 Soccer</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/2D Rocket League/index.html" data-game-id="fav-Games-2D-Rocket-League-index-html"><img class="imgg" src="Imgs/2D Rocket League.png" alt="2D Rocket League"><div class="game-info-bar"><span class="game-name">2D Rocket League</span></div><i class="fa fa-heart heart-icon"></i></button>
-        <button class="btn" data-path="Games/Shoot Out Reloaded/index.html" data-game-id="fav-Games-Shoot-Out-Reloaded-index-html"><img class="imgg" src="Imgs/Shoot Out Reloaded.png" alt="Shoot Out Reloaded"><div class="game-info-bar"><span class="game-name">Shoot Out Reloaded/span></div><i class="fa fa-heart heart-icon"></i></button>
+        <button class="btn" data-path="Games/Shoot Out Reloaded/index.html" data-game-id="fav-Games-Shoot-Out-Reloaded-index-html"><img class="imgg" src="Imgs/Shoot Out Reloaded.png" alt="Shoot Out Reloaded"><div class="game-info-bar"><span class="game-name">Shoot Out Reloaded</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/2D Rocket League/index.html" data-game-id="fav-Games-2D-Rocket-League-index-html"><img class="imgg" src="Imgs/2D Rocket League.png" alt="2D Rocket League"><div class="game-info-bar"><span class="game-name">2D Rocket League</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/2048/index.html" data-game-id="fav-Games-2048-index-html"><img class="imgg" src="Imgs/2048.png" alt="2048"><div class="game-info-bar"><span class="game-name">2048</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/2048 9007199254740992/index.html" data-game-id="fav-Games-2048-9007199254740992-index-html"><img class="imgg" src="Imgs/2048 9007199254740992.png" alt="2048 9007199254740992"><div class="game-info-bar"><span class="game-name">2048 9007199254740992</span></div><i class="fa fa-heart heart-icon"></i></button>
@@ -495,6 +437,7 @@
         <button class="btn" data-path="Games/Blob.html" data-game-id="fav-Games-Blob-html"><img class="imgg" src="Imgs/Blob.png" alt="Blob"><div class="game-info-bar"><span class="game-name">Blob</span></div><i class="fa fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/Block Blast/index.html" data-game-id="fav-Games-Block-Blast-index-html"><img class="imgg" src="Imgs/Block Blast.png" alt="Block Blast"><div class="game-info-bar"><span class="game-name">Block Blast</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/Block The Pig/index.html" data-game-id="fav-Games-Block-The-Pig-index-html"><img class="imgg" src="Imgs/Block The Pig.png" alt="Block The Pig"><div class="game-info-bar"><span class="game-name">Block The Pig</span></div><i class="fa fa-heart heart-icon"></i></button>
+        <button class="btn" data-path="Games/Bloxorz/index.html" data-game-id="fav-Games-Bloxorz-index-html"><img class="imgg" src="Imgs/Bloxorz.png" alt="Bloxorz"><div class="game-info-bar"><span class="game-name">Bloxorz</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/Blumgi Slime/index.html" data-game-id="fav-Games-Blumgi-Slime-index-html"><img class="imgg" src="Imgs/Blumgi Slime.png" alt="Blumgi Slime"><div class="game-info-bar"><span class="game-name">Blumgi Slime</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/Bob The Robber.html" data-game-id="fav-Games-Bob-The-Robber-html"><img class="imgg" src="Imgs/Bob The Robber.png" alt="Bob The Robber"><div class="game-info-bar"><span class="game-name">Bob The Robber</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/Bottle Flip/index.html" data-game-id="fav-Games-Bottle-Flip-index-html"><img class="imgg" src="Imgs/Bottle Flip.png" alt="Bottle Flip"><div class="game-info-bar"><span class="game-name">Bottle Flip</span></div><i class="fa fa-heart heart-icon"></i></button>
@@ -520,7 +463,7 @@
         <button class="btn" data-path="Games/Cookie Clicker/index.html" data-game-id="fav-Games-Cookie-Clicker-index-html"><img class="imgg" src="Imgs/Cookie Clicker.png" alt="Cookie Clicker"><div class="game-info-bar"><span class="game-name">Cookie Clicker</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/Core Ball/index.html" data-game-id="fav-Games-Core-Ball-index-html"><img class="imgg" src="Imgs/Core Ball.png" alt="Core Ball"><div class="game-info-bar"><span class="game-name">Core Ball</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/Craftmine/index.html" data-game-id="fav-Games-Craftmine-index-html"><img class="imgg" src="Imgs/Craftmine.png" alt="Craftmine"><div class="game-info-bar"><span class="game-name">Craftmine</span></div><i class="fa fa-heart heart-icon"></i></button>
-        <button class="btn" data-path="Games/Crazy Cattle 3D/singlefile.html" data-game-id="fav-Games-Crazy-Cattle-3D-singlefile-html"><img class="imgg" src="Imgs/Crazy Cattle 3D.png" alt="Crazy Cattle 3D"><div class="game-info-bar"><span class="game-name">Crazy Cattle 3D Optimized</span></div><i class="fa fa-heart heart-icon"></i></button>
+        <button class="btn" data-path="Games/Crazy Cattle 3D/index.html" data-game-id="fav-Games-Crazy-Cattle-3D-index-html"><img class="imgg" src="Imgs/Crazy Cattle 3D.png" alt="Crazy Cattle 3D"><div class="game-info-bar"><span class="game-name">Crazy Cattle 3D</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/Crossy Road/index.html" data-game-id="fav-Games-Crossy-Road-index-html"><img class="imgg" src="Imgs/Crossy Road.png" alt="Crossy Road"><div class="game-info-bar"><span class="game-name">Crossy Road</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/Cube Field/index.html" data-game-id="fav-Games-Cube-Field-index-html"><img class="imgg" src="Imgs/Cube Field.png" alt="Cube Field"><div class="game-info-bar"><span class="game-name">Cube Field</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/Dante.html" data-game-id="fav-Games-Dante-html"><img class="imgg" src="Imgs/Dante.png" alt="Dante"><div class="game-info-bar"><span class="game-name">Dante</span></div><i class="fa fa-heart heart-icon"></i></button>
@@ -605,13 +548,14 @@
         <button class="btn" data-path="Games/Sausage Run.html" data-game-id="fav-Games-Sausage-Run-html"><img class="imgg" src="Imgs/Sausage Run.png" alt="Sausage Run"><div class="game-info-bar"><span class="game-name">Sausage Run</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/Scratch Brawl 1.html" data-game-id="fav-Games-Scratch-Brawl-1-html"><img class="imgg" src="Imgs/Scratch Brawl 1.png" alt="Scratch Brawl 1"><div class="game-info-bar"><span class="game-name">Scratch Brawl 1</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/Scratch Brawl 2.html" data-game-id="fav-Games-Scratch-Brawl-2-html"><img class="imgg" src="Imgs/Scratch Brawl 2.png" alt="Scratch Brawl 2"><div class="game-info-bar"><span class="game-name">Scratch Brawl 2</span></div><i class="fa fa-heart heart-icon"></i></button>
-        <button class="btn" data-path="Games/Shoot Out Reloaded/index.html" data-game-id="fav-Games-Shoot-Out-Reloaded-index-html"><img class="imgg" src="Imgs/Shoot Out Reloaded.png" alt="Shoot Out Reloaded"><div class="game-info-bar"><span class="game-name">Shoot Out Reloaded/span></div><i class="fa fa-heart heart-icon"></i></button>
+        <button class="btn" data-path="Games/Shoot Out Reloaded/index.html" data-game-id="fav-Games-Shoot-Out-Reloaded-index-html"><img class="imgg" src="Imgs/Shoot Out Reloaded.png" alt="Shoot Out Reloaded"><div class="game-info-bar"><span class="game-name">Shoot Out Reloaded</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/Shuttle Deck.html" data-game-id="fav-Games-Shuttle-Deck-html"><img class="imgg" src="Imgs/Shuttle Deck.png" alt="Shuttle Deck"><div class="game-info-bar"><span class="game-name">Shuttle Deck</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/Skibidi Toilet/index.html" data-game-id="fav-Games-Skibidi-Toilet-index-html"><img class="imgg" src="Imgs/Skibidi Toilet.png" alt="Skibidi Toilet"><div class="game-info-bar"><span class="game-name">Skibidi Toilet</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/Slime Ninja.html" data-game-id="fav-Games-Slime-Ninja-html"><img class="imgg" src="Imgs/Slime Ninja.png" alt="Slime Ninja"><div class="game-info-bar"><span class="game-name">Slime Ninja</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/Sling Drift.html" data-game-id="fav-Games-Sling-Drft-html"><img class="imgg" src="Imgs/Sling Drift.png" alt="Sling Drift"><div class="game-info-bar"><span class="game-name">Sling Drift</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/Slope/index.html" data-game-id="fav-Games-Slope-index-html"><img class="imgg" src="Imgs/Slope.png" alt="Slope"><div class="game-info-bar"><span class="game-name">Slope</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/Snail Platformer.html" data-game-id="fav-Games-Snail-Platformer-html"><img class="imgg" src="Imgs/Snail Platformer.png" alt="Snail Platformer"><div class="game-info-bar"><span class="game-name">Snail Platformer</span></div><i class="fa fa-heart heart-icon"></i></button>
+        <button class="btn" data-path="Games/Sniper Shot Bullet Time/index.html" data-game-id="fav-Games-Sniper-Shot-Bullet-Time-html"><img class="imgg" src="Imgs/Sniper Shot Bullet Time.png" alt="Sniper Shot Bullet Time"><div class="game-info-bar"><span class="game-name">Sniper Shot Bullet Time</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/Snowball.io/index.html" data-game-id="fav-Games-Snowball-io-index-html"><img class="imgg" src="Imgs/Snowball.io.png" alt="Snowball.io"><div class="game-info-bar"><span class="game-name">Snowball.io</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/Snow Rider 3D/index.html" data-game-id="fav-Games-Snow-Rider-3D-index-html"><img class="imgg" src="Imgs/Snow Rider 3D.png" alt="Snow Rider 3D"><div class="game-info-bar"><span class="game-name">Snow Rider 3D</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/Soccer Random/index.html" data-game-id="fav-Games-Soccer-Random-index-html"><img class="imgg" src="Imgs/Soccer Random.png" alt="Soccer Random"><div class="game-info-bar"><span class="game-name">Soccer Random</span></div><i class="fa fa-heart heart-icon"></i></button>
@@ -624,9 +568,10 @@
         <button class="btn" data-path="Games/Stunt Cars 2/index.html" data-game-id="fav-Games-Stunt-Cars-2-index-html"><img class="imgg" src="Imgs/Stunt Cars 2.png" alt="Stunt Cars 2"><div class="game-info-bar"><span class="game-name">Stunt Cars 2</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/Suika Game (Watermelon Game).html" data-game-id="fav-Games-Suika-Game-Watermelon-Game-html"><img class="imgg" src="Imgs/Suika Game (Watermelon Game).png" alt="Suika Game (Watermelon Game)"><div class="game-info-bar"><span class="game-name">Suika Game (Watermelon Game)</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/Super Fowlest.html" data-game-id="fav-Games-Super-Fowlest-html"><img class="imgg" src="Imgs/Super Fowlest.png" alt="Super Fowlest"><div class="game-info-bar"><span class="game-name">Super Fowlest</span></div><i class="fa fa-heart heart-icon"></i></button>
-        <button class="btn" data-path="Games/Super Hot/index.html" data-game-id="fav-Games-Super-Hot-index-html"><img class="imgg" src="Imgs/Superhot.png" alt="Super Hot"><div class="game-info-bar"><span class="game-name">Super Hot</span></div><i class="fa fa-heart heart-icon"></i></button>
+        <button class="btn" data-path="Games/Super Hot/index.html" data-game-id="fav-Games-Super-Hot-index-html"><img class="imgg" src="Imgs/Super Hot.png" alt="Super Hot"><div class="game-info-bar"><span class="game-name">Super Hot</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/Super Scratch Bros.html" data-game-id="fav-Games-Super-Scratch-Bros-html"><img class="imgg" src="Imgs/Super Scratch Bros.png" alt="Super Scratch Bros"><div class="game-info-bar"><span class="game-name">Super Scratch Bros</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/Survival Race/index.html" data-game-id="fav-Games-Survival-Race-index-html"><img class="imgg" src="Imgs/Survival Race.png" alt="Survival Race"><div class="game-info-bar"><span class="game-name">Survival Race</span></div><i class="fa fa-heart heart-icon"></i></button>
+        <button class="btn" data-path="Games/Tag/index.html" data-game-id="fav-Games-Tag-index-html"><img class="imgg" src="Imgs/Tag.png" alt="Tag"><div class="game-info-bar"><span class="game-name">Tag</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/Tappy Tadpole.html" data-game-id="fav-Games-Tappy-Tadpole-html"><img class="imgg" src="Imgs/Tappy Tadpole.png" alt="Tappy Tadpole"><div class="game-info-bar"><span class="game-name">Tappy Tadpole</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/Tiny Fishing.html" data-game-id="fav-Games-Tiny-Fishing-html"><img class="imgg" src="Imgs/Tiny Fishing.png" alt="Tiny Fishing"><div class="game-info-bar"><span class="game-name">Tiny Fishing</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/Temple Leap.html" data-game-id="fav-Games-Temple-Leap-html"><img class="imgg" src="Imgs/Temple Leap.png" alt="Temple Leap"><div class="game-info-bar"><span class="game-name">Temple Leap</span></div><i class="fa fa-heart heart-icon"></i></button>
@@ -656,20 +601,23 @@
         <button class="btn" data-path="Games/Worlds Hardest Game 2/index.html" data-game-id="fav-Games-Worlds-Hardest-Game-2-index-html"><img class="imgg" src="Imgs/Worlds Hardest Game 2.png" alt="Worlds Hardest Game 2"><div class="game-info-bar"><span class="game-name">Worlds Hardest Game 2</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/xx142-b2.exe.html" data-game-id="fav-Games-xx142-b2-exe-html"><img class="imgg" src="Imgs/xx142-b2.exe.png" alt="xx142-b2.exe"><div class="game-info-bar"><span class="game-name">xx142-b2.exe</span></div><i class="fa fa-heart heart-icon"></i></button>
       </div>
+      </div>
     </section>
 
     <!-- ADDED SPAN.game-name to all buttons in this section -->
      <section class="game-category">
      <div class="category-header">
-     <h6><i class="fas fa-star"></i> Recommended</h6>
+     <h6><i class="fas fa-star"></i> Recommended <a href="gamesall.html?category=recommended" style="text-decoration: none;"class="toggle-all-btn">View All</a></h6>
      <div class="scroll-arrows">
       <button class="scroll-arrow left-arrow" aria-label="Scroll Left"><i class="fas fa-angle-left"></i></button>
       <button class="scroll-arrow right-arrow" aria-label="Scroll Right"><i class="fas fa-angle-right"></i></button>
       </div>
     </div> <!-- Moved closing div here -->
+    <div id="recommended-category">
       <div class="btn-container"> <!-- btn-container is now sibling to category-header -->
-        <button class="btn" data-path="Games/Crazy Cattle 3D/singlefile.html" data-game-id="fav-Games-Crazy-Cattle-3D-singlefile-html"><img class="imgg" src="Imgs/Crazy Cattle 3D.png" alt="Crazy Cattle 3D"><div class="game-info-bar"><span class="game-name">Crazy Cattle 3D Optimized</span></div><i class="fa fa-heart heart-icon"></i></button>
+        <button class="btn" data-path="Games/Crazy Cattle 3D/index.html" data-game-id="fav-Games-Crazy-Cattle-3D-index-html"><img class="imgg" src="Imgs/Crazy Cattle 3D.png" alt="Crazy Cattle 3D"><div class="game-info-bar"><span class="game-name">Crazy Cattle 3D</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/Bit Planes/index.html" data-game-id="fav-Games-Bit-Planes-index-html"><img class="imgg" src="Imgs/Bit Planes.png" alt="Bit Planes"><div class="game-info-bar"><span class="game-name">Bit Planes</span></div><i class="fa fa-heart heart-icon"></i></button>
+        <button class="btn" data-path="Games/Tag/index.html" data-game-id="fav-Games-Tag-index-html"><img class="imgg" src="Imgs/Tag.png" alt="Tag"><div class="game-info-bar"><span class="game-name">Tag</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/Time Shooter 2.html" data-game-id="fav-Games-Time-Shooter-2-html"><img class="imgg" src="Imgs/Time Shooter 2.png" alt="Time Shooter 2"><div class="game-info-bar"><span class="game-name">Time Shooter 2</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/Time Shooter 3.html" data-game-id="fav-Games-Time-Shooter-3-html"><img class="imgg" src="Imgs/Time Shooter 3.png" alt="Time Shooter 3"><div class="game-info-bar"><span class="game-name">Time Shooter 3</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/Rocket Soccer Derby/index.html" data-game-id="fav-Games-Rocket-Soccer-Derby-index-html"><img class="imgg" src="Imgs/Rocket Soccer Derby.png" alt="Rocket Soccer Derby"><div class="game-info-bar"><span class="game-name">Rocket Soccer Derby</span></div><i class="fa fa-heart heart-icon"></i></button>
@@ -677,6 +625,7 @@
         <button class="btn" data-path="Games/Amazing Strange Rope Police/index.html" data-game-id="fav-Games-Amazing-Strange-Rope-Police-index-html"><img class="imgg" src="Imgs/Amazing Strange Rope Police.png" alt="Amazing Strange Rope Police"><div class="game-info-bar"><span class="game-name">Amazing Strange Rope Police</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/There Is No Game/index.html" data-game-id="fav-Games-There-Is-No-Game-index-html"><img class="imgg" src="Imgs/There Is No Game.png" alt="There Is No Game"><div class="game-info-bar"><span class="game-name">There Is No Game</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/Funny Shooter 2/index.html" data-game-id="fav-Games-Funny-Shooter-2-index-html"><img class="imgg" src="Imgs/Funny Shooter 2.png" alt="Funny Shooter 2"><div class="game-info-bar"><span class="game-name">Funny Shooter 2</span></div><i class="fa fa-heart heart-icon"></i></button>
+        <button class="btn" data-path="Games/Sandtrix/index.html" data-game-id="fav-Games-Sandtrix-index-html"><img class="imgg" src="Imgs/Sandtrix.png" alt="Sandtrix"><div class="game-info-bar"><span class="game-name">Sandtrix</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/Block Blast/index.html" data-game-id="fav-Games-Block-Blast-index-html"><img class="imgg" src="Imgs/Block Blast.png" alt="Block Blast"><div class="game-info-bar"><span class="game-name">Block Blast</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/99 Balls.html" data-game-id="fav-Games-99-Balls-html"><img class="imgg" src="Imgs/99 Balls.png" alt="99 Balls"><div class="game-info-bar"><span class="game-name">99 Balls</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/Stickman Hook/index.html" data-game-id="fav-Games-Stickman-Hook-index-html"><img class="imgg" src="Imgs/Stickman Hook.png" alt="Stickman Hook"><div class="game-info-bar"><span class="game-name">Stickman Hook</span></div><i class="fa fa-heart heart-icon"></i></button>
@@ -695,6 +644,7 @@
         <button class="btn" data-path="Games/Super Fowlest.html" data-game-id="fav-Games-Super-Fowlest-html"><img class="imgg" src="Imgs/Super Fowlest.png" alt="Super Fowlest"><div class="game-info-bar"><span class="game-name">Super Fowlest</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/Boxing Physics 2/index.html" data-game-id="fav-Games-Boxing-Physics-2-index-html"><img class="imgg" src="Imgs/Boxing Physics 2.png" alt="Boxing Physics 2"><div class="game-info-bar"><span class="game-name">Boxing Physics 2</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/Territorial.io.html" data-game-id="fav-Games-Territorial-io-html"><img class="imgg" src="Imgs/Territorial.io.png" alt="Territorial.io"><div class="game-info-bar"><span class="game-name">Territorial.io</span></div><i class="fa fa-heart heart-icon"></i></button>
+        <button class="btn" data-path="Games/Bloxorz/index.html" data-game-id="fav-Games-Bloxorz-index-html"><img class="imgg" src="Imgs/Bloxorz.png" alt="Bloxorz"><div class="game-info-bar"><span class="game-name">Bloxorz</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/2048/index.html" data-game-id="fav-Games-2048-index-html"><img class="imgg" src="Imgs/2048.png" alt="2048"><div class="game-info-bar"><span class="game-name">2048</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/Basket Random/index.html" data-game-id="fav-Games-Basket-Random-index-html"><img class="imgg" src="Imgs/Basket Random.png" alt="Basket Random"><div class="game-info-bar"><span class="game-name">Basket Random</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/Drive Mad.html" data-game-id="fav-Games-Drive-Mad-html"><img class="imgg" src="Imgs/Drive Mad.png" alt="Drive Mad"><div class="game-info-bar"><span class="game-name">Drive Mad</span></div><i class="fa fa-heart heart-icon"></i></button>
@@ -703,17 +653,19 @@
         <button class="btn" data-path="Games/Snow Rider 3D/index.html" data-game-id="fav-Games-Snow-Rider-3D-index-html"><img class="imgg" src="Imgs/Snow Rider 3D.png" alt="Snow Rider 3D"><div class="game-info-bar"><span class="game-name">Snow Rider 3D</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/Tomb Of The Mask.html" data-game-id="fav-Games-Tomb-Of-The-Mask-html"><img class="imgg" src="Imgs/Tomb Of The Mask.png" alt="Tomb Of The Mask"><div class="game-info-bar"><span class="game-name">Tomb Of The Mask</span></div><i class="fa fa-heart heart-icon"></i></button>
      </div>
+     </div>
 </section>
 
 <!-- Shooter Games Section (Now Separate) -->
 <section class="game-category">
     <div class="category-header">
-       <h6><i class="fas fa-crosshairs"></i> Shooter Games</h6>
+       <h6><i class="fas fa-crosshairs"></i> Shooter Games <a href="gamesall.html?category=shooter" style="text-decoration: none;"class="toggle-all-btn">View All</a></h6>
        <div class="scroll-arrows">
            <button class="scroll-arrow left-arrow" aria-label="Scroll Left"><i class="fas fa-angle-left"></i></button>
            <button class="scroll-arrow right-arrow" aria-label="Scroll Right"><i class="fas fa-angle-right"></i></button>
        </div>
    </div> <!-- Moved closing div here -->
+   <div id="shooter-category">
    <div class="btn-container"> <!-- btn-container is now sibling to category-header -->
         <button class="btn" data-path="Games/1v1.LOL/index.html" data-game-id="fav-Games-1v1-LOL-index-html"><img class="imgg" src="Imgs/1v1.LOL.png" alt="1v1.LOL"><div class="game-info-bar"><span class="game-name">1v1.LOL</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/Asteroids/index.html" data-game-id="fav-Games-Asteroids-index-html"><img class="imgg" src="Imgs/Asteroids.png" alt="Asteroids"><div class="game-info-bar"><span class="game-name">Asteroids</span></div><i class="fa fa-heart heart-icon"></i></button>
@@ -730,6 +682,7 @@
         <button class="btn" data-path="Games/Johnny Upgrade.html" data-game-id="fav-Games-Johnny-Upgrade-html"><img class="imgg" src="Imgs/Johnny Upgrade.png" alt="Johnny Upgrade"><div class="game-info-bar"><span class="game-name">Johnny Upgrade</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/Drunken Duel/index.html" data-game-id="fav-Games-Drunken-Duel-index-html"><img class="imgg" src="Imgs/Drunken Duel.png" alt="Drunken Duel"><div class="game-info-bar"><span class="game-name">Drunken Duel</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/Ash Belt/index.html" data-game-id="fav-Games-Ash-Belt-index-html"><img class="imgg" src="Imgs/Ash Belt.png" alt="Ash Belt"><div class="game-info-bar"><span class="game-name">Ash Belt</span></div><i class="fa fa-heart heart-icon"></i></button>
+        <button class="btn" data-path="Games/Sniper Shot Bullet Time/index.html" data-game-id="fav-Games-Sniper-Shot-Bullet-Time-html"><img class="imgg" src="Imgs/Sniper Shot Bullet Time.png" alt="Sniper Shot Bullet Time"><div class="game-info-bar"><span class="game-name">Sniper Shot Bullet Time</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/Stick Archers Battle/index.html" data-game-id="fav-Games-Stick-Archers-Battle-index-html"><img class="imgg" src="Imgs/Stick Archers Battle.png" alt="Stick Archers Battle"><div class="game-info-bar"><span class="game-name">Stick Archers Battle</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/Laser Lord.html" data-game-id="fav-Games-Laser-Lord-html"><img class="imgg" src="Imgs/Laser Lord.png" alt="Laser Lord"><div class="game-info-bar"><span class="game-name">Laser Lord</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/N-Gon Master/index.html" data-game-id="fav-Games-N-Gon-Master-index-html"><img class="imgg" src="Imgs/N-Gon Master.png" alt="N-Gon Master"><div class="game-info-bar"><span class="game-name">N-Gon Master</span></div><i class="fa fa-heart heart-icon"></i></button>
@@ -745,19 +698,21 @@
         <button class="btn" data-path="Games/Time Shooter 3.html" data-game-id="fav-Games-Time-Shooter-3-html"><img class="imgg" src="Imgs/Time Shooter 3.png" alt="Time Shooter 3"><div class="game-info-bar"><span class="game-name">Time Shooter 3</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/Getaway Shootout/index.html" data-game-id="fav-Games-Getaway-Shootout-index-html"><img class="imgg" src="Imgs/Getaway Shootout.png" alt="Getaway Shootout"><div class="game-info-bar"><span class="game-name">Getaway Shootout</span></div><i class="fa fa-heart heart-icon"></i></button>
    </div>
+   </div>
 </section>
 
 <!-- Combat Games Section -->
 <section class="game-category">
      <div class="category-header">
-        <h6><i class="fas fa-fist-raised"></i> Combat Games</h6>
+        <h6><i class="fas fa-fist-raised"></i> Combat Games <a href="gamesall.html?category=combat" style="text-decoration: none;"class="toggle-all-btn">View All</a></h6>
         <div class="scroll-arrows">
             <button class="scroll-arrow left-arrow" aria-label="Scroll Left"><i class="fas fa-angle-left"></i></button>
             <button class="scroll-arrow right-arrow" aria-label="Scroll Right"><i class="fas fa-angle-right"></i></button>
         </div>
     </div> <!-- Moved closing div here -->
+    <div id="combat-category">
     <div class="btn-container"> <!-- btn-container is now sibling to category-header -->
-      <button class="btn" data-path="Games/Crazy Cattle 3D/singlefile.html" data-game-id="fav-Games-Crazy-Cattle-3D-singlefile-html"><img class="imgg" src="Imgs/Crazy Cattle 3D.png" alt="Crazy Cattle 3D"><div class="game-info-bar"><span class="game-name">Crazy Cattle 3D Optimized</span></div><i class="fa fa-heart heart-icon"></i></button>
+      <button class="btn" data-path="Games/Crazy Cattle 3D/index.html" data-game-id="fav-Games-Crazy-Cattle-3D-index-html"><img class="imgg" src="Imgs/Crazy Cattle 3D.png" alt="Crazy Cattle 3D"><div class="game-info-bar"><span class="game-name">Crazy Cattle 3D</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/Boxing Physics 2/index.html" data-game-id="fav-Games-Boxing-Physics-2-index-html"><img class="imgg" src="Imgs/Boxing Physics 2.png" alt="Boxing Physics 2"><div class="game-info-bar"><span class="game-name">Boxing Physics 2</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/1v1.LOL/index.html" data-game-id="fav-Games-1v1-LOL-index-html"><img class="imgg" src="Imgs/1v1.LOL.png" alt="1v1.LOL"><div class="game-info-bar"><span class="game-name">1v1.LOL</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/Dungeon Raid.html" data-game-id="fav-Games-Dungeon-Raid-html"><img class="imgg" src="Imgs/Dungeon Raid.png" alt="Dungeon Raid"><div class="game-info-bar"><span class="game-name">Dungeon Raid</span></div><i class="fa fa-heart heart-icon"></i></button>
@@ -767,7 +722,7 @@
         <button class="btn" data-path="Games/Paper.io 3D.html" data-game-id="fav-Games-Paper-io-3D-html"><img class="imgg" src="Imgs/Paper.io 3D.png" alt="Paper.io 3D"><div class="game-info-bar"><span class="game-name">Paper.io 3D</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/Time Shooter 1/index.html" data-game-id="fav-Games-Time-Shooter-1-index-html"><img class="imgg" src="Imgs/Time Shooter 1.png" alt="Time Shooter 1"><div class="game-info-bar"><span class="game-name">Time Shooter 1</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/Time Shooter 2.html" data-game-id="fav-Games-Time-Shooter-2-html"><img class="imgg" src="Imgs/Time Shooter 2.png" alt="Time Shooter 2"><div class="game-info-bar"><span class="game-name">Time Shooter 2</span></div><i class="fa fa-heart heart-icon"></i></button>
-        <button class="btn" data-path="Games/Shoot Out Reloaded/index.html" data-game-id="fav-Games-Shoot-Out-Reloaded-index-html"><img class="imgg" src="Imgs/Shoot Out Reloaded.png" alt="Shoot Out Reloaded"><div class="game-info-bar"><span class="game-name">Shoot Out Reloaded/span></div><i class="fa fa-heart heart-icon"></i></button>
+        <button class="btn" data-path="Games/Shoot Out Reloaded/index.html" data-game-id="fav-Games-Shoot-Out-Reloaded-index-html"><img class="imgg" src="Imgs/Shoot Out Reloaded.png" alt="Shoot Out Reloaded"><div class="game-info-bar"><span class="game-name">Shoot Out Reloaded</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/Time Shooter 3.html" data-game-id="fav-Games-Time-Shooter-3-html"><img class="imgg" src="Imgs/Time Shooter 3.png" alt="Time Shooter 3"><div class="game-info-bar"><span class="game-name">Time Shooter 3</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/Funny Shooter 2/index.html" data-game-id="fav-Games-Funny-Shooter-2-index-html"><img class="imgg" src="Imgs/Funny Shooter 2.png" alt="Funny Shooter 2"><div class="game-info-bar"><span class="game-name">Funny Shooter 2</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/Scratch Brawl 1.html" data-game-id="fav-Games-Scratch-Brawl-1-html"><img class="imgg" src="Imgs/Scratch Brawl 1.png" alt="Scratch Brawl 1"><div class="game-info-bar"><span class="game-name">Scratch Brawl 1</span></div><i class="fa fa-heart heart-icon"></i></button>
@@ -776,6 +731,7 @@
         <button class="btn" data-path="Games/Slime Ninja.html" data-game-id="fav-Games-Slime-Ninja-html"><img class="imgg" src="Imgs/Slime Ninja.png" alt="Slime Ninja"><div class="game-info-bar"><span class="game-name">Slime Ninja</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/Ash Belt/index.html" data-game-id="fav-Games-Ash-Belt-index-html"><img class="imgg" src="Imgs/Ash Belt.png" alt="Ash Belt"><div class="game-info-bar"><span class="game-name">Ash Belt</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/Boxing Random/index.html" data-game-id="fav-Games-Boxing-Random-index-html"><img class="imgg" src="Imgs/Boxing Random.png" alt="Boxing Random"><div class="game-info-bar"><span class="game-name">Boxing Random</span></div><i class="fa fa-heart heart-icon"></i></button>
+        <button class="btn" data-path="Games/Sniper Shot Bullet Time/index.html" data-game-id="fav-Games-Sniper-Shot-Bullet-Time-html"><img class="imgg" src="Imgs/Sniper Shot Bullet Time.png" alt="Sniper Shot Bullet Time"><div class="game-info-bar"><span class="game-name">Sniper Shot Bullet Time</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/Stick Archers Battle/index.html" data-game-id="fav-Games-Stick-Archers-Battle-index-html"><img class="imgg" src="Imgs/Stick Archers Battle.png" alt="Stick Archers Battle"><div class="game-info-bar"><span class="game-name">Stick Archers Battle</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/Matrix Rampage/index.html" data-game-id="fav-Games-Matrix-Rampage-index-html"><img class="imgg" src="Imgs/Matrix Rampage.png" alt="Matrix Rampage"><div class="game-info-bar"><span class="game-name">Matrix Rampage</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/Getaway Shootout/index.html" data-game-id="fav-Games-Getaway-Shootout-index-html"><img class="imgg" src="Imgs/Getaway Shootout.png" alt="Getaway Shootout"><div class="game-info-bar"><span class="game-name">Getaway Shootout</span></div><i class="fa fa-heart heart-icon"></i></button>
@@ -787,17 +743,19 @@
         <button class="btn" data-path="Games/Super Scratch Bros.html" data-game-id="fav-Games-Super-Scratch-Bros-html"><img class="imgg" src="Imgs/Super Scratch Bros.png" alt="Super Scratch Bros"><div class="game-info-bar"><span class="game-name">Super Scratch Bros</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/Territorial.io.html" data-game-id="fav-Games-Territorial-io-html"><img class="imgg" src="Imgs/Territorial.io.png" alt="Territorial.io"><div class="game-info-bar"><span class="game-name">Territorial.io</span></div><i class="fa fa-heart heart-icon"></i></button>
     </div>
+    </div>
 </section>
 
 <!-- Puzzle Games Section -->
  <section class="game-category">
      <div class="category-header">
-        <h6><i class="fas fa-puzzle-piece"></i> Puzzle Games</h6>
+        <h6><i class="fas fa-puzzle-piece"></i> Puzzle Games <a href="gamesall.html?category=puzzle" style="text-decoration: none;"class="toggle-all-btn">View All</a></h6>
         <div class="scroll-arrows">
             <button class="scroll-arrow left-arrow" aria-label="Scroll Left"><i class="fas fa-angle-left"></i></button>
             <button class="scroll-arrow right-arrow" aria-label="Scroll Right"><i class="fas fa-angle-right"></i></button>
         </div>
     </div> <!-- Moved closing div here -->
+    <div id="puzzle-category">
     <div class="btn-container"> <!-- btn-container is now sibling to category-header -->
         <button class="btn" data-path="Games/Mine Sweeper/index.html" data-game-id="fav-Games-Mine-Sweeper-index-html"><img class="imgg" src="Imgs/Mine Sweeper.png" alt="Mine Sweeper"><div class="game-info-bar"><span class="game-name">Mine Sweeper</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/2048/index.html" data-game-id="fav-Games-2048-index-html"><img class="imgg" src="Imgs/2048.png" alt="2048"><div class="game-info-bar"><span class="game-name">2048</span></div><i class="fa fa-heart heart-icon"></i></button>
@@ -824,6 +782,8 @@
         <button class="btn" data-path="Games/Block The Pig/index.html" data-game-id="fav-Games-Block-The-Pig-index-html"><img class="imgg" src="Imgs/Block The Pig.png" alt="Block The Pig"><div class="game-info-bar"><span class="game-name">Block The Pig</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/Core Ball/index.html" data-game-id="fav-Games-Core-Ball-index-html"><img class="imgg" src="Imgs/Core Ball.png" alt="Core Ball"><div class="game-info-bar"><span class="game-name">Core Ball</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/Drive Mad.html" data-game-id="fav-Games-Drive-Mad-html"><img class="imgg" src="Imgs/Drive Mad.png" alt="Drive Mad"><div class="game-info-bar"><span class="game-name">Drive Mad</span></div><i class="fa fa-heart heart-icon"></i></button>
+        <button class="btn" data-path="Games/Bloxorz/index.html" data-game-id="fav-Games-Bloxorz-index-html"><img class="imgg" src="Imgs/Bloxorz.png" alt="Bloxorz"><div class="game-info-bar"><span class="game-name">Bloxorz</span></div><i class="fa fa-heart heart-icon"></i></button>
+        <button class="btn" data-path="Games/Sandtrix/index.html" data-game-id="fav-Games-Sandtrix-index-html"><img class="imgg" src="Imgs/Sandtrix.png" alt="Sandtrix"><div class="game-info-bar"><span class="game-name">Sandtrix</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/Bubble Pop/index.html" data-game-id="fav-Games-Bubble-Pop-index-html"><img class="imgg" src="Imgs/Bubble Pop.png" alt="Bubble Pop"><div class="game-info-bar"><span class="game-name">Bubble Pop</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/Block Blast/index.html" data-game-id="fav-Games-Block-Blast-index-html"><img class="imgg" src="Imgs/Block Blast.png" alt="Block Blast"><div class="game-info-bar"><span class="game-name">Block Blast</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/Edge Not Found.html" data-game-id="fav-Games-Edge-Not-Found-html"><img class="imgg" src="Imgs/Edge Not Found.png" alt="Edge Not Found"><div class="game-info-bar"><span class="game-name">Edge Not Found</span></div><i class="fa fa-heart heart-icon"></i></button>
@@ -839,17 +799,19 @@
         <button class="btn" data-path="Games/Wordle.html" data-game-id="fav-Games-Wordle-html"><img class="imgg" src="Imgs/Wordle.png" alt="Wordle"><div class="game-info-bar"><span class="game-name">Wordle</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/xx142-b2.exe.html" data-game-id="fav-Games-xx142-b2-exe-html"><img class="imgg" src="Imgs/xx142-b2.exe.png" alt="xx142-b2.exe"><div class="game-info-bar"><span class="game-name">xx142-b2.exe</span></div><i class="fa fa-heart heart-icon"></i></button>
     </div>
+    </div>
 </section>
 
 <!-- Multiplayer Games Section -->
 <section class="game-category">
     <div class="category-header">
-        <h6><i class="fas fa-users"></i> Multiplayer Games</h6>
+        <h6><i class="fas fa-users"></i> Multiplayer Games <a href="gamesall.html?category=multiplayer"  style="text-decoration: none;"class="toggle-all-btn">View All</a></h6>
         <div class="scroll-arrows">
             <button class="scroll-arrow left-arrow" aria-label="Scroll Left"><i class="fas fa-angle-left"></i></button>
             <button class="scroll-arrow right-arrow" aria-label="Scroll Right"><i class="fas fa-angle-right"></i></button>
         </div>
     </div> <!-- Moved closing div here -->
+    <div id="multiplayer-category">
     <div class="btn-container"> <!-- btn-container is now sibling to category-header -->
          <button class="btn" data-path="Games/1v1.LOL/index.html" data-game-id="fav-Games-1v1-LOL-index-html"><img class="imgg" src="Imgs/1v1.LOL.png" alt="1v1.LOL"><div class="game-info-bar"><span class="game-name">1v1.LOL</span></div><i class="fa fa-heart heart-icon"></i></button>
          <button class="btn" data-path="Games/Basket Random/index.html" data-game-id="fav-Games-Basket-Random-index-html"><img class="imgg" src="Imgs/Basket Random.png" alt="Basket Random"><div class="game-info-bar"><span class="game-name">Basket Random</span></div><i class="fa fa-heart heart-icon"></i></button>
@@ -857,6 +819,7 @@
          <button class="btn" data-path="Games/Rooftop Snipers 2/index.html" data-game-id="fav-Games-Rooftop-Snipers-2-index-html"><img class="imgg" src="Imgs/Rooftop Snipers 2.png" alt="Rooftop Snipers 2"><div class="game-info-bar"><span class="game-name">Rooftop Snipers 2</span></div><i class="fa fa-heart heart-icon"></i></button>
          <button class="btn" data-path="Games/Drunken Duel/index.html" data-game-id="fav-Games-Drunken-Duel-index-html"><img class="imgg" src="Imgs/Drunken Duel.png" alt="Drunken Duel"><div class="game-info-bar"><span class="game-name">Drunken Duel</span></div><i class="fa fa-heart heart-icon"></i></button>
          <button class="btn" data-path="Games/Basketball Stars/index.html" data-game-id="fav-Games-Basketball-Stars-index-html"><img class="imgg" src="Imgs/Basketball Stars.png" alt="Basketball Stars"><div class="game-info-bar"><span class="game-name">Basketball Stars</span></div><i class="fa fa-heart heart-icon"></i></button>
+         <button class="btn" data-path="Games/Tag/index.html" data-game-id="fav-Games-Tag-index-html"><img class="imgg" src="Imgs/Tag.png" alt="Tag"><div class="game-info-bar"><span class="game-name">Tag</span></div><i class="fa fa-heart heart-icon"></i></button>
          <button class="btn" data-path="Games/Soccer Random/index.html" data-game-id="fav-Games-Soccer-Random-index-html"><img class="imgg" src="Imgs/Soccer Random.png" alt="Soccer Random"><div class="game-info-bar"><span class="game-name">Soccer Random</span></div><i class="fa fa-heart heart-icon"></i></button>
          <button class="btn" data-path="Games/2D Rocket League/index.html" data-game-id="fav-Games-2D-Rocket-League-index-html"><img class="imgg" src="Imgs/2D Rocket League.png" alt="2D Rocket League"><div class="game-info-bar"><span class="game-name">2D Rocket League</span></div><i class="fa fa-heart heart-icon"></i></button>
          <button class="btn" data-path="Games/My Rusty Submarine/index.html" data-game-id="fav-Games-My-Rusty-Submarine-index-html"><img class="imgg" src="Imgs/My Rusty Submarine.png" alt="My Rusty Submarine"><div class="game-info-bar"><span class="game-name">My Rusty Submarine</span></div><i class="fa fa-heart heart-icon"></i></button>
@@ -868,17 +831,19 @@
          <button class="btn" data-path="Games/Tube Jumpers.html" data-game-id="fav-Games-Tube-Jumpers-html"><img class="imgg" src="Imgs/Tube Jumpers.png" alt="Tube Jumpers"><div class="game-info-bar"><span class="game-name">Tube Jumpers</span></div><i class="fa fa-heart heart-icon"></i></button>
          <button class="btn" data-path="Games/Boxing Random/index.html" data-game-id="fav-Games-Boxing-Random-index-html"><img class="imgg" src="Imgs/Boxing Random.png" alt="Boxing Random"><div class="game-info-bar"><span class="game-name">Boxing Random</span></div><i class="fa fa-heart heart-icon"></i></button>
     </div>
+    </div>
 </section>
 
 <!-- IO Games Section -->
 <section class="game-category">
      <div class="category-header">
-        <h6><i class="fas fa-dot-circle"></i> IO Games</h6>
+        <h6><i class="fas fa-dot-circle"></i> IO Games <a href="gamesall.html?category=io" style="text-decoration: none;"class="toggle-all-btn">View All</a></h6>
         <div class="scroll-arrows">
             <button class="scroll-arrow left-arrow" aria-label="Scroll Left"><i class="fas fa-angle-left"></i></button>
             <button class="scroll-arrow right-arrow" aria-label="Scroll Right"><i class="fas fa-angle-right"></i></button>
         </div>
     </div> <!-- Moved closing div here -->
+    <div id="io-category">
     <div class="btn-container"> <!-- btn-container is now sibling to category-header -->
          <button class="btn" data-path="Games/Paper.io 2.html" data-game-id="fav-Games-Paper-io-2-html"><img class="imgg" src="Imgs/Paper.io 2.png" alt="Paper.io 2"><div class="game-info-bar"><span class="game-name">Paper.io 2</span></div><i class="fa fa-heart heart-icon"></i></button>
          <button class="btn" data-path="Games/Paper.io 3D.html" data-game-id="fav-Games-Paper-io-3D-html"><img class="imgg" src="Imgs/Paper.io 3D.png" alt="Paper.io 3D"><div class="game-info-bar"><span class="game-name">Paper.io 3D</span></div><i class="fa fa-heart heart-icon"></i></button>
@@ -886,17 +851,19 @@
          <button class="btn" data-path="Games/Snowball.io/index.html" data-game-id="fav-Games-Snowball-io-index-html"><img class="imgg" src="Imgs/Snowball.io.png" alt="Snowball.io"><div class="game-info-bar"><span class="game-name">Snowball.io</span></div><i class="fa fa-heart heart-icon"></i></button>
          <button class="btn" data-path="Games/Territorial.io.html" data-game-id="fav-Games-Territorial-io-html"><img class="imgg" src="Imgs/Territorial.io.png" alt="Territorial.io"><div class="game-info-bar"><span class="game-name">Territorial.io</span></div><i class="fa fa-heart heart-icon"></i></button>
     </div>
+    </div>
 </section>
 
  <!-- Adventure Games Section -->
 <section class="game-category">
     <div class="category-header">
-       <h6><i class="fas fa-compass"></i> Adventure Games</h6>
+       <h6><i class="fas fa-compass"></i> Adventure Games <a href="gamesall.html?category=adventure" style="text-decoration: none;"class="toggle-all-btn">View All</a></h6>
        <div class="scroll-arrows">
            <button class="scroll-arrow left-arrow" aria-label="Scroll Left"><i class="fas fa-angle-left"></i></button>
            <button class="scroll-arrow right-arrow" aria-label="Scroll Right"><i class="fas fa-angle-right"></i></button>
        </div>
    </div> <!-- Moved closing div here -->
+   <div id="adventure-category">
    <div class="btn-container"> <!-- btn-container is now sibling to category-header -->
         <button class="btn" data-path="Games/Bee Swarm Simulator.html" data-game-id="fav-Games-Bee-Swarm-Simulator-html"><img class="imgg" src="Imgs/Bee Swarm Simulator.png" alt="Bee Swarm Simulator"><div class="game-info-bar"><span class="game-name">Bee Swarm Simulator</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/Bitlife/index.html" data-game-id="fav-Games-Bitlife-index-html"><img class="imgg" src="Imgs/Bitlife.png" alt="Bitlife"><div class="game-info-bar"><span class="game-name">Bitlife</span></div><i class="fa fa-heart heart-icon"></i></button>
@@ -928,17 +895,19 @@
         <button class="btn" data-path="Games/The Ninja Level Creator.html" data-game-id="fav-Games-The-Ninja-Level-Creator-html"><img class="imgg" src="Imgs/The Ninja Level Creator.png" alt="The Ninja Level Creator"><div class="game-info-bar"><span class="game-name">The Ninja Level Creator</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/The Ninja Master.html" data-game-id="fav-Games-The-Ninja-Master-html"><img class="imgg" src="Imgs/The Ninja Master.png" alt="The Ninja Master"><div class="game-info-bar"><span class="game-name">The Ninja Master</span></div><i class="fa fa-heart heart-icon"></i></button>
    </div>
+   </div>
 </section>
 
 <!-- Clicker Games Section -->
 <section class="game-category">
     <div class="category-header">
-        <h6><i class="fas fa-mouse-pointer"></i> Clicker Games</h6>
+        <h6><i class="fas fa-mouse-pointer"></i> Clicker Games <a href="gamesall.html?category=clicker" style="text-decoration: none;"class="toggle-all-btn">View All</a></h6>
         <div class="scroll-arrows">
             <button class="scroll-arrow left-arrow" aria-label="Scroll Left"><i class="fas fa-angle-left"></i></button>
             <button class="scroll-arrow right-arrow" aria-label="Scroll Right"><i class="fas fa-angle-right"></i></button>
         </div>
     </div> <!-- Moved closing div here -->
+    <div id="clicker-category">
     <div class="btn-container"> <!-- btn-container is now sibling to category-header -->
         <button class="btn" data-path="Games/A Dark Room/index.html" data-game-id="fav-Games-A-Dark-Room-index-html"><img class="imgg" src="Imgs/A Dark Room.png" alt="A Dark Room"><div class="game-info-bar"><span class="game-name">A Dark Room</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/Bitcoin Clicker/index.html" data-game-id="fav-Games-Bitcoin-Clicker-index-html"><img class="imgg" src="Imgs/Bitcoin Clicker.png" alt="Bitcoin Clicker"><div class="game-info-bar"><span class="game-name">Bitcoin Clicker</span></div><i class="fa fa-heart heart-icon"></i></button>
@@ -954,19 +923,21 @@
         <button class="btn" data-path="Games/Space Company/index.html" data-game-id="fav-Games-Space-Company-index-html"><img class="imgg" src="Imgs/Space Company.png" alt="Space Company"><div class="game-info-bar"><span class="game-name">Space Company</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/Trimps/index.html" data-game-id="fav-Games-Trimps-index-html"><img class="imgg" src="Imgs/Trimps.png" alt="Trimps"><div class="game-info-bar"><span class="game-name">Trimps</span></div><i class="fa fa-heart heart-icon"></i></button>
     </div>
+    </div>
 </section>
 
 <!-- Survival Games Section -->
  <section class="game-category">
      <div class="category-header">
-        <h6><i class="fas fa-shield-alt"></i> Survival Games</h6>
+        <h6><i class="fas fa-shield-alt"></i> Survival Games <a href="gamesall.html?category=survival" style="text-decoration: none;"class="toggle-all-btn">View All</a></h6>
         <div class="scroll-arrows">
             <button class="scroll-arrow left-arrow" aria-label="Scroll Left"><i class="fas fa-angle-left"></i></button>
             <button class="scroll-arrow right-arrow" aria-label="Scroll Right"><i class="fas fa-angle-right"></i></button>
         </div>
     </div> <!-- Moved closing div here -->
+    <div id="survival-category">
     <div class="btn-container"> <!-- btn-container is now sibling to category-header -->
-      <button class="btn" data-path="Games/Crazy Cattle 3D/singlefile.html" data-game-id="fav-Games-Crazy-Cattle-3D-singlefile-html"><img class="imgg" src="Imgs/Crazy Cattle 3D.png" alt="Crazy Cattle 3D"><div class="game-info-bar"><span class="game-name">Crazy Cattle 3D Optimized</span></div><i class="fa fa-heart heart-icon"></i></button>
+      <button class="btn" data-path="Games/Crazy Cattle 3D/index.html" data-game-id="fav-Games-Crazy-Cattle-3D-index-html"><img class="imgg" src="Imgs/Crazy Cattle 3D.png" alt="Crazy Cattle 3D"><div class="game-info-bar"><span class="game-name">Crazy Cattle 3D</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/Missiles/index.html" data-game-id="fav-Games-Missiles-index-html"><img class="imgg" src="Imgs/Missiles.png" alt="Missiles"><div class="game-info-bar"><span class="game-name">Missiles</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/1v1.LOL/index.html" data-game-id="fav-Games-1v1-LOL-index-html"><img class="imgg" src="Imgs/1v1.LOL.png" alt="1v1.LOL"><div class="game-info-bar"><span class="game-name">1v1.LOL</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/Appel.html" data-game-id="fav-Games-Appel-html"><img class="imgg" src="Imgs/Appel.png" alt="Appel"><div class="game-info-bar"><span class="game-name">Appel</span></div><i class="fa fa-heart heart-icon"></i></button>
@@ -1019,17 +990,19 @@
         <button class="btn" data-path="Games/Tomb Of The Mask.html" data-game-id="fav-Games-Tomb-Of-The-Mask-html"><img class="imgg" src="Imgs/Tomb Of The Mask.png" alt="Tomb Of The Mask"><div class="game-info-bar"><span class="game-name">Tomb Of The Mask</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/Tunnel Rush/Index.html" data-game-id="fav-Games-Tunnel-Rush-Index-html"><img class="imgg" src="Imgs/Tunnel Rush.png" alt="Tunnel Rush"><div class="game-info-bar"><span class="game-name">Tunnel Rush</span></div><i class="fa fa-heart heart-icon"></i></button>
     </div>
+    </div>
 </section>
 
  <!-- Racing Games Section -->
 <section class="game-category">
     <div class="category-header">
-       <h6><i class="fas fa-flag-checkered"></i> Racing Games</h6>
+       <h6><i class="fas fa-flag-checkered"></i> Racing Games <a href="gamesall.html?category=racing" style="text-decoration: none;"class="toggle-all-btn">View All</a></h6>
        <div class="scroll-arrows">
            <button class="scroll-arrow left-arrow" aria-label="Scroll Left"><i class="fas fa-angle-left"></i></button>
            <button class="scroll-arrow right-arrow" aria-label="Scroll Right"><i class="fas fa-angle-right"></i></button>
        </div>
    </div> <!-- Moved closing div here -->
+   <div id="racing-category">
    <div class="btn-container"> <!-- btn-container is now sibling to category-header -->
        <button class="btn" data-path="Games/Cluster Rush/index.html" data-game-id="fav-Games-Cluster-Rush-index-html"><img class="imgg" src="Imgs/Cluster Rush.png" alt="Cluster Rush"><div class="game-info-bar"><span class="game-name">Cluster Rush</span></div><i class="fa fa-heart heart-icon"></i></button>
        <button class="btn" data-path="Games/Drift Mania/index.html" data-game-id="fav-Games-Drift-Mania-index-html"><img class="imgg" src="Imgs/Drift Mania.png" alt="Drift Mania"><div class="game-info-bar"><span class="game-name">Drift Mania</span></div><i class="fa fa-heart heart-icon"></i></button>
@@ -1044,17 +1017,19 @@
        <button class="btn" data-path="Games/Racer/index.html" data-game-id="fav-Games-Racer-index-html"><img class="imgg" src="Imgs/Racer.png" alt="Racer"><div class="game-info-bar"><span class="game-name">Racer</span></div><i class="fa fa-heart heart-icon"></i></button>
        <button class="btn" data-path="Games/Snow Rider 3D/index.html" data-game-id="fav-Games-Snow-Rider-3D-index-html"><img class="imgg" src="Imgs/Snow Rider 3D.png" alt="Snow Rider 3D"><div class="game-info-bar"><span class="game-name">Snow Rider 3D</span></div><i class="fa fa-heart heart-icon"></i></button>
    </div>
+   </div>
 </section>
 
 <!-- Minigames Section -->
 <section class="game-category">
     <div class="category-header">
-       <h6><i class="fas fa-gamepad"></i> Minigames</h6>
+       <h6><i class="fas fa-gamepad"></i> Minigames <a href="gamesall.html?category=mini" style="text-decoration: none;"class="toggle-all-btn">View All</a></h6>
        <div class="scroll-arrows">
            <button class="scroll-arrow left-arrow" aria-label="Scroll Left"><i class="fas fa-angle-left"></i></button>
            <button class="scroll-arrow right-arrow" aria-label="Scroll Right"><i class="fas fa-angle-right"></i></button>
        </div>
    </div> <!-- Moved closing div here -->
+   <div id="mini-category">
    <div class="btn-container"> <!-- btn-container is now sibling to category-header -->
         <button class="btn" data-path="Games/4 Player Arcade.html" data-game-id="fav-Games-4-Player-Arcade-html"><img class="imgg" src="Imgs/4 Player Arcade.png" alt="4 Player Arcade"><div class="game-info-bar"><span class="game-name">4 Player Arcade</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/Arrow.html" data-game-id="fav-Games-Arrow-html"><img class="imgg" src="Imgs/Arrow.png" alt="Arrow"><div class="game-info-bar"><span class="game-name">Arrow</span></div><i class="fa fa-heart heart-icon"></i></button>
@@ -1063,6 +1038,7 @@
         <button class="btn" data-path="Games/Bouncy Ninja 2.html" data-game-id="fav-Games-Bouncy-Ninja-2-html"><img class="imgg" src="Imgs/Bouncy Ninja 2.png" alt="Bouncy Ninja 2"><div class="game-info-bar"><span class="game-name">Bouncy Ninja 2</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/Captain Rocket.html" data-game-id="fav-Games-Captain-Rocket-html"><img class="imgg" src="Imgs/Captain Rocket.png" alt="Captain Rocket"><div class="game-info-bar"><span class="game-name">Captain Rocket</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/Circle O.html" data-game-id="fav-Games-Circle-O-html"><img class="imgg" src="Imgs/Circle O.png" alt="Circle O"><div class="game-info-bar"><span class="game-name">Circle O</span></div><i class="fa fa-heart heart-icon"></i></button>
+        <button class="btn" data-path="Games/Tag/index.html" data-game-id="fav-Games-Tag-index-html"><img class="imgg" src="Imgs/Tag.png" alt="Tag"><div class="game-info-bar"><span class="game-name">Tag</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/Crossy Road/index.html" data-game-id="fav-Games-Crossy-Road-index-html"><img class="imgg" src="Imgs/Crossy Road.png" alt="Crossy Road"><div class="game-info-bar"><span class="game-name">Crossy Road</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/Circle O 2/index.html" data-game-id="fav-Games-Circle-O-2-index-html"><img class="imgg" src="Imgs/Circle O 2.png" alt="Circle O 2"><div class="game-info-bar"><span class="game-name">Circle O 2</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/Climber Man.html" data-game-id="fav-Games-Climber-Man-html"><img class="imgg" src="Imgs/Climber Man.png" alt="Climber Man"><div class="game-info-bar"><span class="game-name">Climber Man</span></div><i class="fa fa-heart heart-icon"></i></button>
@@ -1079,6 +1055,7 @@
         <button class="btn" data-path="Games/Drop The Ball 1.html" data-game-id="fav-Games-Drop-The-Ball-1-html"><img class="imgg" src="Imgs/Drop The Ball 1.png" alt="Drop The Ball 1"><div class="game-info-bar"><span class="game-name">Drop The Ball 1</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/Drop The Ball 2.html" data-game-id="fav-Games-Drop-The-Ball-2-html"><img class="imgg" src="Imgs/Drop The Ball 2.png" alt="Drop The Ball 2"><div class="game-info-bar"><span class="game-name">Drop The Ball 2</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/Dunk Shot.html" data-game-id="fav-Games-Dunk-Shot-html"><img class="imgg" src="Imgs/Dunk Shot.png" alt="Dunk Shot"><div class="game-info-bar"><span class="game-name">Dunk Shot</span></div><i class="fa fa-heart heart-icon"></i></button>
+        <button class="btn" data-path="Games/Sandtrix/index.html" data-game-id="fav-Games-Sandtrix-index-html"><img class="imgg" src="Imgs/Sandtrix.png" alt="Sandtrix"><div class="game-info-bar"><span class="game-name">Sandtrix</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/Elastic Man.html" data-game-id="fav-Games-Elastic-Man-html"><img class="imgg" src="Imgs/Elastic Man.png" alt="Elastic Man"><div class="game-info-bar"><span class="game-name">Elastic Man</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/Flappy Bird/index.html" data-game-id="fav-Games-Flappy-Bird-index-html"><img class="imgg" src="Imgs/Flappy Bird.png" alt="Flappy Bird"><div class="game-info-bar"><span class="game-name">Flappy Bird</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/Flappy Copter/index.html" data-game-id="fav-Games-Flappy-Copter-index-html"><img class="imgg" src="Imgs/Flappy Copter.png" alt="Flappy Copter"><div class="game-info-bar"><span class="game-name">Flappy Copter</span></div><i class="fa fa-heart heart-icon"></i></button>
@@ -1088,6 +1065,7 @@
         <button class="btn" data-path="Games/Rope Slide 2.html" data-game-id="fav-Games-Rope-Slide-2-html"><img class="imgg" src="Imgs/Rope Slide 2.png" alt="Rope Slide 2"><div class="game-info-bar"><span class="game-name">Rope Slide 2</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/Slime Ninja.html" data-game-id="fav-Games-Slime-Ninja-html"><img class="imgg" src="Imgs/Slime Ninja.png" alt="Slime Ninja"><div class="game-info-bar"><span class="game-name">Slime Ninja</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/Sling Drift.html" data-game-id="fav-Games-Sling-Drft-html"><img class="imgg" src="Imgs/Sling Drift.png" alt="Sling Drift"><div class="game-info-bar"><span class="game-name">Sling Drift</span></div><i class="fa fa-heart heart-icon"></i></button>
+        <button class="btn" data-path="Games/Bloxorz/index.html" data-game-id="fav-Games-Bloxorz-index-html"><img class="imgg" src="Imgs/Bloxorz.png" alt="Bloxorz"><div class="game-info-bar"><span class="game-name">Bloxorz</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/Slope.html" data-game-id="fav-Games-Slope-html"><img class="imgg" src="Imgs/Slope.png" alt="Slope"><div class="game-info-bar"><span class="game-name">Slope</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/Stack.html" data-game-id="fav-Games-Stack-html"><img class="imgg" src="Imgs/Stack.png" alt="Stack"><div class="game-info-bar"><span class="game-name">Stack</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/Suika Game (Watermelon Game).html" data-game-id="fav-Games-Suika-Game-Watermelon-Game-html"><img class="imgg" src="Imgs/Suika Game (Watermelon Game).png" alt="Suika Game (Watermelon Game)"><div class="game-info-bar"><span class="game-name">Suika Game (Watermelon Game)</span></div><i class="fa fa-heart heart-icon"></i></button>
@@ -1096,17 +1074,19 @@
         <button class="btn" data-path="Games/Tower Master/index.html" data-game-id="fav-Games-Tower-Master-index-html"><img class="imgg" src="Imgs/Tower Master.png" alt="Tower Master"><div class="game-info-bar"><span class="game-name">Tower Master</span></div><i class="fa fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/Tunnel Rush/Index.html" data-game-id="fav-Games-Tunnel-Rush-Index-html"><img class="imgg" src="Imgs/Tunnel Rush.png" alt="Tunnel Rush"><div class="game-info-bar"><span class="game-name">Tunnel Rush</span></div><i class="fa fa-heart heart-icon"></i></button>
    </div>
+   </div>
 </section>
 
 <!-- Simulator Games Section -->
  <section class="game-category">
     <div class="category-header">
-        <h6><i class="fas fa-cog"></i> Simulator Games</h6>
+        <h6><i class="fas fa-cog"></i> Simulator Games <a href="gamesall.html?category=simulator" style="text-decoration: none;"class="toggle-all-btn">View All</a></h6>
         <div class="scroll-arrows">
             <button class="scroll-arrow left-arrow" aria-label="Scroll Left"><i class="fas fa-angle-left"></i></button>
             <button class="scroll-arrow right-arrow" aria-label="Scroll Right"><i class="fas fa-angle-right"></i></button>
         </div>
     </div> <!-- Moved closing div here -->
+    <div id="simulator-category">
     <div class="btn-container"> <!-- btn-container is now sibling to category-header -->
          <button class="btn" data-path="Games/Bee Swarm Simulator.html" data-game-id="fav-Games-Bee-Swarm-Simulator-html"><img class="imgg" src="Imgs/Bee Swarm Simulator.png" alt="Bee Swarm Simulator"><div class="game-info-bar"><span class="game-name">Bee Swarm Simulator</span></div><i class="fa fa-heart heart-icon"></i></button>
          <button class="btn" data-path="Games/Bitlife/index.html" data-game-id="fav-Games-Bitlife-index-html"><img class="imgg" src="Imgs/Bitlife.png" alt="Bitlife"><div class="game-info-bar"><span class="game-name">Bitlife</span></div><i class="fa fa-heart heart-icon"></i></button>
@@ -1115,17 +1095,19 @@
          <button class="btn" data-path="Games/Sand Game.html" data-game-id="fav-Games-Sand-Game-html"><img class="imgg" src="Imgs/Sand Game.png" alt="Sand Game"><div class="game-info-bar"><span class="game-name">Sand Game</span></div><i class="fa fa-heart heart-icon"></i></button>
          <button class="btn" data-path="Games/Amazing Strange Rope Police/index.html" data-game-id="fav-Games-Amazing-Strange-Rope-Police-index-html"><img class="imgg" src="Imgs/Amazing Strange Rope Police.png" alt="Amazing Strange Rope Police"><div class="game-info-bar"><span class="game-name">Amazing Strange Rope Police</span></div><i class="fa fa-heart heart-icon"></i></button>
     </div>
+    </div>
 </section>
 
 <!-- Platformer Games Section -->
 <section class="game-category">
     <div class="category-header">
-       <h6><i class="fas fa-shoe-prints"></i> Platformer Games</h6>
+       <h6><i class="fas fa-shoe-prints"></i> Platformer Games <a href="gamesall.html?category=platformer" style="text-decoration: none;"class="toggle-all-btn">View All</a></h6>
        <div class="scroll-arrows">
            <button class="scroll-arrow left-arrow" aria-label="Scroll Left"><i class="fas fa-angle-left"></i></button>
            <button class="scroll-arrow right-arrow" aria-label="Scroll Right"><i class="fas fa-angle-right"></i></button>
        </div>
    </div> <!-- Moved closing div here -->
+   <div id="platformer-category">
    <div class="btn-container"> <!-- btn-container is now sibling to category-header -->
         <button class="btn" data-path="Games/Appel.html" data-game-id="fav-Games-Appel-html"><img class="imgg" src="Imgs/Appel.png" alt="Appel"><div class="game-info-bar"><span class="game-name">Appel</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/Blob.html" data-game-id="fav-Games-Blob-html"><img class="imgg" src="Imgs/Blob.png" alt="Blob"><div class="game-info-bar"><span class="game-name">Blob</span></div><i class="fa fa-heart heart-icon"></i></button>
@@ -1155,17 +1137,19 @@
         <button class="btn" data-path="Games/Worlds Hardest Game 2/index.html" data-game-id="fav-Games-Worlds-Hardest-Game-2-index-html"><img class="imgg" src="Imgs/Worlds Hardest Game 2.png" alt="Worlds Hardest Game 2"><div class="game-info-bar"><span class="game-name">Worlds Hardest Game 2</span></div><i class="fa fa-heart heart-icon"></i></button>
         <button class="btn" data-path="Games/xx142-b2.exe.html" data-game-id="fav-Games-xx142-b2-exe-html"><img class="imgg" src="Imgs/xx142-b2.exe.png" alt="xx142-b2.exe"><div class="game-info-bar"><span class="game-name">xx142-b2.exe</span></div><i class="fa fa-heart heart-icon"></i></button>
    </div>
+   </div>
 </section>
 
 <!-- Sports Games Section -->
  <section class="game-category">
     <div class="category-header">
-        <h6><i class="fas fa-futbol"></i> Sports Games</h6>
+        <h6><i class="fas fa-futbol"></i> Sports Games <a href="gamesall.html?category=sports" style="text-decoration: none;"class="toggle-all-btn">View All</a></h6>
         <div class="scroll-arrows">
             <button class="scroll-arrow left-arrow" aria-label="Scroll Left"><i class="fas fa-angle-left"></i></button>
             <button class="scroll-arrow right-arrow" aria-label="Scroll Right"><i class="fas fa-angle-right"></i></button>
         </div>
     </div> <!-- Moved closing div here -->
+    <div id="sports-category">
     <div class="btn-container"> <!-- btn-container is now sibling to category-header -->
          <button class="btn" data-path="Games/Drift Mania/index.html" data-game-id="fav-Games-Drift-Mania-index-html"><img class="imgg" src="Imgs/Drift Mania.png" alt="Drift Mania"><div class="game-info-bar"><span class="game-name">Drift Mania</span></div><i class="fa fa-heart heart-icon"></i></button>
          <button class="btn" data-path="Games/Neon Foosball.html" data-game-id="fav-Games-Neon-Foosball-html"><img class="imgg" src="Imgs/Neon Foosball.png" alt="Neon Foosball"><div class="game-info-bar"><span class="game-name">Neon Foosball</span></div><i class="fa fa-heart heart-icon"></i></button>
@@ -1183,6 +1167,7 @@
          <button class="btn" data-path="Games/1v1 Soccer/index.html" data-game-id="fav-Games-1v1-Soccer-index-html"><img class="imgg" src="Imgs/1v1 Soccer.png" alt="1v1 Soccer"><div class="game-info-bar"><span class="game-name">1v1 Soccer</span></div><i class="fa fa-heart heart-icon"></i></button>
          <button class="btn" data-path="Games/Stunt Cars 2/index.html" data-game-id="fav-Games-Stunt-Cars-2-index-html"><img class="imgg" src="Imgs/Stunt Cars 2.png" alt="Stunt Cars 2"><div class="game-info-bar"><span class="game-name">Stunt Cars 2</span></div><i class="fa fa-heart heart-icon"></i></button>
          <button class="btn" data-path="Games/Tiny Fishing.html" data-game-id="fav-Games-Tiny-Fishing-html"><img class="imgg" src="Imgs/Tiny Fishing.png" alt="Tiny Fishing"><div class="game-info-bar"><span class="game-name">Tiny Fishing</span></div><i class="fa fa-heart heart-icon"></i></button>
+    </div>
     </div>
 </section>
 
@@ -1271,7 +1256,7 @@
             .filter(btn => window.getComputedStyle(btn).display !== 'none');
         if (visibleButtons.length > 0) {
             const buttonWidth = visibleButtons[0].offsetWidth; // Assume uniform width
-            scrollAmount = Math.max(buttonWidth * 2, 150); // Scroll ~2 buttons, min 150px
+            scrollAmount = Math.max(buttonWidth * 3, 150); // Scroll ~2 buttons, min 150px
         } else {
             scrollAmount = btnContainer.clientWidth / 2; // Fallback: half container width
         }
