@@ -10,11 +10,7 @@
 [![Badge License]][License]
     
     
-Self-hosted **Javascript** emulation for various system.
-
-<br>
-
-Try out netplay [here](https://demo.emulatorjs.org/demos/netplay.html)!
+Self-hosted **Javascript** emulation for various systems.
 
 <br>
 
@@ -22,11 +18,29 @@ Try out netplay [here](https://demo.emulatorjs.org/demos/netplay.html)!
 [![Button Usage]][Usage]<br>
 [![Button Configurator]][Configurator]<br>
 [![Button Demo]][Demo] 
-[![Button Legacy]][Legacy]
     
 [![Button Contributors]][Contributors]   
-    
+ 
+Join our Discord server:
+
+[![Join our Discord server!](https://invidget.switchblade.xyz/6akryGkETU)](https://discord.gg/6akryGkETU)
+
+Or the Matrix server (#emulatorjs:matrix.emulatorjs.org):
+
+<a href="https://matrix.to/#/#emulatorjs:matrix.emulatorjs.org" rel="noopener" target="_blank"><img src="https://matrix.to/img/matrix-badge.svg" alt="Chat on Matrix"></a>
+
 </div>
+
+<br>
+
+> [!NOTE]  
+> **As of EmulatorJS version 4.0, this project is no longer a reverse-engineered version of the emulatorjs.com project. It is now a complete rewrite.**
+
+> [!WARNING]  
+> As of version 4.0.9 cores and minified files are no longer included in the repository. You will need to get them separately. You can get it from [releases](https://github.com/EmulatorJS/EmulatorJS/releases) or the * new CDN (see [this](#CDN) for more info). There is also a new version system that we will be using. (read [here](#Versioning) for more info).
+
+> [!TIP]
+> Cloning the repository is no longer recommended for production use. You should use [releases](https://github.com/EmulatorJS/EmulatorJS/releases) or the [CDN](https://cdn.emulatorjs.org/) instead.
 
 <br>
 
@@ -41,14 +55,21 @@ Try out netplay [here](https://demo.emulatorjs.org/demos/netplay.html)!
 
 <br>
 
-
-
 ### Issues
 
 *If something doesn't work, please consider opening an* ***[Issue]*** <br>
 *with as many details as possible, as well as the console log.*
 
 <br>
+
+### Versioning
+There are three different version names that you need to be aware of:
+1. **stable** - This will be the most stable version of the emulator both code and cores will be tested before release. It will be updated every time a new version is released on GitHub. This is the default version on the Demo.
+2. **latest** - This will contain the latest code but use the stable cores. This will be updated every time the *main* branch is updated.
+3. **nightly** - This will contain the latest code and the latest cores. The cores will be updated every day, so this is considered alpha.
+
+### CDN
+There is a new CDN that you can use to get any version of the emulator. The CDN is `https://cdn.emulatorjs.org/`. You can get the stable, latest, nightly, and any other main version by setting your `EJS_pathtodata` to `https://cdn.emulatorjs.org/<version>/data/`.
 
 ### Extensions
 
@@ -58,18 +79,31 @@ Try out netplay [here](https://demo.emulatorjs.org/demos/netplay.html)!
 
 <br>
 
-### Old Cores
+### Development:
 
-The new cores are now the stable cores, if you want to <br>
-continue using the old cores, add this line to your code
-
-```js
-EJS_oldCores = true;
+*Run a local server with:* 
+```
+npm i
+npm start
 ```
 
 <br>
 
-**>> When reporting bugs, please specify that you are using the old version**
+#### Minifying
+
+Before pushing the script files onto your production server it is recommended to minify them to save on load times as well as bandwidth.
+
+Read the [minifying](minify/README.md) documentation for more info.
+
+<br>
+
+#### Localization
+
+If you want to help with localization, please check out the [localization](data/localization/README.md) documentation.
+
+<br>
+
+**>> When reporting bugs, please specify what version you are using**
 
 <br>
 <br>
@@ -116,26 +150,45 @@ EJS_oldCores = true;
 **[Lynx][Atari Lynx]**   | 
 **[Jaguar][Atari Jaguar]**
 
+<br>
+<br>
+
+### Commodore
+
+**[Commodore 64]** |
+**[Commodore 128]** |
+**[Commodore Amiga]**
+
+**[Commodore PET]** |
+**[Commodore Plus/4]** |
+**[Commodore VIC-20]**
 
 <br>
 <br>
 
 ### Other
-
-**[TurboGrafs 16 PC Engine][TurboGrafs-16 / PC Engine]**   | 
-**[WanderSwan Color][WanderSwan / Color]**   | 
-**[Neo Geo Poket][Neo Geo Poket]**
     
 **[PlayStation]**   | 
-**[Arcade]**   | 
-**[MSX]**   | 
-**[3DO]**   | 
-**[MAME 2003]**
+**[PlayStation Portable]**   | 
+**[Arcade]**    
+
+**[3DO]** |
+**[MAME 2003]** |
+**[ColecoVision]**
     
 </div>
 
 <br>
 
+## Star History
+
+<a href="https://star-history.com/#EmulatorJS/EmulatorJS&Date">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=EmulatorJS/EmulatorJS&type=Date&theme=dark" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=EmulatorJS/EmulatorJS&type=Date" />
+   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=EmulatorJS/EmulatorJS&type=Date" />
+ </picture>
+</a>
 
 <!-- 🎮 🎮 🎮 🎮 🎮 🎮 🎮 🎮 🎮 🎮 🎮 🎮 🎮 🎮 🎮 🎮 🎮 🎮 🎮 🎮 🎮 🎮 🎮 --->
 
@@ -151,46 +204,56 @@ EJS_oldCores = true;
 
 <!-- 🎮 🎮 🎮 🎮 🎮 🎮 🎮 🎮 🎮   Quicklinks   🎮 🎮 🎮 🎮 🎮 🎮 🎮 🎮 🎮 --->
 
-[Configurator]: https://emulatorjs.org/editor.html
-[Contributors]: docs/Contributors.md
+[Configurator]: https://emulatorjs.org/editor
+[Contributors]: docs/contributors.md
 [Website]: https://emulatorjs.org/
-[Legacy]: https://coldcast.org/games/1/Super-Mario-Bros
 [Usage]: https://emulatorjs.org/docs/
 [Demo]: https://demo.emulatorjs.org/
 
 
 <!-- 🎮 🎮 🎮 🎮 🎮 🎮 🎮 🎮 🎮 🎮  Systems  🎮 🎮 🎮 🎮 🎮 🎮 🎮 🎮 🎮 🎮 -->
 
-[Nintendo Game Boy Advance]: docs/Systems/Nintendo%20Game%20Boy%20Advance.md
-[Nintendo Game Boy]: docs/Systems/Nintendo%20Game%20Boy.md
-[Nintendo 64]: docs/Systems/Nintendo%2064.md
-[Nintendo DS]: docs/Systems/Nintendo%20DS.md
+[Nintendo Game Boy Advance]: https://emulatorjs.org/docs/systems/nintendo-game-boy-advance
+[Nintendo Game Boy]: https://emulatorjs.org/docs/systems/nintendo-game-boy
+[Nintendo 64]: https://emulatorjs.org/docs/systems/nintendo-64
+[Nintendo DS]: https://emulatorjs.org/docs/systems/nintendo-ds
 
-[Sega Master System]: docs/Systems/Sega%20Master%20System.md
-[Sega Mega Drive]: docs/Systems/Sega%20Mega%20Drive.md
-[Sega Game Gear]: docs/Systems/Sega%20Game%20Gear.md
-[Sega Saturn]: docs/Systems/Sega%20Saturn.md
-[Sega 32X]: docs/Systems/Sega%2032X.md
-[Sega CD]: docs/Systems/Sega%20CD.md
+[Sega Master System]: https://emulatorjs.org/docs/systems/sega-master-system
+[Sega Mega Drive]: https://emulatorjs.org/docs/systems/sega-mega-drive
+[Sega Game Gear]: https://emulatorjs.org/docs/systems/sega-game-gear
+[Sega Saturn]: https://emulatorjs.org/docs/systems/sega-saturn
+[Sega 32X]: https://emulatorjs.org/docs/systems/sega-32x
+[Sega CD]: https://emulatorjs.org/docs/systems/sega-cd
 
-[Atari Jaguar]: docs/Systems/Atari%20Jaguar.md
-[Atari Lynx]: docs/Systems/Atari%20Lynx.md
-[Atari 7800]: docs/Systems/Atari%207800.md
-[Atari 2600]: docs/Systems/Atari%202600.md
-[Atari 5200]: docs/Systems/Atari%205200.md
+[Atari Jaguar]: https://emulatorjs.org/docs/systems/atari-jaguar
+[Atari Lynx]: https://emulatorjs.org/docs/systems/atari-lynx
+[Atari 7800]: https://emulatorjs.org/docs/systems/atari-7800
+[Atari 2600]: https://emulatorjs.org/docs/systems/atari-2600
+[Atari 5200]: https://emulatorjs.org/docs/systems/atari-5200
 
-[NES / Famicom]: docs/Systems/NES-Famicom.md
-[SNES]: docs/Systems/SNES.md
+[NES / Famicom]: https://emulatorjs.org/docs/systems/nes-famicom
+[SNES]: https://emulatorjs.org/docs/systems/snes
 
-[TurboGrafs-16 / PC Engine]: docs/Systems/TurboGrafs%2016-PC%20Engine.md
-[WanderSwan / Color]: docs/Systems/WanderSwan-Color.md
-[Neo Geo Poket]: docs/Systems/Neo%20Geo%20Poket.md
-[PlayStation]: docs/Systems/PlayStation.md
-[Virtual Boy]: docs/Systems/Virtual%20Boy.md
-[Arcade]: docs/Systems/Arcade.md
-[MSX]: docs/Systems/MSX.md
-[3DO]: docs/Systems/3DO.md
-[MAME 2003]: docs/Systems/MAME%202003.md
+<!--
+[TurboGrafs-16 / PC Engine]: https://emulatorjs.org/systems/TurboGrafx-16
+[MSX]: https://emulatorjs.org/systems/MSX
+[WanderSwan / Color]: https://emulatorjs.org/systems/WonderSwan
+[Neo Geo Poket]: https://emulatorjs.org/systems/Neo%20Geo%20Pocket
+--->
+[PlayStation]: https://emulatorjs.org/docs/systems/playstation
+[PlayStation Portable]: https://emulatorjs.org/docs/systems/psp
+[Virtual Boy]: https://emulatorjs.org/docs/systems/virtual-boy
+[Arcade]: https://emulatorjs.org/docs/systems/arcade
+[3DO]: https://emulatorjs.org/docs/systems/3do
+[MAME 2003]: https://emulatorjs.org/docs/systems/mame-2003
+[ColecoVision]: https://emulatorjs.org/docs/systems/colecovision
+
+[Commodore 64]: https://emulatorjs.org/docs/systems/commodore-64
+[Commodore 128]: https://emulatorjs.org/docs/systems/commodore-128
+[Commodore Amiga]: https://emulatorjs.org/docs/systems/commodore-amiga
+[Commodore PET]: https://emulatorjs.org/docs/systems/commodore-pet
+[Commodore Plus/4]: https://emulatorjs.org/docs/systems/commodore-plus4
+[Commodore VIC-20]: https://emulatorjs.org/docs/systems/commodore-vic20
 
 
 <!-- 🎮 🎮 🎮 🎮 🎮 🎮 🎮 🎮 🎮 🎮  Badges  🎮 🎮 🎮 🎮 🎮 🎮 🎮 🎮 🎮 🎮 --->
@@ -200,7 +263,6 @@ EJS_oldCores = true;
 [Button Configurator]: https://img.shields.io/badge/Configurator-992cb3?style=for-the-badge
 [Button Contributors]: https://img.shields.io/badge/Contributors-54b7dd?style=for-the-badge
 [Button Website]: https://img.shields.io/badge/Website-736e9b?style=for-the-badge
-[Button Legacy]: https://img.shields.io/badge/Legacy-ab910b?style=for-the-badge
 [Button Usage]: https://img.shields.io/badge/Usage-2478b5?style=for-the-badge
 [Button Demo]: https://img.shields.io/badge/Demo-528116?style=for-the-badge
 [Button Beta]: https://img.shields.io/badge/Beta-bb044f?style=for-the-badge

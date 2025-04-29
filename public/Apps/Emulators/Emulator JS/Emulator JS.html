@@ -1,36 +1,26 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8832864985153925" crossorigin="anonymous"></script>
         <title>EmulatorJS</title>
-
         <link rel = icon href = docs/favicon.ico sizes = "16x16 32x32 48x48 64x64" type = image/vnd.microsoft.icon>
         <meta name = viewport content = "width = device-width, initial-scale = 1">
-        <script>
-            document.addEventListener("keydown", function(event) {
-              if (event.key === "ArrowUp" || event.key === "ArrowDown") {
-                event.preventDefault();
-              }
-            });
-          </script>
         <style>
-            body, html {
+             body, html {
                 height: 100%;
+                background-color: black;
+                color: white;
             }
 
             body {
-                font-family: monospace;
-                font-weight: bold;
-                font-size: 20px;
                 margin: 0;
                 overflow: hidden;
-                background-color: #222
             }
 
-            body, #box {
+            body, #box, #top {
                 display: flex;
                 align-items: center;
                 justify-content: center;
+                flex-direction: column;
             }
 
             #box {
@@ -45,7 +35,11 @@
                 position: relative;
                 flex-direction: column;
                 transition-duration: 0.2s;
-                overflow: hidden
+                overflow: hidden;
+                font-family: monospace;
+                font-weight: bold;
+                font-size: 20px;
+                margin: 5px;
             }
 
             #box:hover, #box[drag] {
@@ -88,18 +82,55 @@
                 background-color: #666;
                 color: #ddd
             }
+
+            .logo {
+                width: 130px;
+                height: 130px;
+                filter: drop-shadow(0 0 10px white);
+            }
+
+            #top {
+                margin: 5px;
+            }
         </style>
     </head>
 
     <body>
+        <div id="top">
+            <h1>EmulatorJS Demo</h1>
+            <img src="docs/Logo-light.png" alt="Logo" class="logo">
+        </div>
         <div id = box>
             <input type = file id = input>
             Drag ROM file or click here
         </div>
 
         <script>
+            let enableDebug = false;
+            let enableThreads = false;
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            if (urlParams.get('debug') == 1) {
+                enableDebug = true;
+                console.log("Debug is enabled");
+            } else {
+                console.log("Debug is disabled");
+            }
+
+            if (urlParams.get('threads') == 1) {
+                if (window.SharedArrayBuffer) {
+                    enableThreads = true;
+                    console.log("Threads are enabled");
+                } else {
+                    console.warn("Threads are disabled as SharedArrayBuffer is not available. Threads requires two headers to be set when sending you html page. See https://stackoverflow.com/a/68630724");
+                    console.log("Threads are disabled");
+                }
+            } else {
+                console.log("Threads are disabled");
+            }
+            
             input.onchange = async () => {
-                const url = URL.createObjectURL(new Blob([input.files[0]]))
+                const url = input.files[0]
                 const parts = input.files[0].name.split(".")
 
                 const core = await (async (ext) => {
@@ -112,11 +143,26 @@
                     if (["z64", "n64"].includes(ext))
                         return "n64"
 
+                    if (["pce"].includes(ext))
+                        return "pce"
+
+                    if (["ngp", "ngc"].includes(ext))
+                        return "ngp"
+
+                    if (["ws", "wsc"].includes(ext))
+                        return "ws"
+
+                    if (["col", "cv"].includes(ext))
+                        return "coleco"
+
+                    if (["d64"].includes(ext))
+                        return "vice_x64sc"
+
                     if (["nds", "gba", "gb", "z64", "n64"].includes(ext))
                         return ext
 
                     return await new Promise(resolve => {
-                        const cores = {
+                        var coreValues = {
                             "Nintendo 64": "n64",
                             "Nintendo Game Boy": "gb",
                             "Nintendo Game Boy Advance": "gba",
@@ -134,8 +180,27 @@
                             "Sega Game Gear": "segaGG",
                             "Sega Saturn": "segaSaturn",
                             "Atari 7800": "atari7800",
-                            "Atari 2600": "atari2600"
+                            "Atari 2600": "atari2600",
+                            "Arcade": "arcade",
+                            "NEC TurboGrafx-16/SuperGrafx/PC Engine": "pce",
+                            "NEC PC-FX": "pcfx",
+                            "SNK NeoGeo Pocket (Color)": "ngp",
+                            "Bandai WonderSwan (Color)": "ws",
+                            "ColecoVision": "coleco",
+                            "Commodore 64": "vice_x64sc",
+                            "Commodore 128": "vice_x128",
+                            "Commodore VIC20": "vice_xvic",
+                            "Commodore Plus/4": "vice_xplus4",
+                            "Commodore PET": "vice_xpet"
                         }
+
+                        const cores = Object.keys(coreValues).sort().reduce(
+                            (obj, key) => { 
+                                obj[key] = coreValues[key]; 
+                                return obj;
+                            }, 
+                            {}
+                        );
 
                         const button = document.createElement("button")
                         const select = document.createElement("select")
@@ -164,29 +229,28 @@
                 sub.id = "game"
                 div.id = "display"
 
+                const top = document.getElementById("top");
+                top.remove();
                 box.remove()
                 div.appendChild(sub)
                 document.body.appendChild(div)
 
-                window.EJS_player = "#game"
-                window.EJS_gameName = parts.shift()
-                window.EJS_biosUrl = ""
-                window.EJS_gameUrl = url
-                window.EJS_core = core
-                window.EJS_pathtodata = "data/"
+                window.EJS_player = "#game";
+                window.EJS_gameName = parts.shift();
+                window.EJS_biosUrl = "";
+                window.EJS_gameUrl = url;
+                window.EJS_core = core;
+                window.EJS_pathtodata = "data/";
                 window.EJS_startOnLoaded = true;
+                window.EJS_DEBUG_XX = enableDebug;
+                window.EJS_disableDatabases = true;
+                window.EJS_threads = enableThreads;
 
-                if (window.location.hostname === "demo.emulatorjs.org") {
-                    window.EJS_AdUrl = "https://ads.emulatorjs.org/";
-                }
-                
-
-                script.src = "data/loader.js"
-                document.body.appendChild(script)
+                script.src = "data/loader.js";
+                document.body.appendChild(script);
             }
-
-            box.ondragover = () => box.setAttribute("drag", true)
-            box.ondragleave = () => box.removeAttribute("drag")
+            box.ondragover = () => box.setAttribute("drag", true);
+            box.ondragleave = () => box.removeAttribute("drag");
         </script>
     </body>
 </html>
