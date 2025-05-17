@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="referrer" content="no-referrer">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
-    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Pulsar: Your free, fast, and secure web proxy solution.">
     <meta name="keywords" content="proxy, web proxy, Pulsar, unblock websites, free web proxy, proxy server">
     <meta name="theme-color" content="#222831">
@@ -662,6 +662,7 @@ function toggleBGoptions() {
         const container = document.createElement("div");
         container.id = iframeId;
         container.className = "draggable-container";
+      main
         container.style.position = "absolute"; // Start with absolute for dragging
         container.style.top = "50%"; // Initial centered position
         container.style.left = "50%"; // Initial centered position
@@ -690,7 +691,7 @@ function toggleBGoptions() {
         header.style.display = "flex";
         header.style.alignItems = "center";
         header.style.justifyContent = "space-between";
-        header.style.padding = "5px";
+        header.style.padding = "8px";
         header.style.cursor = "move";
         header.style.backgroundColor = "#000000";
         header.style.color = "#fff";
@@ -713,10 +714,12 @@ function toggleBGoptions() {
         const iframe = document.createElement("iframe");
         iframe.src = src;
         iframe.style.width = "100%";
+ main
         iframe.style.height = "calc(100% - 30px)"; // Adjust height to account for header (assuming header is 30px tall)
         iframe.style.border = "none"; // Remove iframe's default border
         iframe.setAttribute('allowfullscreen', ''); // Allow iframe content to go fullscreen
          iframe.style.display = "block"; // Ensure iframe is a block element
+
 
 
         const resizeHandle = document.createElement("div");
@@ -839,6 +842,7 @@ function toggleBGoptions() {
             }
 
 
+          main
         } else {
             iframeContainer.classList.remove("fullscreen");
 

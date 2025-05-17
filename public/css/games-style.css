@@ -193,7 +193,7 @@ main.hub-container {
     color: #e0e0e0;
     border: 1px solid rgba(255, 255, 255, 0.2);
     padding: 10px 20px;
-    border-radius: 6px;
+    border-radius: 600px;
     cursor: pointer;
     font-size: 0.9rem;
     font-weight: bold;
@@ -351,7 +351,7 @@ main.hub-container {
     height: 150px; /* Define a fixed height for consistency */
     background: linear-gradient(135deg, rgba(45, 45, 45, 0.65), rgba(60, 60, 60, 0.75));
     border: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: 8px;
+    border-radius: 20px;
     padding: 0;
     overflow: hidden; /* Crucial to hide the info bar when it's translated down */
     color: #ddd;
